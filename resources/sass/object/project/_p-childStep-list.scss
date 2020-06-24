@@ -1,0 +1,74 @@
+/* ====================================
+ Project
+==================================== */
+/* 子STEP一覧を定義しています。
+==================================== */
+.p-childStep-list {
+    border-top: $border_gray;
+    border-bottom: $border_gray;
+    margin-bottom: $space_3l;
+
+    // 子STEP一覧の項目
+    &__item{
+        align-items: center;
+        font-size: $font-size_s;
+        min-height: 72px;
+        pointer-events: none;
+        &:hover{
+            background-color: $color_gray_100;
+        }
+        @include mq(sm){
+            font-size: $font-size_xs;
+        }
+    }
+    &__item:not(:last-child){
+        border-bottom: $dashed_border_gray;
+    }
+
+    // クリアボタン
+    &__clear {
+        margin-right: $space_s;
+    }
+
+    // 子STEPの番号とタイトルのエリア
+    &__title-area{
+        align-items: center;
+        width: 85%;
+    }
+
+    // 子STEPの番号
+    &__number{
+        margin-right: $space_xs;
+    }
+
+    // 子STEPのタイトル
+    &__title{
+        width: calc(100% - 35px);
+    }
+
+    // 子STEPの詳細リンク
+    &__link{
+        align-items: center;
+        width: 100%;
+        padding: $space_xl 0;
+        pointer-events: auto;
+
+        // チャレンジ開始するとボタンが出現するためwidthを調整する
+        &.challenged{
+            width: calc(100% - 75px);
+        }
+
+        &:hover{
+            .p-childStep-list__item{
+                background-color: $color_gray_100;
+                transition: all .3s;
+                color: yellow;
+            }
+        }
+    }
+
+    // 子STEPが登録されていない場合
+    &__empty{
+        padding: $space_l 0;
+    }
+}

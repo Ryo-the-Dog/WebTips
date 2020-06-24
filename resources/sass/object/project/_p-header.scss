@@ -1,0 +1,68 @@
+/* ====================================
+ Project
+==================================== */
+/* ヘッダーを定義しています。
+==================================== */
+.p-header {
+    background-color: $color_white;
+
+    // 一部ページで下にスクロールした時にヘッダーを固定する
+    &.fixed{
+        background-color: $color_white_transparent_9;
+        width: 100%;
+        height: $header_height;
+        position: fixed;
+        z-index: 4;
+
+        @include mq(md){
+            height: 67px;
+        }
+    }
+
+    // カテゴリーナビの付いた固定ヘッダー
+    &.category-fixed{
+        background-color: $color_white_transparent_9;
+        width: 100%;
+        height: $category_header_height;
+        position: fixed;
+        z-index: 4;
+
+        @include mq(md){
+            height: $category_header_height - 2px;
+        }
+    }
+
+    // 上部のヘッダー
+    &__top {
+        border-bottom: $border_gray;
+        height: $header_height;
+        padding-top: $space_m;
+        padding-bottom: $space_m;
+
+        @include mq(md){
+            height: 67px;
+        }
+    }
+
+    // 下部のヘッダー
+    &__bottom {
+        border-bottom: $border_gray;
+    }
+
+    // ヘッダーの中身
+    &__container {
+        align-items: center;
+        justify-content: space-between;
+        width: $site-width;
+        margin: 0 auto;
+
+        @include mq(lg) {
+            width: 100%;
+            padding: 0 $space_l;
+        }
+
+        @include mq(sm) {
+            padding: 0 $space_s;
+        }
+    }
+}

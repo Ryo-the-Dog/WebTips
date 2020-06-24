@@ -1,0 +1,15 @@
+/* ====================================
+ Component
+==================================== */
+/* 項目の番号を定義しています。
+==================================== */
+.c-number {
+    display: inline-block;
+    border: $border_blue;
+    border-radius: 50%;
+    color: $color_blue;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}

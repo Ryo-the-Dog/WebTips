@@ -1,0 +1,47 @@
+/* ====================================
+ Foundation
+==================================== */
+/* 共通のCSSを定義しています。主にタグに指定します。
+==================================== */
+html,body {
+    // FireFox用の指定
+    height: 100%;
+}
+body {
+    color: $color_black;
+    font-family: $font-family_base;
+    font-size: $font-size_xs;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+h2 {
+    line-height: 2rem;
+}
+h3 {
+    line-height: 1.5rem;
+}
+p {
+    line-height: 1.5rem;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+img {
+    vertical-align: bottom;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+button {
+    cursor: pointer;
+    &:hover{
+        outline: none;
+    }
+}
+li {
+    list-style: none;
+}

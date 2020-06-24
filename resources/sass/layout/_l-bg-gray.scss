@@ -1,0 +1,12 @@
+/* ====================================
+ Layout
+==================================== */
+/* 背景色がグレーのページを定義しています。
+==================================== */
+.l-bg-gray {
+    background-color: $color_gray_100;
+    min-height: available;
+    min-height: -webkit-fill-available;
+    min-height: -moz-available;
+    height: 100%;
+}

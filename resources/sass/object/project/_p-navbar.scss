@@ -1,0 +1,29 @@
+/* ====================================
+ Project
+==================================== */
+/* ナビゲーションを定義しています。
+==================================== */
+// ハンバーガーメニュー
+.p-navbar {
+    @include mq(md) {
+        display: flex;
+        background: $color_white_transparent_9;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .5s ease, visibility .5s ease;
+
+        &.active {
+            z-index: 2;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+

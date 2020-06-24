@@ -1,0 +1,29 @@
+/* ====================================
+ Utility
+==================================== */
+/* 文章のスタイルを定義しています。
+==================================== */
+// フッター用のグレーの小さい文字
+.u-text-muted {
+    color: $color_gray_500;
+    font-size: $font-size_xxs;
+}
+// グレーの文字色
+.u-text-gray-300 {
+    color: $color_gray_300;
+}
+.u-text-gray-500 {
+    color: $color_gray_500;
+}
+// 白の文字色
+.u-text-white {
+    color: $color_white;
+}
+// 赤の文字色
+.u-text-red {
+    color: $color_red;
+}
+// 文章中央揃え
+.u-text-center {
+    text-align: center;
+}

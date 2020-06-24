@@ -1,0 +1,23 @@
+/* ====================================
+ Component
+==================================== */
+/* フラッシュメッセージを定義しています。
+==================================== */
+.p-flash-message {
+    background-color: $color_white;
+    border: $border_blue;
+    border-radius: $radius_round;
+    color: $color_blue;
+    font-weight: bold;
+    padding: $space_m;
+    text-align: center;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+
+    @include mq(sm) {
+        width: 80%;
+    }
+}

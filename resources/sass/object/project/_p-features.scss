@@ -1,0 +1,137 @@
+/* ====================================
+ Project
+==================================== */
+/* トップページの特徴セクションを定義しています。
+==================================== */
+.p-features {
+    flex-wrap: nowrap;
+    margin-right: -1%;
+    line-height: 1.4rem;
+
+    @include mq(md){
+        flex-direction: column;
+    }
+
+}
+
+.p-features-panel {
+    @include mq(md){
+        margin-bottom: $space_s;
+        height: 320px;
+    }
+
+    // 画像のエリア
+    &__img-area {
+        border-bottom: $border_gray;
+        height: 200px;
+        text-align: center;
+
+        // IEでobject-fitの代用するため
+        position: relative;
+        overflow: hidden;
+        @include mq(md){
+            height: 180px;
+        }
+    }
+
+    // 左のパネルの画像
+    &__left-img {
+        // IEでobject-fitの代用するため
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        @include mq(md){
+            width: 50%;
+        }
+        @include mq(sm){
+            width: 80%;
+        }
+    }
+    // object-fit対応ブラウザの場合
+    @supports (object-fit: cover) {
+        &__left-img{
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            position: static;
+            top: 0;
+            left: 0;
+            transform: none;
+
+            @include mq(md){
+                width: 50%;
+            }
+            @include mq(sm){
+                width: 80%;
+            }
+        }
+    }
+
+
+    // 真ん中のパネルの画像
+    &__center-img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    // 右のパネルの画像
+    &__right-img {
+        // IEでobject-fitの代用するため
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        @include mq(md){
+            width: 46%;
+        }
+
+        @include mq(sm){
+            width: 85%;
+            object-position: 0 70%;
+        }
+    }
+    @supports (object-fit: cover) {
+        &__right-img {
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            object-position: 0 70%;
+            position: static;
+            top: 0;
+            left: 0;
+            transform: none;
+
+            @include mq(md){
+                width: 46%;
+                object-position: 0 72%;
+            }
+
+            @include mq(sm){
+                width: 85%;
+                object-position: 0 70%;
+            }
+        }
+    }
+
+    // 特徴の詳細
+    &__detail {
+        padding: 10px;
+        text-align: center;
+    }
+
+    // 見出し
+    &__title {
+        margin-bottom: $space_xs;
+    }
+}

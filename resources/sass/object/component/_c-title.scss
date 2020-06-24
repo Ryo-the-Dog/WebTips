@@ -1,0 +1,20 @@
+/* ====================================
+ Component
+==================================== */
+/* タイトルを定義しています。
+==================================== */
+// トップページのセクションタイトル
+.c-title--container {
+    color: $color_black;
+    font-size: $font-size_xl;
+    text-align: center;
+    margin-bottom: $space_3l;
+}
+
+// STEPリスト等のページタイトル
+.c-title--page {
+    color: $color_black;
+    font-size: $font-size_m;
+    margin-bottom: $space_xxl;
+    text-align: center;
+}

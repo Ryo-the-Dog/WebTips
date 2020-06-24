@@ -1,0 +1,74 @@
+/* ====================================
+ Project
+==================================== */
+/* トップページの使い方セクションを定義しています。
+==================================== */
+.p-howTo {
+    margin-bottom: $space_3l;
+    @include mq(md){
+        flex-direction: column;
+        margin-bottom: $space_5l;
+    }
+    &__detail-area{
+        width: 53%;
+        padding-top: $space_xl;
+        margin-right: 2%;
+        @include mq(md){
+            width: 100%;
+            padding-top: 0;
+            margin-right: 0;
+        }
+    }
+    &__number{
+        display: inline-block;
+        border: $border_blue;
+        border-radius: 50%;
+        color: $color_blue;
+        font-size: $font-size_l;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        margin-right: $space_xs;
+        text-align: center;
+    }
+    &__title{
+        display: inline-block;
+        border-bottom: $border_blue;
+        color: $color_blue;
+        font-size: $font-size_l;
+        width: calc( 100% - 80px );
+        padding-bottom: $space_l;
+    }
+    &__text{
+        line-height: 1.5rem;
+        padding: $space_m $space_s ;
+        @include mq(md){
+            padding: $space_m $space_s $space_m $space_l;
+        }
+    }
+    &__img-area{
+        border: $border_gray;
+        width: 45%;
+        @include mq(md){
+            width: 100%;
+        }
+    }
+    &__img{
+        width: 100%;
+    }
+    &__detail-area-second{
+        order: 2;
+        margin-right: 0;
+        @include mq(md){
+            order: 1;
+        }
+    }
+    &__img-area-second{
+        order: 1;
+        margin-right: 2%;
+        @include mq(md){
+            order: 2;
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+/* ====================================
+ Component
+==================================== */
+/* ドロップダウンメニューを定義しています。
+==================================== */
+// ドロップダウンで表示するメニュー
+.c-dropdown {
+    display: none;
+    background-color: $color_white;
+    border: $border_gray;
+    border-radius: $radius_round;
+    text-align: center;
+    position: absolute;
+    top: 45px;
+    right: 8px;
+    z-index: 2;
+
+    &.isOpen {
+        display: block;
+    }
+
+    &__link {
+        display: block;
+        padding: $space_l;
+    }
+}
+
+// ドロップダウンメニューの開閉ボタン
+.c-dropdown-trigger {
+    cursor: pointer;
+    padding: $space_m $space_s;
+    white-space: nowrap;
+    position: relative;
+}

@@ -1,0 +1,88 @@
+/* ====================================
+ Project
+==================================== */
+/* 検索欄を定義しています。
+==================================== */
+.p-search-wrapper {
+    height: 38px;
+
+    @include mq(sm) {
+        height: inherit;
+    }
+
+    &.active{
+        @include mq(sm) {
+            background-color: $color_white;
+            position: absolute;
+            right: 10px;
+            z-index: 4;
+        }
+    }
+}
+
+// 検索フォーム
+.p-search {
+    color: $color_gray_300;
+    position: relative;
+    transition: $transition_normal;
+
+    @include mq(md){
+        display: none;
+    }
+
+    &.active{
+        display: block;
+        position: relative;
+        top: -3px;
+        @include mq(sm){
+            top: 0px;
+        }
+    }
+
+    // 検索欄
+    &__input{
+        background-color: $color_white;
+        color: $color_black;
+        width: auto;
+        height: 38px;
+    }
+
+    // 検索ボタン
+    &__search-btn{
+        position: absolute;
+        top: 7px;
+        right: 10px;
+        @include mq(md){
+            display: block;
+            top: 10px;
+            right: 34px;
+        }
+    }
+
+    // 検索欄を開くボタン
+    &__trigger{
+        display: none;
+        @include mq(md){
+            display: block;
+            position: relative;
+            top: 3px;
+        }
+        @include mq(sm){
+            top: 0px;
+        }
+        &.hide{
+            display: none;
+        }
+    }
+
+    // 検索欄を閉じるボタン
+    &__close-btn{
+        display: none;
+        position: relative;
+        top: 7px;
+        @include mq(md){
+            display: inline-block;
+        }
+    }
+
+}

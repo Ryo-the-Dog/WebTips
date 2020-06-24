@@ -1,0 +1,47 @@
+/* ====================================
+ Layout
+==================================== */
+/* トップページの登録案内セクションを定義しています。
+==================================== */
+.p-recommend {
+
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $color_blue;
+    width: 100%;
+    padding: $space_xl 0 $space_3l;
+    text-align: center;
+
+    &__icon-area{
+        margin-bottom: $space_xxl;
+    }
+
+    &__icon{
+        width: 100px;
+    }
+
+    &__text-area{
+        margin-bottom: $space_m;
+    }
+
+    &__btn-area{
+        margin-bottom: $space_l;
+        text-align: center;
+    }
+
+    &__register{
+        font-size: $font-size_m;
+        width: 200px;
+        padding: $space_s $space_m;
+    }
+
+    &__link{
+        color: $color_white;
+        text-decoration: underline;
+
+        &:hover{
+            color: $color_gray_200;
+            transition: $transition_normal;
+        }
+    }
+}

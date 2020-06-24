@@ -1,0 +1,55 @@
+/* ====================================
+ Project
+==================================== */
+/* STEP詳細ページのSTEPデータ部分を定義しています。
+==================================== */
+.p-step-detail {
+
+    // STEPのタイトル
+    &__title{
+        font-size: $font-size_xl;
+        word-break: break-word;
+        margin-bottom: $space_m;
+    }
+
+    // STEPの項目
+    &__item{
+        margin-bottom: $space_l;
+    }
+
+    // カテゴリーのエリア
+    &__category-area{
+        position: absolute;
+    }
+
+    // アイキャッチ画像
+    &__eyecatch {
+        border-bottom: none;
+    }
+
+    // STEPデータのエリア
+    &__stepData-area{
+        background-color: $color_gray_100;
+        border: $border_gray;
+        padding: $space_s;
+        margin-bottom: $space_l;
+    }
+
+    // STEPの説明のエリア
+    &__description-area{
+        border-bottom: $border_gray;
+        min-height: 120px;
+        padding-bottom: $space_s;
+    }
+
+    // Twitterとチャレンジアイコンのエリア
+    &__icon-area{
+        justify-content: space-between;
+    }
+
+    // STEPデータの最下部エリア
+    &__bottom{
+        justify-content: space-between;
+        align-items: center;
+    }
+}

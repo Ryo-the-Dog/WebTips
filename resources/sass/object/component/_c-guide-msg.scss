@@ -1,0 +1,18 @@
+/* ====================================
+ Project
+==================================== */
+/* 投稿されたSTEPが無かった場合のメッセージのスタイルを定義しています。
+==================================== */
+.c-guide-msg {
+    font-size: $font-size_s;
+    margin: 0 auto;
+    text-align: center;
+
+    &__text{
+        margin-bottom: $space_l;
+    }
+
+    &__link{
+        padding: $space_m;
+    }
+}

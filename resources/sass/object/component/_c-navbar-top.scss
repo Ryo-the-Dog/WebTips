@@ -1,0 +1,102 @@
+/* ====================================
+ Component
+==================================== */
+/* 上部のナビゲーションを定義しています。
+==================================== */
+.c-navbar-top {
+    color: $color_blue;
+    align-items: center;
+    font-size: $font-size_xs;
+
+    // ハンバーガーメニュー用
+    @include mq(md){
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        padding-top: $space_4l;
+    }
+
+    // 画面幅md以下の時はマイページとログアウトのリンクを表示する
+    .show-on-md {
+        display: none;
+
+        @include mq(md) {
+            display: block;
+        }
+    }
+
+    // 画面幅md以下の時は会員ドロップダウンを非表示にする
+    .hide-on-md {
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    &__item{
+        margin-left: $space_s;
+
+        // ハンバーガーメニュー用
+        @include mq(md){
+            border-bottom: $border_gray;
+            width: 90%;
+            margin-left: initial;
+        }
+    }
+
+    &__link{
+        display: block;
+        padding: $space_s;
+
+        @include mq(md){
+            font-size: $font-size_l;
+            padding: $space_l 0;
+        }
+
+        &:hover{
+            color: $color_blue_hover;
+            text-decoration: underline;
+            transition: $transition_normal;
+
+            @include mq(md){
+                text-decoration: none;
+            }
+        }
+    }
+
+    // ドロップダウンメニューの開閉ボタン
+    &__trigger{
+        margin-left: $space_s;
+    }
+
+    // ドロップダウンメニュー内のリンク
+    &__dropdown-link {
+        &:hover{
+            color: $color_blue_hover;
+            text-decoration: underline;
+            transition: $transition_normal;
+        }
+    }
+
+    // 会員登録とSTEP投稿リンク
+    .c-btn--yellow {
+        font-size: $font-size_xxs;
+        padding: $space_s;
+
+        // ハンバーガーメニューの時はボタン型じゃないリンクにする
+        @include mq(md){
+            display: block;
+            background-color: initial;
+            font-size: $font-size_l;
+            pointer-events: inherit;
+            padding: $space_l 0;
+        }
+
+        &:hover{
+            @include mq(md){
+                background-color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+}

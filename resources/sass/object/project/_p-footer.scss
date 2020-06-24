@@ -1,0 +1,11 @@
+/* ====================================
+ Project
+==================================== */
+/* フッターを定義しています。
+==================================== */
+.p-footer {
+    background-color: $color_white;
+    padding-top: calc( (60px - 12px) / 2 );
+    padding-bottom: calc( (60px - 12px) / 2 );
+    text-align: center;
+}

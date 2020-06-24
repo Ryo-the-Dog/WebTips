@@ -1,0 +1,38 @@
+/* ====================================
+ Component
+==================================== */
+/* 下部のナビゲーションを定義しています。
+==================================== */
+.c-navbar-bottom {
+    margin-right: $space_l;
+    overflow-x:scroll;
+    -ms-overflow-style: none;
+
+    &__item{
+        white-space: nowrap;
+        // 現在のページは太字にして下線を付ける
+        &.active{
+            border-bottom: $border_black;
+            font-weight: bold;
+            pointer-events: none;
+        }
+    }
+
+    &__link{
+        display: inline-block;
+        padding: $space_m $space_s;
+
+        &:hover{
+            background-color: $color_gray_200;
+            transition: $transition_normal;
+        }
+    }
+
+    // ドロップダウンメニュー内のリンク
+    &__dropdown-link{
+        &:hover{
+            background-color: $color_gray_200;
+            transition: $transition_normal;
+        }
+    }
+}

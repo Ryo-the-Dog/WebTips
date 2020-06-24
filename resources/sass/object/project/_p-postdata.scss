@@ -1,0 +1,45 @@
+/* ====================================
+ Component
+==================================== */
+/* STEPの投稿データを定義しています。
+==================================== */
+.p-postdata {
+    align-items: center;
+    padding: $space_s 0;
+
+    // 投稿者情報のエリア
+    &__profile-area {
+        align-items: center;
+        position:relative;
+
+        &:hover{
+            // ホバー時投稿者名のスタイルを変える
+            .p-postdata__name{
+                color: $color_gray_500_hover;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // 投稿者の画像と名前全体をリンクにする
+    &__profile-link {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        text-indent:-999px;
+    }
+
+    // 投稿者画像のエリア
+    &__avatar-area{
+        margin-right: $space_m;
+    }
+
+    // 投稿日時
+    &__post-date{
+        margin-left: $space_xxl;
+    }
+
+}

@@ -1,0 +1,45 @@
+/* ====================================
+ Project
+==================================== */
+/* ページネーションを定義しています。
+==================================== */
+.c-pagination {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    &__page-item{
+        &.active {
+            .c-pagination__page-link {
+                background-color: $color_blue;
+                border-color: $color_blue;
+                color: $color_white;
+            }
+        }
+        &.disabled{
+            pointer-events: none;
+            .c-pagination__page-link {
+                color: $color_black;
+            }
+        }
+    }
+
+    &__page-link {
+        color: $color_blue;
+        background-color: $color_white;
+        border: 1px solid #dee2e6;
+        display: block;
+        padding: 0.5rem 0.75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        position: relative;
+        @include mq(sm){
+            padding: $space_xs $space_s;
+        }
+        &:hover{
+            background-color: $color_gray_200;
+            transition: $transition_normal;
+        }
+    }
+}

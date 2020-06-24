@@ -1,0 +1,21 @@
+/* ====================================
+ Component
+==================================== */
+/* パネルの共通スタイルを定義しています。
+==================================== */
+.c-panel {
+    background-color: $color_white;
+    border: $border_blue_light;
+    border-radius: $radius_round;
+    width: calc(33% - 1%);
+    margin-right: 1%;
+
+    @include mq(lg){
+        width: calc(50% - 1%);
+    }
+
+    @include mq(md){
+        width: 100%;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,26 @@
+/* ====================================
+ Component
+==================================== */
+/* 入力欄の共通スタイルを定義しています。
+==================================== */
+.c-input {
+    border: $border_gray;
+    border-radius: $radius_round;
+    color: inherit;
+    font-size: $font-size_xxs;
+    width: 100%;
+    padding: 8px;
+    &:focus{
+        border: $border_gray_focus;
+        transition: $transition_normal;
+    }
+}
+.c-textarea {
+    border: $border_gray;
+    border-radius: $radius_round;
+    color: inherit;
+    font-size: $font-size_xxs;
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+}

@@ -1,0 +1,12 @@
+/* ====================================
+ Component
+==================================== */
+/* バッジスタイルを定義しています。
+==================================== */
+.c-badge {
+    display: inline-block;
+    background-color: $color_gray_200;
+    font-size: $font-size_xxs;
+    line-height: 15px;
+    padding: $space_xs;
+}

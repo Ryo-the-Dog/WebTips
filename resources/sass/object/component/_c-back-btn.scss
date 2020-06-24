@@ -1,0 +1,14 @@
+/* ====================================
+ Component
+==================================== */
+/* 戻るボタンを定義しています。
+==================================== */
+// 戻るボタン
+.c-back-btn{
+    color: $color_gray_500;
+    text-decoration: underline;
+    &:hover{
+        color: $color_gray_500_hover;
+        transition: $transition_normal;
+    }
+}

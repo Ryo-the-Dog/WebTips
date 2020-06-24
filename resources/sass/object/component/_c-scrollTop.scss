@@ -1,0 +1,22 @@
+/* ====================================
+ Project
+==================================== */
+/* トップへ戻るボタンを定義しています。
+==================================== */
+.c-scroll-top {
+    background-color: $color_gray_200;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 59px;
+    text-align: center;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 5;
+    &__icon {
+        font-weight: bold;
+        font-size: $font-size_xxl;
+        color: $color_white;
+    }
+}

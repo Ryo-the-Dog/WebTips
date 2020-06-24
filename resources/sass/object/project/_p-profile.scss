@@ -1,0 +1,37 @@
+/* ====================================
+ Project
+==================================== */
+/* マイページのプロフィールを定義しています。
+==================================== */
+.p-profile {
+    align-items: center;
+    border-bottom: $border_gray;
+    font-weight: bold;
+    padding-top: $space_m;
+    padding-bottom: $space_m;
+
+    &__userDara{
+        align-items: center;
+        margin-bottom: $space_m;
+    }
+
+    &__img-area{
+        margin-right: $space_l;
+    }
+
+    &__name-area{
+        margin-bottom: $space_l;
+    }
+
+    &__name{
+        margin-right: $space_m;
+    }
+
+    &__title{
+        margin-bottom: $space_s;
+    }
+
+    &__introduce{
+        font-weight: normal;
+    }
+}

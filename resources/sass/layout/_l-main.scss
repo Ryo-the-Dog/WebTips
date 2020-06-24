@@ -1,0 +1,24 @@
+/* ====================================
+ Layout
+==================================== */
+/* メインコンテンツのエリアを定義しています。
+==================================== */
+.l-main{
+    flex: 1 0 auto;
+    // IEでのフッター固定用
+    min-height: 1px;
+    // ランディングページでの固定ヘッダー用
+    &.fixed{
+        margin-top: $header_height;
+        @include mq(md){
+            margin-top: $header_height - 2px;
+        }
+    }
+    // STEP一覧ページでの固定ヘッダー用
+    &.category-fixed{
+        margin-top: $category_header_height;
+        @include mq(md){
+            margin-top: $category_header_height - 2px;
+        }
+    }
+}

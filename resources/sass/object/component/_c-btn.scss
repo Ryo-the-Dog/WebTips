@@ -1,0 +1,127 @@
+/* ====================================
+ Component
+==================================== */
+/* ボタンの共通スタイルを定義しています。
+==================================== */
+// ボタンの共通スタイル
+.c-btn {
+    cursor: pointer;
+    border: none;
+    border-radius: $radius_round;
+}
+
+// 青いボタン
+.c-btn--blue {
+    background-color: $color_blue;
+    color: $color_white;
+
+    &:hover{
+        background-color: $color_blue_hover;
+        transition: $transition_normal;
+    }
+}
+
+// 赤いボタン
+.c-btn--red {
+    background-color: $color_red;
+    color: $color_white;
+
+    &:hover{
+        background-color: $color_red_hover;
+        transition: $transition_normal;
+    }
+}
+
+// 黄色ボタン
+.c-btn--yellow {
+    display:inline-block;
+    background-color: $color_yellow;
+    color: $color_blue;
+
+    &:hover {
+        background-color: $color_yellow_hover;
+        color: $color_blue_hover;
+        transition: $transition_normal;
+    }
+}
+
+// トップページの楕円形のボタン
+.c-btn--allSteps {
+    display: block;
+    border-radius: $radius_rounder;
+    width: 240px;
+    padding: $space_m;
+    margin: 0 auto;
+    text-align: center;
+}
+
+// フォームの送信ボタン
+.c-btn--form {
+    font-size: $font-size_xs;
+    padding: $space_s $space_l;
+    margin-top: $space_xxl;
+}
+
+// チャレンジボタン
+.c-btn--challenge {
+    font-size: $font-size_xs;
+    padding: $space_s;
+    @include mq(sm){
+        font-size: $font-size_xxs;
+    }
+}
+
+// STEPの進行をやり直すボタン
+.c-btn--restart {
+    font-size: $font-size_xxs;
+    padding: $space_s;
+}
+
+// クリアボタン
+.c-btn--clear {
+    white-space: nowrap;
+    font-size: $font-size_xxs;
+    width: 65px;
+    padding: $space_s;
+    pointer-events: auto;
+
+    // 前のSTEPが未クリア時
+    &.is-disabled{
+        cursor: auto;
+        border: $border_gray;
+        position: relative;
+    }
+
+    // クリア済みの時
+    &.is-cleared{
+        cursor: auto;
+        background-color: $color_blue_transparent;
+        color: $color_white_transparent_5;
+        position: relative;
+        pointer-events: none;
+    }
+
+    // 前のSTEPが未クリア時の鍵アイコン
+    &__lock{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    // クリア済みの時のチェックアイコン
+    &__check{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+// 自分が投稿したSTEP一覧ページのボタン
+.c-btn--mystep {
+    font-size: $font-size_xxs;
+    padding: $space_s;
+    z-index: 3;
+}

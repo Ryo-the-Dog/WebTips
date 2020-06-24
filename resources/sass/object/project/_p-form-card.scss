@@ -1,0 +1,154 @@
+/* ====================================
+ Project
+==================================== */
+/* 入力フォームを定義しています。
+==================================== */
+.p-form-card {
+    background-color: $color_white;
+    padding: $space_xxl $space_4l;
+
+    @include mq(sm){
+        padding: $space_xl $space_l;
+    }
+
+    // フォームの見出し
+    &__title{
+        font-size: $font-size_m;
+        margin-bottom: $space_xl;
+        text-align: center;
+    }
+
+    // ラベルと入力フォームのセット
+    &__group{
+        margin-bottom: $space_l;
+    }
+
+    // ラベル
+    &__label{
+        display: inline-block;
+        font-size: $font-size_xxs;
+        font-weight: bold;
+        margin-bottom: $space_s;
+    }
+
+    /*---------------------------------
+    /* STEP登録関連
+    ---------------------------------*/
+    // STEP画像エリア
+    &__stepImg-area{
+        width: 100%;
+        padding-top: $space_s;
+    }
+
+    // STEP画像
+    &__stepImg{
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    // カテゴリーフォームエリア
+    &__category-area{
+        line-height: 30px;
+    }
+
+    // カテゴリーのラベル
+    &__category-label{
+        align-items: center;
+        cursor: pointer;
+        margin-right: $space_s;
+        float: left;
+    }
+
+    // カテゴリーのチェックボックス
+    &__category{
+        cursor: pointer;
+        margin-right: $space_xs;
+        margin-bottom: 2px;
+        vertical-align: middle;
+        @include mq(sm){
+            margin-bottom: 0;
+        }
+    }
+
+    // STEP投稿の期間入力フォーム
+    &__time-input{
+        width: 200px;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    // STEP投稿の期間入力フォームの単位
+    &__month{
+        display: inline-block;
+        padding-top: $space_s;
+    }
+
+    // 子STEPフォーム追加ボタンエリア
+    &__add-btn-area{
+        text-align: center;
+    }
+
+    // 子STEPフォーム追加ボタン
+    &__add-btn{
+        text-align: center;
+        &:hover{
+            color: $color_gray_500_hover;
+            transition: $transition_normal;
+        }
+        .fa-plus-circle{
+            margin-right: $space_xs;
+        }
+    }
+
+    // 子STEP追加時のバリデーション
+    &__invalid-list{
+        margin-bottom: $space_xs;
+        text-align: center;
+    }
+
+    /*---------------------------------
+    /* ユーザー登録関連
+    ---------------------------------*/
+    // プロフィール編集ページの画像エリア
+    &__img-area{
+        width: 70px;
+        padding-top: $space_s;
+        margin: 0 auto;
+    }
+
+    // ログイン状態保存のラベル
+    &__remember-label{
+        align-items: center;
+        cursor: pointer;
+    }
+
+    // ログイン状態保存のチェックボックス
+    &__remember{
+        cursor: pointer;
+        margin-right: $space_xs;
+        margin-bottom: 2px;
+    }
+
+    // ログイン画面のパスワードリマインダーページへのリンク
+    &__forget-link{
+        display: block;
+        color: $color_gray_500;
+        text-decoration: underline;
+        margin-top: $space_l;
+        &:hover{
+            color: $color_gray_500_hover;
+            transition: $transition_normal;
+        }
+    }
+
+    // パスワードリマインダー
+    &__alert{
+        margin-bottom: $space_l;
+    }
+
+    // 送信ボタン
+    &__submit {
+        text-align: center;
+    }
+}

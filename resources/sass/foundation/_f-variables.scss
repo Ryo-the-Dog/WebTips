@@ -1,0 +1,102 @@
+/* ====================================
+ Foundation
+==================================== */
+/* 変数を定義しています。
+==================================== */
+// 色
+// 黒色(主に文字色として使用)
+$color_black: #42454b;
+// グレー
+$color_gray_100: #fafafa;
+$color_gray_200: #ddd;
+$color_gray_300: #bebebe;
+$color_gray_400: #a0a0a0;
+$color_gray_500: #747474;
+
+// グレー(ホバー時)
+$color_gray_500_hover: #4c4c4c;
+// 白色
+$color_white: #fff;
+// 透過度の高い白色
+$color_white_transparent_9: rgba(255, 255, 255, 0.9);
+$color_white_transparent_5: rgba(255, 255, 255, 0.5);
+// 黄色
+$color_yellow: #E8D31E;
+// 黄色(ホバー時)
+$color_yellow_hover: #d8c31e;
+// 青色(メイン)
+$color_blue: #2f72d8;
+// 青色(メインのホバー時)
+$color_blue_hover: #2E59B2;
+// 薄い青色(主にボーダー用)
+$color_blue_lighter: #AEC9DD;
+// 透過度の高い青
+$color_blue_transparent: rgba(11, 112, 183, 0.5);
+// 青色(twitterアイコン)
+$color_twitter: #3490dc;
+// 青色(twitterアイコンのホバー時)
+$color_twitter_hover: #2977b3;
+// 赤色
+$color_red: #e65f62;
+// 赤色(ホバー時)
+$color_red_hover: #be5a5a;
+
+// フォント
+// font-family
+$font-family_base: Helvetica, Arial, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3' , メイリオ, Meiryo, sans-serif;
+
+// font-size
+$font-size_xxs: 14px;
+$font-size_xs: 16px;
+$font-size_s: 18px;
+$font-size_m: 20px;
+$font-size_l: 24px;
+$font-size_xl: 30px;
+$font-size_xxl: 38px;
+$font-size_3l: 56px;
+
+// 余白
+$space_xs: 5px;
+$space_s: 10px;
+$space_m: 15px;
+$space_l: 20px;
+$space_xl: 30px;
+$space_xxl: 40px;
+$space_3l: 50px;
+$space_4l: 60px;
+$space_5l: 70px;
+$space_6l: 80px;
+
+// ボーダー
+// 黒のボーダー
+$border_black: solid 1px $color_black;
+// グレーのボーダー
+$border_gray: solid 1px $color_gray_200;
+// グレーのボーダー(フォーカス時)
+$border_gray_focus: solid 1px $color_gray_400;
+// 波線のグレーのボーダー
+$dashed_border_gray: dashed 1px $color_gray_200;
+// 薄い青色のボーダー
+$border_blue_light: solid 1px $color_blue_lighter;
+// 青色のボーダー
+$border_blue: solid 1px $color_blue;
+// 赤色のボーダー(バリデーションエラー用)
+$border_red: solid 1px $color_red;
+
+// 角の丸み
+$radius: 1px;
+$radius_round: 2px;
+$radius_rounder: 2em;
+
+// コンテンツ幅
+// メインコンテンツの幅
+$site-width: 1080px;
+// サブコンテンツの幅
+$site-width_sub: 720px;
+// ヘッダーの高さ
+$header_height: 69px;
+// カテゴリーも含めたヘッダーの高さ
+$category_header_height: 117px;
+
+// トランジション
+$transition_normal: all .5s;

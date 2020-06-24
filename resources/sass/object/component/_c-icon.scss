@@ -1,0 +1,60 @@
+/* ====================================
+ Component
+==================================== */
+/* アイコンを定義しています。
+==================================== */
+// Twitterアイコン
+.c-icon--twitter {
+    color: $color_twitter;
+    font-size: $font-size_m;
+
+    &:hover{
+        color: $color_twitter_hover;
+        transition: $transition_normal;
+    }
+}
+
+// 検索アイコン
+.c-icon--search {
+    color: $color_gray_300;
+    font-size: $font-size_l;
+
+    &:hover{
+        color: $color_gray_500;
+        transition: $transition_normal;
+    }
+}
+
+// 検索欄を出現させるアイコン
+.c-icon--open-search {
+    color: $color_gray_400;
+    font-size: $font-size_xl;
+
+    &:hover{
+        color: $color_gray_500;
+        transition: $transition_normal;
+    }
+}
+
+// 罰マークアイコン
+.c-icon--close {
+    color: $color_gray_300;
+    font-size: $font-size_xl;
+
+    &:hover{
+        color: $color_gray_500;
+        transition: $transition_normal;
+    }
+}
+
+// 鍵のアイコン
+.c-icon--lock {
+    color: $color_gray_500;
+    font-size: $font-size_m;
+}
+
+// チェックマークのアイコン
+.c-icon--check {
+    color: $color_white;
+    font-size: $font-size_l;
+}
