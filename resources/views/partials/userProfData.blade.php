@@ -25,10 +25,10 @@
         <nav class="c-navbar">
             <ul class="c-navbar-bottom l-flexbox">
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() === 'userProfile.challenge') active @endif">
-                    <a href="{{route('userProfile.challenge', $userProf->id)}}" class="c-navbar-bottom__link">チャレンジしたSTEP</a>
+                    <a href="{{route('userProfile.challenge', $userProf->id)}}" class="c-navbar-bottom__link">{{__('My List')}}</a>
                 </li>
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() === 'userProfile.post' || explode('.', Route::currentRouteName())[1] == 'mystepEdit') active @endif">
-                    <a href="{{route('userProfile.post', $userProf->id)}}" class="c-navbar-bottom__link">投稿したSTEP</a>
+                    <a href="{{route('userProfile.post', $userProf->id)}}" class="c-navbar-bottom__link">{{__('Posted Articles')}}</a>
                 </li>
             </ul>
         </nav>

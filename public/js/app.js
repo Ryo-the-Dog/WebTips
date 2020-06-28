@@ -131,16 +131,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['oldInputs', 'currentInputs'],
   data: function data() {
@@ -148,53 +138,43 @@ __webpack_require__.r(__webpack_exports__);
       childStepFormList: [{
         id: 1,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 0, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 0, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 0, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 0, 'content')
       }, {
         id: 2,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 1, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 1, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 1, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 1, 'content')
       }, {
         id: 3,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 2, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 2, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 2, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 2, 'content')
       }, {
         id: 4,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 3, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 3, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 3, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 3, 'content')
       }, {
         id: 5,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 4, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 4, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 4, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 4, 'content')
       }, {
         id: 6,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 5, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 5, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 5, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 5, 'content')
       }, {
         id: 7,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 6, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 6, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 6, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 6, 'content')
       }, {
         id: 8,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 7, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 7, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 7, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 7, 'content')
       }, {
         id: 9,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 8, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 8, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 8, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 8, 'content')
       }, {
         id: 10,
         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 9, 'title'),
-        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 9, 'content'),
-        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 9, 'time')
+        currentContent: this.checkInput(this.oldInputs, this.currentInputs, 9, 'content')
       }],
       // 登録済みのSTEPがあればその個数分フォームを表示、oldの入力があればその個数分フォームを表示する
       count: this.oldInputs ? this.trimOldInputs(this.oldInputs) : this.currentInputs ? this.currentInputs.length : 1,
@@ -206,8 +186,8 @@ __webpack_require__.r(__webpack_exports__);
     addChildStepForm: function addChildStepForm() {
       this.errors = []; // 現在表示されているフォームが空の場合は追加させない
 
-      if (this.childStepFormList[this.count - 1]['currentTitle'] === '' || this.childStepFormList[this.count - 1]['currentTitle'] === null || this.childStepFormList[this.count - 1]['currentContent'] === '' || this.childStepFormList[this.count - 1]['currentContent'] === null || this.childStepFormList[this.count - 1]['currentTime'] === '' || this.childStepFormList[this.count - 1]['currentTime'] === null) {
-        this.errors.push('STEPのタイトル・内容・時間を入力してください。');
+      if (this.childStepFormList[this.count - 1]['currentTitle'] === '' || this.childStepFormList[this.count - 1]['currentTitle'] === null || this.childStepFormList[this.count - 1]['currentContent'] === '' || this.childStepFormList[this.count - 1]['currentContent'] === null) {
+        this.errors.push('ステップのタイトル・内容を入力してください。');
         return false;
       } // countの値を増やすことで子STEPのフォーム数を増やす
 
@@ -228,10 +208,9 @@ __webpack_require__.r(__webpack_exports__);
 
       if (obj) {
         // oldは入力内容が空欄でもnullで渡されてしまうので、nullだった場合は入力欄を表示しないようにする
-        if (obj[count]['title'] === null && obj[count]['content'] === null && obj[count]['time'] === null) {
+        if (obj[count]['title'] === null && obj[count]['content'] === null) {
           obj[count]['title'] = "";
           obj[count]['content'] = "";
-          obj[count]['time'] = "";
           count--;
         } // もし１つ目の子STEPフォームが空欄で送信された場合、上記の処理で０になってしまうので１つは表示されるようにする
 
@@ -448,6 +427,70 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       reader.readAsDataURL(file);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ModaQuestion",
+  data: function data() {
+    return {
+      message: 'マークダウン記法について',
+      hoverFlag: false,
+      modalFlag: false
+    };
+  },
+  methods: {
+    showQuestion: function showQuestion() {
+      this.hoverFlag = true;
+    },
+    hideQuestion: function hideQuestion() {
+      this.hoverFlag = false;
+    },
+    showModal: function showModal() {
+      this.hoverFlag = false;
+      this.modalFlag = true;
+    },
+    hideModal: function hideModal() {
+      this.modalFlag = false;
     }
   }
 });
@@ -938,6 +981,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.v-leave-active[data-v-3cea7a62],\n.v-enter-active[data-v-3cea7a62] {\n    transition: opacity 1s;\n}\n.v-enter[data-v-3cea7a62],\n.v-leave-to[data-v-3cea7a62] {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fade-enter-active[data-v-64cba7d8], .fade-leave-active[data-v-64cba7d8] {\n    will-change: opacity;\n    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n.fade-enter[data-v-64cba7d8], .fade-leave-to[data-v-64cba7d8] {\n    opacity: 0\n}\n", ""]);
 
 // exports
 
@@ -1452,6 +1514,36 @@ process.umask = function() { return 0; };
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./FlashMessage.vue?vue&type=style&index=0&id=3cea7a62&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FlashMessage.vue?vue&type=style&index=0&id=3cea7a62&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -2114,7 +2206,7 @@ var render = function() {
                 staticClass: "p-form-card__label",
                 attrs: { for: "child_step_title_" + childStepForm.id }
               },
-              [_vm._v(_vm._s(childStepForm.id) + "：タイトル")]
+              [_vm._v(_vm._s(childStepForm.id) + "：見出し")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "p-form-card__input-area" }, [
@@ -2166,7 +2258,7 @@ var render = function() {
                 staticClass: "p-form-card__label",
                 attrs: { for: "child_step_content_" + childStepForm.id }
               },
-              [_vm._v(_vm._s(childStepForm.id) + "：内容")]
+              [_vm._v(_vm._s(childStepForm.id) + "：内容(マークダウン記法)")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "p-form-card__input-area" }, [
@@ -2181,12 +2273,12 @@ var render = function() {
                       expression: "childStepForm.currentContent"
                     }
                   ],
-                  staticClass: "c-textarea",
+                  staticClass: "c-textarea c-textarea--step-content",
                   attrs: {
                     id: "child_step_content_" + childStepForm.id,
                     type: "text",
                     name: "child_step[" + childStepForm.id + "][content]",
-                    maxlength: "1000",
+                    maxlength: "10000",
                     autocomplete: "child_step_content",
                     autofocus: ""
                   },
@@ -2214,53 +2306,8 @@ var render = function() {
                   childStepForm.currentContent
                     ? childStepForm.currentContent.length
                     : 0
-                ) + " / 1000"
+                ) + " / 10000"
               )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-form-card__group" }, [
-            _c(
-              "label",
-              {
-                staticClass: "p-form-card__label",
-                attrs: { for: "child_step_time_" + childStepForm.id }
-              },
-              [_vm._v(_vm._s(childStepForm.id) + "：時間(1000時間以内)")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-form-card__input-area" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: childStepForm.currentTime,
-                    expression: "childStepForm.currentTime"
-                  }
-                ],
-                staticClass: "c-input p-form-card__time-input",
-                attrs: {
-                  id: "child_step_time_" + childStepForm.id,
-                  type: "number",
-                  name: "child_step[" + childStepForm.id + "][time]",
-                  min: "1",
-                  max: "1000",
-                  autocomplete: "child_step_time",
-                  autofocus: ""
-                },
-                domProps: { value: childStepForm.currentTime },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(childStepForm, "currentTime", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "p-form-card__time" }, [_vm._v("時間")])
             ])
           ])
         ])
@@ -2292,7 +2339,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "fas fa-plus-circle" }),
-                _vm._v("STEPを追加する")
+                _vm._v("ステップを追加する")
               ]
             )
           ])
@@ -2473,7 +2520,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "c-btn c-btn--yellow",
-                    attrs: { href: _vm.postRoute, title: "STEP投稿ページ" }
+                    attrs: { href: _vm.postRoute, title: "投稿ページ" }
                   },
                   [
                     _c("i", { staticClass: "fas fa-pen u-mr-xs" }),
@@ -2550,6 +2597,79 @@ var render = function() {
       [_c("strong", [_vm._v(_vm._s(_vm.error))])]
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("i", {
+        staticClass: "far fa-question-circle p-form-card__question",
+        on: {
+          mouseover: _vm.showQuestion,
+          mouseleave: _vm.hideQuestion,
+          click: function($event) {
+            if ($event.target !== $event.currentTarget) {
+              return null
+            }
+            return _vm.showModal($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "fade" } }, [
+        _c("div", { staticClass: "c-hoverMsg--outer" }, [
+          _c("div", { staticClass: "c-hoverMsg" }, [
+            _vm.hoverFlag
+              ? _c("p", { staticClass: "c-hoverMsg__txt" }, [
+                  _vm._v(_vm._s(_vm.message))
+                ])
+              : _vm._e()
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "fade" } }, [
+        _vm.modalFlag
+          ? _c("div", { staticClass: "c-modal" }, [
+              _c("div", {
+                staticClass: "c-modal__overlay",
+                on: { click: _vm.hideModal }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "c-modal__content" }, [
+                _c("p", [_vm._v("BasicModal")]),
+                _vm._v(" "),
+                _c("span", { on: { click: _vm.hideModal } }, [
+                  _vm._v("closeModal")
+                ])
+              ])
+            ])
+          : _vm._e()
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2889,7 +3009,7 @@ var render = function() {
     _c("div", { staticClass: "p-step-panel__stepImg-area" }, [
       _c("img", {
         staticClass: "p-step-panel__stepImg",
-        attrs: { src: _vm.uploadedImage, alt: "STEPの画像" }
+        attrs: { src: _vm.uploadedImage, alt: "記事の画像" }
       })
     ]),
     _vm._v(" "),
@@ -2906,7 +3026,9 @@ var render = function() {
         [
           _vm.stepCategories.length === 0
             ? _c("span", { staticClass: "p-step-panel__category c-badge" }, [
-                _vm._v("\n                カテゴリー未登録\n            ")
+                _vm._v(
+                  "\n                    カテゴリー未登録\n                "
+                )
               ])
             : _vm._l(_vm.stepCategories, function(category) {
                 return _c(
@@ -2914,9 +3036,9 @@ var render = function() {
                   { staticClass: "p-step-panel__category c-badge" },
                   [
                     _vm._v(
-                      "\n                " +
+                      "\n                    " +
                         _vm._s(category.name) +
-                        "\n            "
+                        "\n                "
                     )
                   ]
                 )
@@ -2926,22 +3048,12 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "p-step-panel__item" }, [
-        _c("p", { staticClass: "u-text-gray-500" }, [
-          _vm._v(
-            "\n                目安達成時間：" +
-              _vm._s(_vm.step.time) +
-              " 時間\n            "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-step-panel__item" }, [
         _vm.childSteps
           ? _c("p", { staticClass: "u-text-gray-500" }, [
               _vm._v(
-                "\n                全" +
+                "\n                    全" +
                   _vm._s(_vm.childSteps.length) +
-                  "ステップ\n            "
+                  "ステップ\n                "
               )
             ])
           : _vm._e()
@@ -2958,7 +3070,7 @@ var render = function() {
                   _vm.stepUrl +
                   "&text=「" +
                   _vm.step.title +
-                  "」に挑戦中！！&hashtags=STEP",
+                  "」に挑戦中！！&hashtags=TechStep",
                 title: "Twitterでつぶやく"
               }
             },
@@ -3105,7 +3217,7 @@ var render = function() {
           }
         ],
         staticClass: "p-form-card__stepImg",
-        attrs: { id: "file-preview", src: _vm.uploadedImage, alt: "STEP画像" }
+        attrs: { id: "file-preview", src: _vm.uploadedImage, alt: "記事の画像" }
       })
     ]),
     _vm._v(" "),
@@ -20815,7 +20927,9 @@ Vue.component('userintroduceform', __webpack_require__(/*! ./components/UserIntr
 
 Vue.component('imagepreview', __webpack_require__(/*! ./components/ImagePreview.vue */ "./resources/js/components/ImagePreview.vue")["default"]); // STEP画像のライブプレビュー
 
-Vue.component('stepimagepreview', __webpack_require__(/*! ./components/StepImagePreview.vue */ "./resources/js/components/StepImagePreview.vue")["default"]); // 子STEPの登録フォーム
+Vue.component('stepimagepreview', __webpack_require__(/*! ./components/StepImagePreview.vue */ "./resources/js/components/StepImagePreview.vue")["default"]); // クエスチョンモーダル
+
+Vue.component('modalquestion', __webpack_require__(/*! ./components/ModalQuestion.vue */ "./resources/js/components/ModalQuestion.vue")["default"]); // 子STEPの登録フォーム
 
 Vue.component('childstepform', __webpack_require__(/*! ./components/ChildStepForm.vue */ "./resources/js/components/ChildStepForm.vue")["default"]); // フラッシュメッセージ
 
@@ -21131,6 +21245,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagePreview_vue_vue_type_template_id_45534950_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagePreview_vue_vue_type_template_id_45534950_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ModalQuestion.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ModalQuestion.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true& */ "./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true&");
+/* harmony import */ var _ModalQuestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalQuestion.vue?vue&type=script&lang=js& */ "./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& */ "./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ModalQuestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "64cba7d8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ModalQuestion.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalQuestion.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=style&index=0&id=64cba7d8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_style_index_0_id_64cba7d8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ModalQuestion.vue?vue&type=template&id=64cba7d8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ModalQuestion_vue_vue_type_template_id_64cba7d8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

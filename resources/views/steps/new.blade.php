@@ -7,12 +7,12 @@
     <div class="l-bg-gray">
         <div class="l-container">
 
-            <div class="l-form-card">
-                <div class="p-form-card">
+            <div class="l-form-card--post">
+                <div class="p-form-card p-form-card--post">
 
-                    <h3 class="p-form-card__title">
-                        {{ __('STEP POST') }}
-                    </h3>
+{{--                    <h3 class="p-form-card__title">--}}
+{{--                        {{ __('STEP POST') }}--}}
+{{--                    </h3>--}}
 
                     <div class="p-form-card__body">
 

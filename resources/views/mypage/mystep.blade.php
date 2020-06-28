@@ -16,7 +16,7 @@
                         <div class="c-guide-msg">
                             <p class="c-guide-msg__text">投稿されたSTEPがありません。</p>
                             <p class="c-guide-msg__text">あなたの成功例をシェアしませんか？</p>
-                            <a class="c-btn--yellow c-guide-msg__link" href="{{ route('steps.new') }}">{{ __('STEP POST Now') }}</a>
+                            <a class="c-btn--yellow c-guide-msg__link" href="{{ route('steps.new') }}">{{ __('POST Now') }}</a>
                         </div>
                     @endforelse
                 </div>

@@ -23,12 +23,36 @@
         margin-bottom: $space_l;
     }
 
+    // 上部の投稿フォーム
+    &__top{
+        @include mq(md){
+            flex-direction: column;
+        }
+    }
+
+    // アイキャッチ画像フォーム
+    &__eyecatch{
+        margin-right: $space_m;
+
+        @include mq(md){
+            margin-right: 0;
+        }
+    }
+
     // ラベル
     &__label{
-        display: inline-block;
+        display: flex;
+        align-items: center;
         font-size: $font-size_xxs;
         font-weight: bold;
         margin-bottom: $space_s;
+    }
+
+    // クエスチョンアイコン
+    &__question{
+        font-size: $font-size_s;
+        cursor: pointer;
+        margin-left: $space_s;
     }
 
     /*---------------------------------
@@ -150,5 +174,14 @@
     // 送信ボタン
     &__submit {
         text-align: center;
+    }
+}
+
+// 投稿用ページ
+.p-form-card--post {
+    padding: $space_xl;
+
+    @include mq(sm){
+        padding: $space_xl $space_s;
     }
 }

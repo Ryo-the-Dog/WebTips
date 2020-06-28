@@ -50,7 +50,7 @@
     &__link{
         align-items: center;
         width: 100%;
-        padding: $space_xl 0;
+        padding: $space_l 0;
         pointer-events: auto;
 
         // チャレンジ開始するとボタンが出現するためwidthを調整する
@@ -69,6 +69,6 @@
 
     // 子STEPが登録されていない場合
     &__empty{
-        padding: $space_l 0;
+        padding: $space_m 0;
     }
 }

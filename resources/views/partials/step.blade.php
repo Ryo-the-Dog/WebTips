@@ -24,11 +24,11 @@
             @endforelse
         </div>
 
-        <div class="p-step-panel__item">
-            <p class="u-text-gray-500">
-                目安達成時間：{{$step->time}} 時間
-            </p>
-        </div>
+{{--        <div class="p-step-panel__item">--}}
+{{--            <p class="u-text-gray-500">--}}
+{{--                目安達成時間：{{$step->time}} 時間--}}
+{{--            </p>--}}
+{{--        </div>--}}
 
         <div class="p-step-panel__item">
             @if(!empty($step->childSteps))

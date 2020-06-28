@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="STEP(ステップ)は目標達成までの過程をシェアできる学習サービスです。">
+    <meta name="description" content="TechStep(テックステップ)は目標達成までの過程をシェアできる学習サービスです。">
 
     <!-- Twitter -->
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="STEP" >
-    <meta property="og:description" content="STEP(ステップ)は目標達成までの過程をシェアできる学習サービスです。" >
+    <meta property="og:title" content="TechStep" >
+    <meta property="og:description" content="TechStep(テックステップ)は目標達成までの過程をシェアできる学習サービスです。" >
     <meta property="og:image" content="{{ asset('/img/twitter_card.jpg') }}" >
     <meta name="twitter:card" content="summary">
 
@@ -17,21 +17,25 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @hasSection('title')
-        <title>@yield('title') | {{ config('app.name', 'STEP') }}</title>
+        <title>@yield('title') | {{ config('app.name', 'TechStep') }}</title>
     @else
-        <title>{{ config('app.name', 'STEP') }}</title>
+        <title>{{ config('app.name', 'TechStep') }}</title>
     @endif
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+
     <!-- Chromeでページ読み込み時にtransitionが発火してしまうのを防ぐ -->
     <script>console.log</script>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('/img/favicon.ico') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    @gitdown
 </head>
 
 <body class="l-body l-flexbox">
@@ -79,7 +83,7 @@
                             :post-route="{{json_encode(route('steps.new'))}}"
                             :mypage-link="{{json_encode(__('Mypage'))}}"
                             :logout-link="{{json_encode(__('Logout'))}}"
-                            :post-link="{{json_encode(__('STEP POST'))}}"
+                            :post-link="{{json_encode(__('POST'))}}"
                         @endguest
                     ></HamburgerMenu>
 

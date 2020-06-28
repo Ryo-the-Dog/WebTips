@@ -10,7 +10,7 @@ use cebe\markdown\Markdown as Markdown;
 class Step extends Model
 {
     protected $table = 'steps';
-    protected $fillable = ['user_id', 'title', 'category_ids[]', 'time', 'description','step_img'];
+    protected $fillable = ['user_id', 'title', 'category_ids[]', 'description','step_img'];
     // Userモデルに対するリレーション
     public function user()
     {
@@ -60,14 +60,5 @@ class Step extends Model
 
     }
 
-    // マークダウン
-    public function parse() {
-        //newでインスタンスを作る
-        $parser = new Markdown();
-        //bodyをパースする
-        return $parser->parse($this->content);
-    }
-    public function getMarkBodyAttribute() {
-        return $this->parse();
-    }
+
 }

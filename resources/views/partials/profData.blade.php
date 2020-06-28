@@ -18,10 +18,10 @@
         <nav class="c-navbar">
             <ul class="c-navbar-bottom l-flexbox">
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.challenge') active @endif">
-                    <a href="{{route('mypage.challenge')}}" class="c-navbar-bottom__link">{{__('Challenged STEP')}}</a>
+                    <a href="{{route('mypage.challenge')}}" class="c-navbar-bottom__link">{{__('My List')}}</a>
                 </li>
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.mystep' || explode('.', Route::currentRouteName())[1] == 'mystepEdit') active @endif">
-                    <a href="{{route('mypage.mystep')}}" class="c-navbar-bottom__link">{{__('Posted STEP')}}</a>
+                    <a href="{{route('mypage.mystep')}}" class="c-navbar-bottom__link">{{__('Posted Articles')}}</a>
                 </li>
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.profEdit') active @endif">
                     <a href="{{route('mypage.profEdit')}}" class="c-navbar-bottom__link">{{__('Edit Profile')}}</a>

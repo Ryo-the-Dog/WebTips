@@ -251,7 +251,7 @@ class StepsController extends Controller
             $id = $step::create([
                 'user_id' => $request->user()->id,
                 'title' => $request->input('title'),
-                'time' => $request->input('time'),
+//                'time' => $request->input('time'),
                 'description' => $request->input('description'),
             ])->id;
         }else{
@@ -263,7 +263,7 @@ class StepsController extends Controller
             $id = $step::create([
                 'user_id' => $request->user()->id,
                 'title' => $request->input('title'),
-                'time' => $request->input('time'),
+//                'time' => $request->input('time'),
                 'description' => $request->input('description'),
                 'step_img' => $logoUrl
             ])->id;
@@ -282,14 +282,14 @@ class StepsController extends Controller
         foreach ($childSteps as $childStepData){
             $childStepTitles[] = $childStepData['title'];
             $childStepContents[] = $childStepData['content'];
-            $childStepTimes[] = $childStepData['time'];
+//            $childStepTimes[] = $childStepData['time'];
         }
 
         $i = 1; // 子STEPの番号
         // 子STEPのタイトルと内容をそれぞれ回す
-        foreach (array_map(null, $childStepTitles, $childStepContents, $childStepTimes) as [$val1, $val2, $val3] ) {
+        foreach (array_map(null, $childStepTitles, $childStepContents) as [$val1, $val2] ) {
             // 子STEPのタイトルか内容、時間のいずれかが空欄の場合は登録しない。またSTEP番号を１つ飛ばして入力された場合でも登録されなくなる。
-            if( empty($val1) || empty($val2) || empty($val3)){
+            if( empty($val1) || empty($val2)){
                 break;
             }
             $this->childStep::create([
@@ -302,7 +302,7 @@ class StepsController extends Controller
                 // 子STEPの内容
                 'content' => $val2,
                 // 子STEPの目安達成時間
-                'time' => $val3
+//                'time' => $val3
             ]);
             $i++; // 子STEPの番号をインクリメント
         }
@@ -340,7 +340,7 @@ class StepsController extends Controller
 
         $step->fill([
             'title' => $request->input('title'),
-            'time' => $request->input('time'),
+//            'time' => $request->input('time'),
             'description' => $request->input('description'),
         ])->save();
 
@@ -363,17 +363,17 @@ class StepsController extends Controller
         foreach ($inputChildSteps as $childStepData){
             $childStepTitles[] = $childStepData['title'];
             $childStepContents[] = $childStepData['content'];
-            $childStepTimes[] = $childStepData['time'];
+//            $childStepTimes[] = $childStepData['time'];
         }
 
         // 子STEPをchildStepsテーブルに登録する処理
         $i = 0; // DBの子STEPオブジェクトのキー
-        foreach (array_map(null, $childStepTitles, $childStepContents, $childStepTimes) as [$val1, $val2, $val3]) {
+        foreach (array_map(null, $childStepTitles, $childStepContents) as [$val1, $val2]) {
 
             if(count($childSteps) > $i) {
                 // 登録済みの子STEPについては更新処理をする
                 // 子STEPのタイトルか内容、時間のいずれかが空欄の場合は登録しない
-                if (empty($val1) || empty($val2) || empty($val3)) {
+                if (empty($val1) || empty($val2)) {
                     break;
                 }
 
@@ -381,14 +381,14 @@ class StepsController extends Controller
                 $childSteps[$i]->fill([
                     'title' => $val1,
                     'content' => $val2,
-                    'time' => $val3
+//                    'time' => $val3
                 ])->save();
 
                 $i++; // 子STEPのキーをインクリメント
             }else{
                 // 子STEP追加の処理
                 // 子STEPのタイトルか内容、時間のいずれかが空欄の場合は登録しない
-                if (empty($val1) || empty($val2) || empty($val3)) {
+                if (empty($val1) || empty($val2)) {
                     break;
                 }
                 $i++; // 子STEPの番号をインクリメント(上記の更新処理の段階では、$iはキーで子STEP番号より１つ小さいので先にインクリメントする)
@@ -397,7 +397,7 @@ class StepsController extends Controller
                     'step_number' => $i,
                     'title' => $val1,
                     'content' => $val2,
-                    'time' => $val3
+//                    'time' => $val3
                 ]);
 
                 // 子STEPが追加された場合、このSTEPをallClearsテーブルから削除する

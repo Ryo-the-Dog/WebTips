@@ -44,7 +44,7 @@
                 </li>
 
                 <li class="c-navbar-top__item">
-                    <a :href="postRoute" class="c-btn c-btn--yellow" title="STEP投稿ページ"><i class="fas fa-pen u-mr-xs"></i>{{postLink}}</a>
+                    <a :href="postRoute" class="c-btn c-btn--yellow" title="投稿ページ"><i class="fas fa-pen u-mr-xs"></i>{{postLink}}</a>
                 </li>
 
 

@@ -9,7 +9,7 @@
             <img class="p-form-card__stepImg" id="file-preview"
                  v-show="uploadedImage"
                  v-bind:src="uploadedImage"
-                 alt="STEP画像">
+                 alt="記事の画像">
         </div>
 
         <span class="c-invalid-feedback" role="alert">

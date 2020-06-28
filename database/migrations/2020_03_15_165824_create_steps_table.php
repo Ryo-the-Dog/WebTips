@@ -17,7 +17,6 @@ class CreateStepsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('title');
-            $table->integer('time');
             $table->string('description');
             $table->timestamps();
         });

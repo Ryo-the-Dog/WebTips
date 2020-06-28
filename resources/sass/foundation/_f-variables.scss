@@ -15,6 +15,10 @@ $color_gray_500: #747474;
 
 // グレー(ホバー時)
 $color_gray_500_hover: #4c4c4c;
+
+// 透過度の高いグレー
+$color_gray_transparent_5: rgba(230, 230, 230, 0.6);
+
 // 白色
 $color_white: #fff;
 // 透過度の高い白色
@@ -46,6 +50,7 @@ $color_red_hover: #be5a5a;
 $font-family_base: Helvetica, Arial, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3' , メイリオ, Meiryo, sans-serif;
 
 // font-size
+$font-size_3s: 12px;
 $font-size_xxs: 14px;
 $font-size_xs: 16px;
 $font-size_s: 18px;

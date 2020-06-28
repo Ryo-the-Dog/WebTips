@@ -38,6 +38,8 @@ Vue.component('userintroduceform', require('./components/UserIntroduceForm.vue')
 Vue.component('imagepreview', require('./components/ImagePreview.vue').default);
 // STEP画像のライブプレビュー
 Vue.component('stepimagepreview', require('./components/StepImagePreview.vue').default);
+// クエスチョンモーダル
+Vue.component('modalquestion', require('./components/ModalQuestion.vue').default);
 // 子STEPの登録フォーム
 Vue.component('childstepform', require('./components/ChildStepForm.vue').default);
 // フラッシュメッセージ
@@ -52,6 +54,8 @@ Vue.component('mypagedropdown', require('./components/MypageDropDown.vue').defau
 Vue.component('searchform', require('./components/SearchForm.vue').default);
 // 並び順のドロップダウンメニュー
 Vue.component('sortdropdown', require('./components/SortDropDown.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -3,7 +3,7 @@
         <div v-for="childStepForm in this.childStepForms" :key="childStepForm.id">
 
             <div class="p-form-card__group">
-                <label :for="'child_step_title_'+childStepForm.id" class="p-form-card__label">{{childStepForm.id}}：タイトル</label>
+                <label :for="'child_step_title_'+childStepForm.id" class="p-form-card__label">{{childStepForm.id}}：見出し</label>
                 <div class="p-form-card__input-area">
                     <input :id="'child_step_title_'+childStepForm.id" type="text" class="c-input"
                            :name="'child_step['+childStepForm.id+'][title]'" v-model="childStepForm.currentTitle"
@@ -13,23 +13,13 @@
             </div>
 
             <div class="p-form-card__group">
-                <label :for="'child_step_content_'+childStepForm.id" class="p-form-card__label">{{childStepForm.id}}：内容</label>
+                <label :for="'child_step_content_'+childStepForm.id" class="p-form-card__label">{{childStepForm.id}}：内容(マークダウン記法)</label>
                 <div class="p-form-card__input-area">
-                    <textarea :id="'child_step_content_'+childStepForm.id" type="text" class="c-textarea"
+                    <textarea :id="'child_step_content_'+childStepForm.id" type="text" class="c-textarea c-textarea--step-content"
                               :name="'child_step['+childStepForm.id+'][content]'" v-model="childStepForm.currentContent"
-                              maxlength="1000" autocomplete="child_step_content" autofocus>{{childStepForm.currentContent}}</textarea>
+                              maxlength="10000" autocomplete="child_step_content" autofocus>{{childStepForm.currentContent}}</textarea>
                 </div>
-                <span class="c-counter">{{childStepForm.currentContent ? childStepForm.currentContent.length : 0}} / 1000</span>
-            </div>
-
-            <div class="p-form-card__group">
-                <label :for="'child_step_time_'+childStepForm.id" class="p-form-card__label">{{childStepForm.id}}：時間(1000時間以内)</label>
-                <div class="p-form-card__input-area">
-                    <input :id="'child_step_time_'+childStepForm.id" type="number" class="c-input p-form-card__time-input"
-                           :name="'child_step['+childStepForm.id+'][time]'" v-model="childStepForm.currentTime"
-                           min="1" max="1000" autocomplete="child_step_time" autofocus>
-                    <span class="p-form-card__time">時間</span>
-                </div>
+                <span class="c-counter">{{childStepForm.currentContent ? childStepForm.currentContent.length : 0}} / 10000</span>
             </div>
 
         </div>
@@ -39,7 +29,7 @@
         </ul>
 
         <div v-if="!stepLimit" class="p-form-card__add-btn-area">
-            <button @click.prevent="addChildStepForm()" class="p-form-card__add-btn u-text-gray-500"><i class="fas fa-plus-circle"></i>STEPを追加する</button>
+            <button @click.prevent="addChildStepForm()" class="p-form-card__add-btn u-text-gray-500"><i class="fas fa-plus-circle"></i>ステップを追加する</button>
         </div>
     </div>
 </template>
@@ -54,61 +44,51 @@
                         id: 1,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 0, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 0, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 0, 'time'),
                     },
                     {
                         id: 2,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 1, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 1, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 1, 'time'),
                     },
                     {
                         id: 3,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 2, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 2, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 2, 'time'),
                     },
                     {
                         id: 4,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 3, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 3, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 3, 'time'),
                     },
                     {
                         id: 5,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 4, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 4, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 4, 'time'),
                     },
                     {
                         id: 6,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 5, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 5, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 5, 'time'),
                     },
                     {
                         id: 7,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 6, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 6, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 6, 'time'),
                     },
                     {
                         id: 8,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 7, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 7, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 7, 'time'),
                     },
                     {
                         id: 9,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 8, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 8, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 8, 'time'),
                     },
                     {
                         id: 10,
                         currentTitle: this.checkInput(this.oldInputs, this.currentInputs, 9, 'title'),
                         currentContent: this.checkInput(this.oldInputs, this.currentInputs, 9, 'content'),
-                        currentTime: this.checkInput(this.oldInputs, this.currentInputs, 9, 'time'),
                     },
 
                 ],
@@ -123,9 +103,8 @@
                 this.errors = []
                     // 現在表示されているフォームが空の場合は追加させない
                     if(this.childStepFormList[this.count-1]['currentTitle'] === '' || this.childStepFormList[this.count-1]['currentTitle'] === null
-                        || this.childStepFormList[this.count-1]['currentContent'] === '' || this.childStepFormList[this.count-1]['currentContent'] === null
-                        || this.childStepFormList[this.count-1]['currentTime'] === '' || this.childStepFormList[this.count-1]['currentTime'] === null){
-                        this.errors.push('STEPのタイトル・内容・時間を入力してください。')
+                        || this.childStepFormList[this.count-1]['currentContent'] === '' || this.childStepFormList[this.count-1]['currentContent'] === null){
+                        this.errors.push('ステップのタイトル・内容を入力してください。')
                         return false
                 }
                 // countの値を増やすことで子STEPのフォーム数を増やす
@@ -147,10 +126,9 @@
 
                 if(obj){
                     // oldは入力内容が空欄でもnullで渡されてしまうので、nullだった場合は入力欄を表示しないようにする
-                    if(obj[count]['title']===null && obj[count]['content']===null && obj[count]['time']===null){
+                    if(obj[count]['title']===null && obj[count]['content']===null ){
                         obj[count]['title'] = ""
                         obj[count]['content'] = ""
-                        obj[count]['time'] = ""
                         count--
                     }
                     // もし１つ目の子STEPフォームが空欄で送信された場合、上記の処理で０になってしまうので１つは表示されるようにする

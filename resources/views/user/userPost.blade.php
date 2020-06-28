@@ -1,7 +1,7 @@
 {{-- ユーザープロフィールのビュー --}}
 @extends('layouts.app')
 
-@section('title', $userProf->name.__("'s Posted STEP"))
+@section('title', $userProf->name.__("'s Posted Articles"))
 
 @section('content')
     <div class="l-bg-gray">
@@ -15,7 +15,7 @@
                     @empty
                         <div class="p-steps__empty">
                             <p class="p-steps__empty-text">
-                                投稿されたSTEPがありません。
+                                投稿された記事がありません。
                             </p>
                         </div>
                     @endforelse

@@ -24,9 +24,6 @@
 
         <div class="p-step-detail__description-area">
             <p>
-                【 目安達成時間：{{$step->time}} 時間 】
-            </p>
-            <p>
                 {!! nl2br(e($step->description)) !!}
             </p>
         </div>
@@ -39,7 +36,7 @@
 
                 @else
                     @auth
-                        <a href="@if($userAuth->id === $step->user->id){{route('mypage.challenge')}}@else{{route('userProfile.challenge', $step->user->id)}}@endif" class="p-step-detail__profile-link"></a>
+                        <a href="@if($userAuth->id === $step->user->id){{route('mypage.challenge')}}@else{{route('userProfile.challenge', $step->user->id)}}@endif" class="p-step-detail__profile-link p-postdata__profile-link"></a>
                     @else
                         <a href="{{route('userProfile.challenge', $step->user->id)}}" class="p-step-detail__profile-link p-postdata__profile-link"></a>
                     @endauth

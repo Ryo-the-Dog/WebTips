@@ -19,7 +19,6 @@ class CreateChildStepsTable extends Migration
             $table->integer('step_number');
             $table->string('title');
             $table->string('content');
-            $table->integer('time');
             $table->timestamps();
         });
     }

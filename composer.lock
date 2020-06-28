@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c8dd2694d5aada1fa568abf6755c2e5",
+    "content-hash": "a09cd37eebee61e5c057e474d1ccb040",
     "packages": [
         {
             "name": "calebporzio/gitdown",

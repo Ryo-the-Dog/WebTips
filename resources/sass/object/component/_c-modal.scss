@@ -1,0 +1,65 @@
+/* ====================================
+ Component
+==================================== */
+/* モーダルのスタイルを定義しています。
+==================================== */
+.c-modal {
+    position: relative;
+    border-radius: $radius_round;
+    text-align: center;
+
+    &__content {
+        background-color: $color_white;
+        width: 95%;
+        padding: $space_s;
+        margin: 0 auto;
+        position: fixed;
+        top: 50%;
+        right: 50%;
+        z-index: 4;
+        transform: translateX(50%) translateY(-50%);
+
+        @include mq(md) {
+            width: 95%;
+        }
+    }
+
+    &__img-outer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: $border_gray;
+        height: 170px;
+        padding: $space_xl;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__text {
+        padding: $space_l;
+        text-align: left;
+    }
+
+    &__overlay {
+        cursor: pointer;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        background-color: $color_gray_transparent_5;
+        transition: all .1s;
+    }
+
+    &__close {
+        font-size: $font-size_l;
+        position: absolute;
+        top: 0;
+        right: 6px;
+    }
+}

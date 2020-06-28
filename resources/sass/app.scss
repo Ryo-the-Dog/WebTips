@@ -84,6 +84,10 @@
 @import './object/component/c-input';
 // 文字数カウンター
 @import './object/component/c-counter';
+// ホバーメッセージ
+@import './object/component/c-hoverMsg';
+// モーダル
+@import './object/component/c-modal';
 // 投稿されたSTEPが無かった場合のメッセージ
 @import './object/component/c-guide-msg';
 // ページネーション
@@ -92,6 +96,8 @@
 @import './object/component/c-invalid';
 // フラッシュメッセージ
 @import './object/component/c-flash-message';
+// マークダウン
+@import './object/component/c-markdown';
 
 // **
 // トップのランディングページ限定のスタイル
@@ -148,3 +154,5 @@
 @import './object/utility/u-clearfix';
 // margin用
 @import './object/utility/u-margin';
+// position
+@import './object/utility/u-position';

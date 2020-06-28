@@ -16,10 +16,9 @@
                 </div>
 
                 <div class="p-childStep-detail__content">
-                    <p>【 目安達成時間：{{$childStep->time}} 時間 】</p>
-                    <p>{!! nl2br(e($childStep->content)) !!}</p>
-                    <p>{!! nl2br(e($childStep->mark_content)) !!}</p>
+
                     <p>{!! GitDown::parseAndCache($childStep->content) !!}</p>
+
                 </div>
             </div>
 
@@ -31,3 +30,4 @@
 
     </div>
 @endsection
+

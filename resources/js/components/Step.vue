@@ -5,7 +5,7 @@
         <a v-bind:href="stepRoute" class="p-step-panel__link-large" title="チャレンジページ"></a>
 
         <div class="p-step-panel__stepImg-area">
-            <img v-bind:src="uploadedImage" class="p-step-panel__stepImg" alt="STEPの画像">
+            <img v-bind:src="uploadedImage" class="p-step-panel__stepImg" alt="記事の画像">
         </div>
 
         <div class="p-step-panel__contents">
@@ -23,11 +23,11 @@
                 </span>
             </div>
 
-            <div class="p-step-panel__item">
-                <p class="u-text-gray-500">
-                    目安達成時間：{{step.time}} 時間
-                </p>
-            </div>
+<!--            <div class="p-step-panel__item">-->
+<!--                <p class="u-text-gray-500">-->
+<!--                    目安達成時間：{{step.time}} 時間-->
+<!--                </p>-->
+<!--            </div>-->
 
             <div class="p-step-panel__item">
                 <p v-if="childSteps" class="u-text-gray-500">
@@ -37,7 +37,7 @@
 
             <div class="p-step-panel__bottom l-flexbox">
                 <div class="p-step-panel__twitter-area">
-                    <a :href="'http://twitter.com/intent/tweet?url='+ stepUrl +'&text=「'+ step.title +'」に挑戦中！！&hashtags=STEP'" title="Twitterでつぶやく">
+                    <a :href="'http://twitter.com/intent/tweet?url='+ stepUrl +'&text=「'+ step.title +'」に挑戦中！！&hashtags=TechStep'" title="Twitterでつぶやく">
                         <i class="fab fa-twitter c-icon--twitter "></i>
                     </a>
                 </div>
