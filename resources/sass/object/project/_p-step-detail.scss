@@ -5,6 +5,11 @@
 ==================================== */
 .p-step-detail {
 
+    // 詳細の上部
+    &__top{
+        margin-bottom: $space_l;
+    }
+
     // STEPのタイトル
     &__title{
         font-size: $font-size_xl;
@@ -22,15 +27,24 @@
         position: absolute;
     }
 
+    // アイキャッチ画像のエリア
+    &__eyecatch-area{
+        width: 50%;
+        margin-right: 3%;
+    }
+
     // アイキャッチ画像
     &__eyecatch {
         border-bottom: none;
     }
 
+    &__right{
+        width: 47%;
+    }
+
     // STEPデータのエリア
     &__stepData-area{
         background-color: $color_gray_100;
-        border: $border_gray;
         padding: $space_s;
         margin-bottom: $space_l;
     }
@@ -38,6 +52,7 @@
     // STEPの説明のエリア
     &__description-area{
         border-bottom: $border_gray;
+        height: 65%;
         min-height: 120px;
         padding-bottom: $space_s;
     }
@@ -45,6 +60,7 @@
     // Twitterとチャレンジアイコンのエリア
     &__icon-area{
         justify-content: space-between;
+        align-items: center;
     }
 
     // STEPデータの最下部エリア

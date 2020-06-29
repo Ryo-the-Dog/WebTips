@@ -6308,6 +6308,19 @@ li {
  Layout
 ==================================== */
 
+/* 横一杯のレイアウトのメインコンテンツを定義しています。
+==================================== */
+
+.l-container-wide {
+  width: 100%;
+  padding: 0 0 80px;
+  margin: 0 auto;
+}
+
+/* ====================================
+ Layout
+==================================== */
+
 /* サブコンテンツを定義しています。
 ==================================== */
 
@@ -6558,7 +6571,7 @@ li {
 }
 
 .c-navbar-top__link:hover {
-  color: #2E59B2;
+  color: #2c52a6;
   text-decoration: underline;
   transition: all 0.5s;
 }
@@ -6574,7 +6587,7 @@ li {
 }
 
 .c-navbar-top__dropdown-link:hover {
-  color: #2E59B2;
+  color: #2c52a6;
   text-decoration: underline;
   transition: all 0.5s;
 }
@@ -6693,7 +6706,7 @@ li {
 }
 
 .c-btn--blue:hover {
-  background-color: #2E59B2;
+  background-color: #2c52a6;
   transition: all 0.5s;
 }
 
@@ -6715,7 +6728,7 @@ li {
 
 .c-btn--yellow:hover {
   background-color: #d8c31e;
-  color: #2E59B2;
+  color: #2c52a6;
   transition: all 0.5s;
 }
 
@@ -6732,6 +6745,24 @@ li {
   font-size: 16px;
   padding: 10px 20px;
   margin-top: 40px;
+}
+
+.c-btn--addList {
+  color: #747474;
+}
+
+.c-btn--addList:hover {
+  color: #42454b;
+  transition: all 0.5s;
+}
+
+.c-btn--removeList {
+  color: #2f72d8;
+}
+
+.c-btn--removeList:hover {
+  color: #2c52a6;
+  transition: all 0.5s;
 }
 
 .c-btn--challenge {
@@ -6846,7 +6877,6 @@ li {
 ==================================== */
 
 .c-eyecatch {
-  border: solid 1px #ddd;
   width: 100%;
   max-height: 400px;
   object-fit: cover;
@@ -6876,8 +6906,8 @@ li {
 
 .c-avatar {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
 }
 
@@ -7716,6 +7746,10 @@ pre {
 /* STEP詳細ページのSTEPデータ部分を定義しています。
 ==================================== */
 
+.p-step-detail__top {
+  margin-bottom: 20px;
+}
+
 .p-step-detail__title {
   font-size: 30px;
   word-break: break-word;
@@ -7730,30 +7764,52 @@ pre {
   position: absolute;
 }
 
+.p-step-detail__eyecatch-area {
+  width: 50%;
+  margin-right: 3%;
+}
+
 .p-step-detail__eyecatch {
   border-bottom: none;
 }
 
+.p-step-detail__right {
+  width: 47%;
+}
+
 .p-step-detail__stepData-area {
   background-color: #fafafa;
-  border: solid 1px #ddd;
   padding: 10px;
   margin-bottom: 20px;
 }
 
 .p-step-detail__description-area {
   border-bottom: solid 1px #ddd;
+  height: 65%;
   min-height: 120px;
   padding-bottom: 10px;
 }
 
 .p-step-detail__icon-area {
   justify-content: space-between;
+  align-items: center;
 }
 
 .p-step-detail__bottom {
   justify-content: space-between;
   align-items: center;
+}
+
+/* ====================================
+ Project
+==================================== */
+
+/* 記事ページのトップ部分を定義しています。
+==================================== */
+
+.p-article-header {
+  background-color: #fafafa;
+  padding: 10px 20px;
 }
 
 /* ====================================
@@ -7765,11 +7821,13 @@ pre {
 
 .p-postdata {
   align-items: center;
+  height: 35%;
   padding: 10px 0;
 }
 
 .p-postdata__profile-area {
   align-items: center;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -7839,8 +7897,10 @@ pre {
 ==================================== */
 
 .p-childStep-list {
-  border-top: solid 1px #ddd;
-  border-bottom: solid 1px #ddd;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 30px;
   margin-bottom: 50px;
 }
 
@@ -7848,11 +7908,8 @@ pre {
   align-items: center;
   font-size: 18px;
   min-height: 72px;
+  margin-bottom: 15px;
   pointer-events: none;
-}
-
-.p-childStep-list__item:hover {
-  background-color: #fafafa;
 }
 
 @media screen and (max-width: 414px) {
@@ -7875,6 +7932,8 @@ pre {
 }
 
 .p-childStep-list__number {
+  border: solid 1px #42454b;
+  color: #42454b;
   margin-right: 5px;
 }
 
@@ -7884,8 +7943,9 @@ pre {
 
 .p-childStep-list__link {
   align-items: center;
+  font-weight: bold;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 0 10px;
   pointer-events: auto;
 }
 
@@ -8533,6 +8593,10 @@ pre {
   color: #e65f62;
 }
 
+.u-text-blue {
+  color: #2f72d8;
+}
+
 .u-text-center {
   text-align: center;
 }
@@ -8563,6 +8627,10 @@ pre {
 
 .u-ml-auto {
   margin-left: auto;
+}
+
+.u-ml-s {
+  margin-left: 10px;
 }
 
 .u-mr-xs {

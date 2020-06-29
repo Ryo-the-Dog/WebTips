@@ -4,8 +4,12 @@
 /* 子STEP一覧を定義しています。
 ==================================== */
 .p-childStep-list {
-    border-top: $border_gray;
-    border-bottom: $border_gray;
+    //border-top: $border_gray;
+    //border-bottom: $border_gray;
+    background-color: $color_white;
+    border-radius: $radius_round;
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    padding: $space_s $space_s $space_xl;
     margin-bottom: $space_3l;
 
     // 子STEP一覧の項目
@@ -13,10 +17,11 @@
         align-items: center;
         font-size: $font-size_s;
         min-height: 72px;
+        margin-bottom: $space_m;
         pointer-events: none;
-        &:hover{
-            background-color: $color_gray_100;
-        }
+        //&:hover{
+        //    background-color: $color_gray_100;
+        //}
         @include mq(sm){
             font-size: $font-size_xs;
         }
@@ -38,6 +43,8 @@
 
     // 子STEPの番号
     &__number{
+        border: $border_black;
+        color: $color_black;
         margin-right: $space_xs;
     }
 
@@ -49,8 +56,9 @@
     // 子STEPの詳細リンク
     &__link{
         align-items: center;
+        font-weight: bold;
         width: 100%;
-        padding: $space_l 0;
+        padding: $space_l 0 $space_s;
         pointer-events: auto;
 
         // チャレンジ開始するとボタンが出現するためwidthを調整する

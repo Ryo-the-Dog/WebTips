@@ -4,8 +4,10 @@
 /* 変数を定義しています。
 ==================================== */
 // 色
-// 黒色(主に文字色として使用)
+// 黒色
+$color_black_light: #51545a;
 $color_black: #42454b;
+
 // グレー
 $color_gray_100: #fafafa;
 $color_gray_200: #ddd;
@@ -24,22 +26,30 @@ $color_white: #fff;
 // 透過度の高い白色
 $color_white_transparent_9: rgba(255, 255, 255, 0.9);
 $color_white_transparent_5: rgba(255, 255, 255, 0.5);
+
 // 黄色
 $color_yellow: #E8D31E;
 // 黄色(ホバー時)
 $color_yellow_hover: #d8c31e;
+
 // 青色(メイン)
 $color_blue: #2f72d8;
 // 青色(メインのホバー時)
-$color_blue_hover: #2E59B2;
+$color_blue_hover: #2c52a6;
+
 // 薄い青色(主にボーダー用)
 $color_blue_lighter: #AEC9DD;
 // 透過度の高い青
 $color_blue_transparent: rgba(11, 112, 183, 0.5);
+
 // 青色(twitterアイコン)
 $color_twitter: #3490dc;
 // 青色(twitterアイコンのホバー時)
 $color_twitter_hover: #2977b3;
+
+// 濃紺
+$color_darkblue: #29303B;
+
 // 赤色
 $color_red: #e65f62;
 // 赤色(ホバー時)

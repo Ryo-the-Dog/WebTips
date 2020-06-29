@@ -4,13 +4,16 @@
 /* マージンを定義しています。
 ==================================== */
 // 指定した要素を左端に寄せる用
-.u-mr-auto{
+.u-mr-auto {
     margin-right: auto;
 }
 // 指定した要素を右端に寄せる用
-.u-ml-auto{
+.u-ml-auto {
     margin-left: auto;
 }
-.u-mr-xs{
+.u-ml-s {
+    margin-left: $space_s;
+}
+.u-mr-xs {
     margin-right: $space_xs;
 }

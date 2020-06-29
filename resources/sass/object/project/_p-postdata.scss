@@ -5,11 +5,13 @@
 ==================================== */
 .p-postdata {
     align-items: center;
+    height: 35%;
     padding: $space_s 0;
 
     // 投稿者情報のエリア
     &__profile-area {
         align-items: center;
+        margin-bottom: $space_s;
         position:relative;
 
         &:hover{

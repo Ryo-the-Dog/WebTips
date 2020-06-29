@@ -33,6 +33,8 @@
 @import './layout/l-main';
 // メインコンテンツ
 @import './layout/l-container';
+// メインコンテンツ(横幅一杯)
+@import './layout/l-container-wide';
 // サブコンテンツ
 @import './layout/l-container-sub';
 // トップの背景色がグレーのセクション
@@ -118,6 +120,8 @@
 @import './object/project/p-form-card';
 // STEP詳細
 @import './object/project/p-step-detail';
+// 記事ページのトップ部分
+@import './object/project/p-article-header';
 // STEPの投稿データ
 @import './object/project/p-postdata';
 // 子STEP詳細

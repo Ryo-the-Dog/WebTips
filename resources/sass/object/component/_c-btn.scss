@@ -62,6 +62,26 @@
     margin-top: $space_xxl;
 }
 
+// リスト追加ボタン
+.c-btn--addList {
+    color: $color_gray_500;
+
+    &:hover{
+        color: $color_black;
+        transition: $transition_normal;
+    }
+}
+
+// リスト追加ボタン
+.c-btn--removeList {
+    color: $color_blue;
+
+    &:hover{
+        color: $color_blue_hover;
+        transition: $transition_normal;
+    }
+}
+
 // チャレンジボタン
 .c-btn--challenge {
     font-size: $font-size_xs;
