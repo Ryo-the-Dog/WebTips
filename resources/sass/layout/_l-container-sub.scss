@@ -5,7 +5,7 @@
 ==================================== */
 .l-container-sub{
     width: $site-width_sub;
-    padding-bottom: $space_4l;
+    padding: $space_3l 0 $space_4l;
     margin: 0 auto;
 
     @include mq(md) {

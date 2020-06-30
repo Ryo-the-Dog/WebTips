@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeUserIdNotCascadeToCascadeOnStepsTable extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,16 @@ class ChangeUserIdNotCascadeToCascadeOnStepsTable extends Migration
      */
     public function up()
     {
-        Schema::table('steps', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+        Schema::create('articles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('title');
+            $table->string('description');
+            $table->string('article_img')->nullable();
+            $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
@@ -26,9 +33,10 @@ class ChangeUserIdNotCascadeToCascadeOnStepsTable extends Migration
      */
     public function down()
     {
-        Schema::table('steps', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-            $table->foreign('user_id')->references('id')->on('users');
         });
+
+        Schema::dropIfExists('articles');
     }
 }

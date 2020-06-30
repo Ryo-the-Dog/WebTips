@@ -6326,7 +6326,7 @@ li {
 
 .l-container-sub {
   width: 720px;
-  padding-bottom: 60px;
+  padding: 50px 0 60px;
   margin: 0 auto;
 }
 

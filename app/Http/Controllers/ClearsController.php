@@ -32,10 +32,10 @@ class ClearsController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // clearsテーブルにuser_idとchildStep_idを保存する
+        // clearsテーブルにuser_idとarticle_idを保存する
         $clear = $this->clear->create([
             'user_id' => $this->auth->user()->id,
-            'child_step_id' => $id
+            'article_id' => $id
         ]);
 
         // クリアが押された子STEPを格納する
