@@ -8,14 +8,14 @@
         <div class="l-container">
             <div class="p-step-list">
 
-                <div class="p-steps l-flexbox">
+                <div class="p-articles l-flexbox">
                     @forelse($userLearnArticles as $article)
 
                         @include('partials.article')
 
                     @empty
-                        <div class="p-steps__empty">
-                            <p class="p-steps__empty-text">
+                        <div class="p-articles__empty">
+                            <p class="p-articles__empty-text">
                                 学習中の記事はありません。
                             </p>
                         </div>

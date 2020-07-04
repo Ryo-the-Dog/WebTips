@@ -1,12 +1,12 @@
 /* ====================================
  Project
 ==================================== */
-/* 子STEP詳細ページを定義しています。
+/* チャプター詳細ページを定義しています。
 ==================================== */
 .p-childStep-detail {
     border-top: $border_gray;
 
-    // 子STEPタイトルのエリア
+    // チャプタータイトルのエリア
     &__title-area{
         align-items: center;
         border-bottom: $dashed_border_gray;
@@ -15,19 +15,19 @@
         padding-bottom: calc((70px - 18px) / 2);
     }
 
-    // 子STEPの番号
+    // チャプターの番号
     &__number{
         margin-right: $space_xs;
     }
 
-    // 子STEPタイトル
+    // チャプタータイトル
     &__title{
         font-size: $font-size_s;
         font-weight: normal;
         width: calc(100% - 35px);
     }
 
-    // 子STEPの内容
+    // チャプターの内容
     &__content{
         border-bottom: $border_gray;
         min-height: 200px;

@@ -1,5 +1,5 @@
 {{--STEP詳細画面のデータ部分のビュー--}}
-<div class="p-step-detail">
+<div class="p-article-detail">
 
     <h2 class="p-step-detail__title">{{$article->title}}</h2>
 
@@ -60,7 +60,9 @@
                     </a>
                 </div>
 
-                <span class="u-ml-s u-text-gray-500">{{count($article->learns)}}人が学習中</span>
+                <span class="u-ml-m u-text-gray-500 l-flexbox">
+                    <i class="fas fa-book-open u-mr-xs"></i>{{count($article->learns)}}人が学習中
+                </span>
 {{--                    @dd($defaultLearned)--}}
 
                 @if(!empty($defaultLearned))

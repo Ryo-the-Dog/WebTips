@@ -73,13 +73,13 @@
     "Article Posted.": "記事を投稿しました！",
     "Article Edited.": "記事を編集しました。",
     "Edited.": "編集完了しました",
-    "Deleted.": "STEPを削除しました",
+    "Deleted.": "記事を削除しました",
     "Added to List.": "学習リストに追加しました。",
     "Removed from List.": "学習リストから削除しました。",
     "Clear this Lesson.": "この記事を学習済みにしました。",
     "Clear Canceled.": "学習済みを取り消しました。",
     "Invalid operation was performed.": "不正な操作が行われました。",
     "The URL does not exist.": "存在しないURLが入力されました。",
-    "You can delete only your own steps.": "自分で投稿したSTEPのみ削除できます。",
-    "You can edit only your own steps.": "自分で投稿したSTEPのみ編集できます。"
+    "You can delete only your own articles.": "自分で投稿した記事のみ削除できます。",
+    "You can edit only your own articles.": "自分で投稿した記事のみ編集できます。"
 }

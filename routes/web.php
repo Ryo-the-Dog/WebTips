@@ -14,14 +14,12 @@
 // 非会員でも使用可能なルーティング
 // 非会員用のトップページ
 Route::get('/', 'ArticlesController@index')->name('index');
-// STEP一覧画面表示(会員用のトップページ)
+// 記事一覧画面表示(会員用のトップページ)
 Route::get('/articles', 'ArticlesController@list')->name('articles.list');
-// STEP検索結果一覧画面表示
+// 記事検索結果一覧画面表示
 Route::get('/search', 'ArticlesController@search')->name('articles.search');
-// STEP詳細画面表示
+// 記事詳細画面表示
 Route::get('/articles/detail/{id}', 'ArticlesController@show')->name('articles.show');
-// 子STEP詳細画面表示
-Route::get('/articles/step/{id}', 'ChildStepsController@show')->name('childStep.show');
 // ユーザーの学習中の記事一覧画面表示
 Route::get('/userProfile/{id}/learn', 'UsersController@learnList')->name('userProfile.learn');
 // ユーザーがクリアした記事一覧画面表示

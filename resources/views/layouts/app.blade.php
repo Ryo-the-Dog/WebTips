@@ -51,8 +51,8 @@
                     <!-- サイトロゴ -->
                     <h1 class="c-site-logo">
                         <a href="@guest{{ route('index') }}@else{{ route('articles.list') }} @endguest"
-                           class="c-site-logo__link" title="@guest トップページ @else STEP一覧 @endguest">
-                            <img src="{{asset('/img/title_logo.jpg')}}" alt="STEP" class="c-site-logo__img">
+                           class="c-site-logo__link" title="@guest トップページ @else 記事一覧 @endguest">
+                            <img src="{{asset('/img/title_logo.jpg')}}" alt="WebTips" class="c-site-logo__img">
                         </a>
                     </h1>
 

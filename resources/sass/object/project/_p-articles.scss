@@ -1,9 +1,9 @@
 /* ====================================
  Project
 ==================================== */
-/* STEP一覧を定義しています。
+/* 記事一覧を定義しています。
 ==================================== */
-// STEP一覧
+// 記事一覧
 .p-steps {
     flex-wrap: wrap;
     margin-right: -2%;
@@ -12,7 +12,7 @@
     @include mq(md){
         margin-right: 0;
     }
-    // STEPが存在しなかった場合
+    // 記事が存在しなかった場合
     &__empty{
         font-size: $font-size_s;
         padding: $space_s 0 $space_xl;
@@ -27,7 +27,7 @@
     }
 }
 
-// STEPのパネル
+// 記事のパネル
 .p-step-panel {
     margin-bottom: $space_m;
     position: relative;
@@ -51,12 +51,12 @@
         z-index: 2;
     }
 
-    // STEPデータの項目
+    // 記事データの項目
     &__item{
         margin-bottom: $space_m;
     }
 
-    // STEPの画像エリア
+    // 記事の画像エリア
     &__stepImg-area{
         border-bottom: $border_gray;
         width: 100%;
@@ -67,7 +67,7 @@
         overflow: hidden;
     }
 
-    // STEPの画像
+    // 記事の画像
     &__stepImg{
         // IEでobject-fitの代用をするため
         width: 100%;
@@ -93,18 +93,18 @@
         }
     }
 
-    // STEPの下部エリア
+    // 記事の下部エリア
     &__contents{
         padding: 0 $space_m $space_m;
     }
 
-    // STEPのタイトルのエリア
+    // 記事のタイトルのエリア
     &__title-area{
         align-items: center;
         height: 55px;
     }
 
-    // STEPのタイトル
+    // 記事のタイトル
     &__title{
         font-size: $font-size_m;
         word-break: break-word;

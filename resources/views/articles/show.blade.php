@@ -1,4 +1,4 @@
-{{--STEP詳細のビュー--}}
+{{--記事詳細のビュー--}}
 @extends('layouts.app')
 
 @section('title', $article->title)
@@ -9,8 +9,8 @@
         <div class="l-container-sub">
 
             <div class="l-article">
-                    @include('partials.articleData')
 
+                    @include('partials.articleData')
 
                 <ul class="p-chapter-list">
 
@@ -31,7 +31,7 @@
 
                         </li>
                     @empty
-                        <p class="p-chapter-list__empty">STEPが登録されていません。</p>
+                        <p class="p-chapter-list__empty">まだ記事が投稿されていません。</p>
                     @endforelse
 
                 </ul>

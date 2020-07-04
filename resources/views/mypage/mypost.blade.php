@@ -6,8 +6,8 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-step-list">
-                <div class="p-steps l-flexbox">
+            <div class="p-article-list">
+                <div class="p-articles l-flexbox">
                     @forelse($postArticles as $article)
 
 {{--                        @include('partials.article')--}}

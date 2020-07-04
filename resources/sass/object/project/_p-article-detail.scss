@@ -1,7 +1,7 @@
 /* ====================================
  Project
 ==================================== */
-/* STEP詳細ページのSTEPデータ部分を定義しています。
+/* 記事詳細ページの記事データ部分を定義しています。
 ==================================== */
 .p-step-detail {
 
@@ -10,14 +10,14 @@
         margin-bottom: $space_l;
     }
 
-    // STEPのタイトル
+    // 記事のタイトル
     &__title{
         font-size: $font-size_xl;
         word-break: break-word;
         margin-bottom: $space_m;
     }
 
-    // STEPの項目
+    // 記事の項目
     &__item{
         margin-bottom: $space_l;
     }
@@ -38,14 +38,14 @@
         border-bottom: none;
     }
 
-    // STEPデータのエリア
+    // 記事データのエリア
     &__stepData-area{
         background-color: $color_gray_100;
         padding: $space_s;
         margin-bottom: $space_l;
     }
 
-    // STEPの説明のエリア
+    // 記事の説明のエリア
     &__description-area{
         height: 65%;
         min-height: 120px;
@@ -58,7 +58,7 @@
         padding: $space_s 0 $space_xxl;
     }
 
-    // STEPデータの最下部エリア
+    // 記事データの最下部エリア
     &__bottom{
         justify-content: space-between;
         align-items: center;

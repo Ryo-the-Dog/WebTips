@@ -56,15 +56,15 @@
     }
 
     /*---------------------------------
-    /* STEP登録関連
+    /* 記事登録関連
     ---------------------------------*/
-    // STEP画像エリア
+    // 記事画像エリア
     &__stepImg-area{
         width: 100%;
         padding-top: $space_s;
     }
 
-    // STEP画像
+    // 記事画像
     &__stepImg{
         width: 100%;
         height: 200px;
@@ -95,25 +95,25 @@
         }
     }
 
-    // STEP投稿の期間入力フォーム
+    // 記事投稿の期間入力フォーム
     &__time-input{
         width: 200px;
         padding-right: 0;
         text-align: center;
     }
 
-    // STEP投稿の期間入力フォームの単位
+    // 記事投稿の期間入力フォームの単位
     &__month{
         display: inline-block;
         padding-top: $space_s;
     }
 
-    // 子STEPフォーム追加ボタンエリア
+    // チャプターフォーム追加ボタンエリア
     &__add-btn-area{
         text-align: center;
     }
 
-    // 子STEPフォーム追加ボタン
+    // チャプターフォーム追加ボタン
     &__add-btn{
         text-align: center;
         &:hover{
@@ -125,7 +125,7 @@
         }
     }
 
-    // 子STEP追加時のバリデーション
+    // チャプター追加時のバリデーション
     &__invalid-list{
         margin-bottom: $space_xs;
         text-align: center;

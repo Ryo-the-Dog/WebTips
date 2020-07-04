@@ -105,7 +105,7 @@ class ClearsController extends Controller
         // 記事のid
 //        $articleId = $id;
 
-        // このページの子STEPを全て格納する
+        // このページのチャプターを全て格納する
 //        $thisChildSteps = $this->childStep->where('step_id', $id)->get();
 
         // ログインユーザーがクリアした子STEP

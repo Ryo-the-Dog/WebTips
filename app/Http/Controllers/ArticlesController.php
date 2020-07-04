@@ -176,27 +176,27 @@ class ArticlesController extends Controller
     // ログインユーザーが学習済みの記事一覧画面を表示するアクション
     // ========================================
     public function clearList() {
-        // チャレンジ中のSTEPを取得
+        // チャレンジ中の記事を取得
         $learnArticles = getPaginatedArticles($this->auth->user()->learns());
 
-        // 全てクリアしたSTEPを取得
+        // クリアした記事を取得
         $clearArticles = getPaginatedArticles($this->auth->user()->clears());
 
-        // チャレンジ中のSTEPのidを格納
+        // 学習中の記事のidを格納
         $learnArticleIds = getIds($learnArticles);
 
-        // 全てクリアしたSTEPのidを格納
+        // クリアした記事のidを格納
         $clearArticleIds = getIds($clearArticles);
 
-        // 全てクリアしたSTEPがある場合
+        // クリアした記事がある場合
         if(!empty($clearArticleIds)){
 
-            // チャレンジ中のSTEPのid配列の中から、全てクリアしたSTEPのidのキーを取得する
+            // 学習中の記事のid配列の中から、クリアした記事のidのキーを取得する
             foreach ($clearArticleIds as $clearArticleId){
                 $searchIds[] = array_search($clearArticleId, $learnArticleIds);
             }
 
-            // チャレンジ中のSTEPから、全てクリアしたSTEPを取り除く
+            // 学習中の記事から、クリアした記事を取り除く
             foreach ($searchIds as $searchId){
                 unset($learnArticles[$searchId]);
             }
@@ -205,7 +205,7 @@ class ArticlesController extends Controller
     }
 
     // ========================================
-    // ログインユーザーが投稿したSTEP一覧画面表示を表示するアクション
+    // ログインユーザーが投稿した記事一覧画面表示を表示するアクション
     // ========================================
     public function postList() {
 
@@ -215,7 +215,7 @@ class ArticlesController extends Controller
     }
 
     // ========================================
-    // ログインユーザーが投稿したSTEPの編集画面を表示するアクション
+    // ログインユーザーが投稿した記事の編集画面を表示するアクション
     // ========================================
     public function edit($id) {
         // URLに数字以外がURLに入力された場合はリダイレクト
@@ -223,10 +223,10 @@ class ArticlesController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // ログインユーザーが投稿したSTEPを格納
+        // ログインユーザーが投稿した記事を格納
         $myArticles = $this->auth->user()->articles();
 
-        // ログインユーザーが投稿したSTEPのidを格納
+        // ログインユーザーが投稿した記事のidを格納
         $myArticleIds = getIds($myArticles->get());
 
         // URLにログインユーザーが投稿していないidが入力された場合はリダイレクト
@@ -234,17 +234,17 @@ class ArticlesController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // クリックされたSTEPを格納
+        // クリックされた記事を格納
         $article = $myArticles->find($id);
 
-        // このSTEPのカテゴリーがカテゴリーフォームで選択済みにさせるためにidを取得する
+        // この記事のカテゴリーがカテゴリーフォームで選択済みにさせるためにidを取得する
         $thisCategoryIds = getIds($article->categories);
 
         return view('mypage.articleEdit', compact('article','thisCategoryIds'));
     }
 
     // ========================================
-    // STEPを投稿するアクション
+    // 記事を投稿するアクション
     // ========================================
     public function create(CreateArticleRequest $request) {
 
@@ -296,7 +296,7 @@ class ArticlesController extends Controller
         $i = 1; // チャプターの番号
         // チャプターのタイトルと内容をそれぞれ回す
         foreach (array_map(null, $chapterTitles, $chapterContents) as [$val1, $val2] ) {
-            // チャプターのタイトルか内容、時間のいずれかが空欄の場合は登録しない。またSTEP番号を１つ飛ばして入力された場合でも登録されなくなる。
+            // チャプターのタイトルか内容、時間のいずれかが空欄の場合は登録しない。また記事番号を１つ飛ばして入力された場合でも登録されなくなる。
             if( empty($val1) || empty($val2)){
                 break;
             }
@@ -316,7 +316,7 @@ class ArticlesController extends Controller
     }
 
     // ========================================
-    // STEPを編集するアクション
+    // 記事を編集するアクション
     // ========================================
     public function update(CreateArticleRequest $request, $id) {
         // URLに数字以外がURLに入力された場合はリダイレクト
@@ -324,7 +324,7 @@ class ArticlesController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // ログインユーザーが投稿したSTEPから指定されたidで取得
+        // ログインユーザーが投稿した記事から指定されたidで取得
         $article = $this->auth->user()->articles()->find($id);
 
         // 万が一自分の投稿じゃないフレーズを編集しようとした場合にはマイページにリダイレクトする
@@ -332,7 +332,7 @@ class ArticlesController extends Controller
             return back()->with('flash_message',__('You can edit only your own articles.'));
         }
 
-        // 親STEPのid
+        // 親記事のid
         $articleId = $article->id;
 
         // 登録済みのチャプター
@@ -349,10 +349,10 @@ class ArticlesController extends Controller
             'description' => $request->input('description'),
         ])->save();
 
-        // 送信されたSTEPにカテゴリーを紐づける
+        // 送信された記事にカテゴリーを紐づける
         $article->categories()->sync($categoryIds);
 
-        // STEP画像が入力されている場合
+        // 記事画像が入力されている場合
         if(!empty($imgFile = $request->file('article_img'))) {
 
             // Cloudinaryにアップロード後に生成されたURLを格納
@@ -408,7 +408,7 @@ class ArticlesController extends Controller
     }
 
     // ========================================
-    // STEPを削除するアクション
+    // 記事を削除するアクション
     // ========================================
     public function destroy($id) {
         // URLに数字以外がURLに入力された場合はリダイレクト
@@ -416,17 +416,17 @@ class ArticlesController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // 自分が投稿したSTEPのみ削除できるようにする
-        $myStep = $this->auth->user()->steps()->find($id);
+        // 自分が投稿した記事のみ削除できるようにする
+        $myArticle = $this->auth->user()->articles()->find($id);
 
-        // 万が一自分の投稿じゃないSTEPを削除しようとした場合にはマイページにリダイレクトする
-        if(empty($myStep)) {
-            return redirect('/mypage/mystep')->with('flash_message',__('You can delete only your own articles.'));
+        // 万が一自分の投稿じゃない記事を削除しようとした場合にはマイページにリダイレクトする
+        if(empty($myArticle)) {
+            return redirect('/mypage/myarticle')->with('flash_message',__('You can delete only your own articles.'));
         }
 
-        // 送信されたSTEPを削除する
-        $myStep->delete();
+        // 送信された記事を削除する
+        $myArticle->delete();
 
-        return redirect('/mypage/mystep')->with('flash_message', __('Deleted.'));
+        return redirect('/mypage/myarticle')->with('flash_message', __('Deleted.'));
     }
 }

@@ -148,7 +148,7 @@
             }
         },
         methods: {
-            // 子STEPフォームを追加
+            // チャプターフォームを追加
             addChapterForm: function () {
                 this.errors = []
                     // 現在表示されているフォームが空の場合は追加させない
@@ -157,7 +157,7 @@
                         this.errors.push('ステップのタイトル・内容を入力してください。')
                         return false
                 }
-                // countの値を増やすことで子STEPのフォーム数を増やす
+                // countの値を増やすことでチャプターのフォーム数を増やす
                 this.count++
             },
             checkInput: function (old, current, id, key) {
@@ -181,7 +181,7 @@
                         obj[count]['content'] = ""
                         count--
                     }
-                    // もし１つ目の子STEPフォームが空欄で送信された場合、上記の処理で０になってしまうので１つは表示されるようにする
+                    // もし１つ目のチャプターフォームが空欄で送信された場合、上記の処理で０になってしまうので１つは表示されるようにする
                     if(count < 1){
                         count = 1
                     }

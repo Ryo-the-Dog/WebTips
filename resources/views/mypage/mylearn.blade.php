@@ -1,4 +1,4 @@
-{{-- マイページのチャレンジ関連のSTEP一覧のビュー --}}
+{{-- マイページの学習中の記事一覧のビュー --}}
 @extends('layouts.app')
 
 @section('title', __('My Learn List - Mypage'))
@@ -6,11 +6,11 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-step-list">
+            <div class="p-article-list">
 
                 @forelse($learnArticles as $article)
 
-                    <div class="p-steps l-flexbox">
+                    <div class="p-articles l-flexbox">
 
 {{--                    @include('partials.article')--}}
                         <articleitem
@@ -31,11 +31,11 @@
 
                     </div>
                 @empty
-                    <div class="p-steps__empty">
-                        <p class="p-steps__empty-text">
+                    <div class="p-articles__empty">
+                        <p class="p-articles__empty-text">
                             学習中の記事はありません。
                         </p>
-                        <a href="{{ route('articles.list') }}" class="c-btn--yellow p-steps__empty-link">記事を探してみる</a>
+                        <a href="{{ route('articles.list') }}" class="c-btn--yellow p-articles__empty-link">記事を探してみる</a>
                     </div>
                 @endforelse
             </div>

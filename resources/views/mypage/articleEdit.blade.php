@@ -1,4 +1,4 @@
-{{-- STEP登録のビュー --}}
+{{-- 記事登録のビュー --}}
 @extends('layouts.app')
 
 @section('title', __('Article Edit'))

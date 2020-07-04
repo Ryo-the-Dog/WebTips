@@ -7,6 +7,9 @@
 .u-mr-auto {
     margin-right: auto;
 }
+.u-mr-xs {
+    margin-right: $space_xs;
+}
 // 指定した要素を右端に寄せる用
 .u-ml-auto {
     margin-left: auto;
@@ -14,6 +17,7 @@
 .u-ml-s {
     margin-left: $space_s;
 }
-.u-mr-xs {
-    margin-right: $space_xs;
+.u-ml-m {
+    margin-left: $space_m;
 }
+

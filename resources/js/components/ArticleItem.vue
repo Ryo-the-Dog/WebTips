@@ -51,7 +51,7 @@
                         {{deleteLink}}
                     </button>
                 </form>
-                <a v-if="postRouteFlag"  class="c-btn c-btn--blue c-btn--mystep" :href="editRoute" title="記事編集ページ">{{editLink}}</a>
+                <a v-if="postRouteFlag" class="c-btn c-btn--blue c-btn--mystep" :href="editRoute" title="記事編集ページ">{{editLink}}</a>
 
             </div>
         </div>
