@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Challenge extends Model
+class Learn extends Model
 {
     protected $fillable = [
-        'step_id' , 'user_id'
+        'article_id' , 'user_id'
     ];
 
 }

@@ -74,6 +74,6 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         // 登録したら直前にいたページへ移動
-        return redirect()->intended('/steps')->with('flash_message', __('Registration completed.'));
+        return redirect()->intended('/articles')->with('flash_message', __('Registration completed.'));
     }
 }

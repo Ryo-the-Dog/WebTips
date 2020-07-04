@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-//    protected $redirectTo = '/steps';
+//    protected $redirectTo = '/articles';
 //    protected function redirectTo()
 //    {
 //        return '/';
@@ -54,7 +54,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         // ログインしたら、ログインする直前のページへ遷移する
-        return redirect()->intended('/steps')->with('flash_message', __('You logged in.'));
+        return redirect()->intended('/articles')->with('flash_message', __('You logged in.'));
     }
 
     /**

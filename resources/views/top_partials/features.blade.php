@@ -1,6 +1,6 @@
 <section class="l-container">
 
-        <h2 class="c-title--container">TechStepの特徴</h2>
+        <h2 class="c-title--container">WebTipsの特徴</h2>
 
         <div class="c-container-body">
             <div class="p-features l-flexbox">

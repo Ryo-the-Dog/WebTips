@@ -7,27 +7,27 @@ use JD\Cloudder\Facades\Cloudder;
 // ========================================
 // 1ページ当たりの表示件数
 const NUM_PER_PAGE = 6;
-// STEPの表示順を決める基準
+// 記事の表示順を決める基準
 const SORT_BY = 'updated_at';
-// STEPの表示順
+// 記事の表示順
 const SORT_ORDER = 'desc';
 
 // ========================================
 // コントローラー内で使用する関数
 // ========================================
 
-// STEPに関する関数
+// 記事に関する関数
 // ========================================
-// STEPを並び替えて取得する関数
-function getOrderedSteps($steps) {
+// 記事を並び替えて取得する関数
+function getOrderedArticles($articles) {
 
-    return $steps->orderBy(SORT_BY, SORT_ORDER)->get();
+    return $articles->orderBy(SORT_BY, SORT_ORDER)->get();
 }
 
-// STEPをページネーション処理して取得する関数
-function getPaginatedSteps($steps) {
+// 記事をページネーション処理して取得する関数
+function getPaginatedArticles($articles) {
 
-    return $steps->orderBy(SORT_BY, SORT_ORDER)->paginate(NUM_PER_PAGE);
+    return $articles->orderBy(SORT_BY, SORT_ORDER)->paginate(NUM_PER_PAGE);
 }
 
 // 配列のidを取得する関数

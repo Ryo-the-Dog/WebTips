@@ -6,7 +6,7 @@
 
     @include('top_partials.features')
 
-    @include('top_partials.step-introduction')
+    @include('top_partials.article-introduction')
 
     @include('top_partials.recommend')
 

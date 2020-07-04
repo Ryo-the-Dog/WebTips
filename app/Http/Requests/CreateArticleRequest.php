@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateStepRequest extends FormRequest
+class CreateArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class CreateStepRequest extends FormRequest
             'category_ids.*' => 'integer',
 //            'time' => 'required | numeric | between:1,10000',
             'description' => 'required | string | max:1000',
-            'step_img' => 'nullable | file | image | mimes:jpeg,png,jpg,gif | max:1024',
+            'article_img' => 'nullable | file | image | mimes:jpeg,png,jpg,gif | max:1024',
             'child_step.1.title' => 'required_with:child_step.1.content',
             'child_step.1.content' => 'required_with:child_step.1.title',
 //            'child_step.1.time' => 'required_with:child_step.1.title,child_step.1.content',

@@ -7,7 +7,7 @@ require('laravel-mix-polyfill');
  | Mix Asset Management
  |--------------------------------------------------------------------------
  |
- | Mix provides a clean, fluent API for defining some Webpack build steps
+ | Mix provides a clean, fluent API for defining some Webpack build articles
  | for your Laravel application. By default, we are compiling the Sass
  | file for the application as well as bundling up all the JS files.
  |

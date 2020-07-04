@@ -1,16 +1,16 @@
-{{-- STEP登録フォーム部分 --}}
+{{-- 記事投稿フォーム部分 --}}
 <div class="l-flexbox p-form-card__top">
     <div class="p-form-card__group p-form-card__eyecatch">
         <label for="step_img" class="p-form-card__label">{{ __('Eyecatch Image') }}</label>
 
-        <StepImagePreview
+        <articleimagepreview
             @if(Route::currentRouteName()==='mypage.mystepEdit')
-            :step="{{json_encode($step)}}"
-            :step-img="{{json_encode($step->step_img)}}"
+                :article="{{json_encode($article)}}"
+                :article-img="{{json_encode($article->article_img)}}"
             @endif
-        ></StepImagePreview>
+        ></articleimagepreview>
 
-        @error('step_img')
+        @error('article_img')
         <span class="c-invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </span>
@@ -59,12 +59,12 @@
     <label for="title" class="p-form-card__label">{{ __('Title') }}</label>
 
     <div class="p-form-card__input-area">
-        <StepTitleForm
-            :input-title="{{json_encode(old('title', !empty($step->title) ? $step->title: ''))}}"
+        <articletitleform
+            :input-title="{{json_encode(old('title', !empty($article->title) ? $article->title: ''))}}"
             @error('title')
                 :error="{{json_encode(true)}}"
             @enderror
-        ></StepTitleForm>
+        ></articletitleform>
 
         @error('title')
             <span class="c-invalid-feedback" role="alert">
@@ -81,12 +81,12 @@
 
     <div class="p-form-card__input-area">
 
-        <StepDescriptionForm
-            :input-description="{{json_encode(old('description', !empty($step->description) ? $step->description: ''))}}"
+        <articledescriptionform
+            :input-description="{{json_encode(old('description', !empty($article->description) ? $article->description: ''))}}"
             @error('description')
                 :error="{{json_encode(true)}}"
             @enderror
-        ></StepDescriptionForm>
+        ></articledescriptionform>
 
         @error('description')
             <span class="c-invalid-feedback" role="alert">
@@ -97,21 +97,21 @@
 </div>
 
 <label for="child_step" class="p-form-card__label">
-    {{ __('STEP(max:10)') }}
+    {{ __('Item(max:20)') }}
     <Modalquestion></Modalquestion>
 </label>
 
-@error('child_step.*.*')
+@error('chapter.*.*')
     <p class="c-invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </p>
 @enderror
 
-<childstepform
-    :old-inputs="{{json_encode(Session::getOldInput("child_step",false))}}"
-    {{-- STEP編集ページの場合は登録済みの子STEP情報を渡す --}}
-    @if(Route::currentRouteName() === 'mypage.mystepEdit')
-        :current-inputs="{{json_encode($step->childSteps)}}"
+<chapterform
+    :old-inputs="{{json_encode(Session::getOldInput("chapter",false))}}"
+    {{-- 記事編集ページの場合は登録済みのチャプター情報を渡す --}}
+    @if(Route::currentRouteName() === 'mypage.myarticleEdit')
+        :current-inputs="{{json_encode($article->chapters)}}"
     @endif
-></childstepform>
+></chapterform>
 

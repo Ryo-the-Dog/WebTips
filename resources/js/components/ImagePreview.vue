@@ -4,7 +4,7 @@
                v-preview-input="uploadedImage"
                @change="onFileChange">
         <div class="p-form-card__img-area">
-            <img class="c-avatar" id="file-preview"
+            <img class="c-avatar p-form-card__img" id="file-preview"
                  v-show="uploadedImage"
                  v-bind:src="uploadedImage"
                  alt="プロフィール画像">

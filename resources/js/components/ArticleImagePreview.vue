@@ -21,10 +21,10 @@
 
 <script>
     export default {
-        props: ['step','stepImg'],
+        props: ['article','articleImg'],
         data() {
             return {
-                uploadedImage: this.stepImg ? this.stepImg : '/img/no_img_step.png',
+                uploadedImage: this.articleImg ? this.articleImg : '/img/no_img_article.jpg',
                 sizeLimit: 1024000,
                 error: null,
             }

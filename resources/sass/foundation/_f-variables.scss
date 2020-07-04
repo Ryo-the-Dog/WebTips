@@ -85,16 +85,21 @@ $space_6l: 80px;
 // ボーダー
 // 黒のボーダー
 $border_black: solid 1px $color_black;
+
 // グレーのボーダー
 $border_gray: solid 1px $color_gray_200;
 // グレーのボーダー(フォーカス時)
 $border_gray_focus: solid 1px $color_gray_400;
+
 // 波線のグレーのボーダー
 $dashed_border_gray: dashed 1px $color_gray_200;
+
 // 薄い青色のボーダー
 $border_blue_light: solid 1px $color_blue_lighter;
+
 // 青色のボーダー
 $border_blue: solid 1px $color_blue;
+
 // 赤色のボーダー(バリデーションエラー用)
 $border_red: solid 1px $color_red;
 

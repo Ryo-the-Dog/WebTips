@@ -7,7 +7,7 @@
     <div class="l-container">
         <div class="l-container-sub">
 
-            @include('partials.stepData')
+            @include('partials.articleData')
 
             <div class="p-childStep-detail">
                 <div class="p-childStep-detail__title-area l-flexbox">

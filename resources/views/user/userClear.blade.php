@@ -1,30 +1,31 @@
-{{-- ユーザープロフィールのビュー --}}
+{{-- ユーザープロフィール　ユーザーが学習済みの記事一覧のビュー --}}
 @extends('layouts.app')
 
-@section('title', $userProf->name.__("'s Posted Articles"))
+@section('title', $userProf->name.__("'s Clear List"))
 
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
             <div class="p-step-list">
-                <div class="p-steps l-flexbox">
-                    @forelse($userPostArticles as $article)
 
-                            @include('partials.article')
+                <div class="p-steps l-flexbox">
+                    @forelse($userClearArticles as $article)
+
+                        @include('partials.article')
 
                     @empty
                         <div class="p-steps__empty">
                             <p class="p-steps__empty-text">
-                                投稿された記事がありません。
+                                学習済みの記事はありません。
                             </p>
                         </div>
                     @endforelse
-
                 </div>
             </div>
-            @if ( $userPostArticles->hasPages() )
-                {{ $userPostArticles->links('pagination::default') }}
-            @elseif(count($userPostArticles)!==0 )
+
+            @if ( $userClearArticles->hasPages() )
+                {{ $userClearArticles->links('pagination::default') }}
+            @elseif(count($userClearArticles)!==0 )
                 {{-- ページが１ページでもページネーションを表示する --}}
                 <ul class="c-pagination">
                     <li aria-disabled="true" aria-label="« Previous" class="c-pagination__page-item disabled">
@@ -40,6 +41,7 @@
             @else
 
             @endif
+
         </div>
     </div>
 

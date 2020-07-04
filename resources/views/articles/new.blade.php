@@ -16,10 +16,10 @@
 
                     <div class="p-form-card__body">
 
-                        <form method="POST" action="{{ route('steps.new') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('articles.new') }}" enctype="multipart/form-data">
                             @csrf
 
-                            @include('form_partials.stepForm')
+                            @include('form_partials.postForm')
 
                             <div class="p-form-card__submit">
                                 <button type="submit" class="c-btn c-btn--blue c-btn--form">

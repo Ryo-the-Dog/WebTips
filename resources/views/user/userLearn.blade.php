@@ -1,29 +1,34 @@
-{{-- ログインユーザーが投稿したSTEP一覧のビュー --}}
+{{-- ユーザープロフィール　ユーザーが学習中の記事一覧のビュー --}}
 @extends('layouts.app')
 
-@section('title', __('My Post List - Mypage'))
+@section('title', $userProf->name.__("'s Learn List"))
 
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
             <div class="p-step-list">
-                <div class="p-steps l-flexbox">
-                    @forelse($mySteps as $step)
 
-                        @include('partials.step')
+                <div class="p-steps l-flexbox">
+                    @forelse($userLearnArticles as $article)
+
+                        @include('partials.article')
 
                     @empty
-                        <div class="c-guide-msg">
-                            <p class="c-guide-msg__text">投稿されたSTEPがありません。</p>
-                            <p class="c-guide-msg__text">あなたの成功例をシェアしませんか？</p>
-                            <a class="c-btn--yellow c-guide-msg__link" href="{{ route('steps.new') }}">{{ __('POST Now') }}</a>
+                        <div class="p-steps__empty">
+                            <p class="p-steps__empty-text">
+                                学習中の記事はありません。
+                            </p>
                         </div>
+
                     @endforelse
+
                 </div>
+
             </div>
-            @if ( $mySteps->hasPages() )
-                {{ $mySteps->links('pagination::default') }}
-            @elseif(count($mySteps)!==0 )
+
+            @if ( $userLearnArticles->hasPages() )
+                {{ $userLearnArticles->links('pagination::default') }}
+            @elseif(count($userLearnArticles)!==0 )
                 {{-- ページが１ページでもページネーションを表示する --}}
                 <ul class="c-pagination">
                     <li aria-disabled="true" aria-label="« Previous" class="c-pagination__page-item disabled">
@@ -39,6 +44,7 @@
             @else
 
             @endif
+
         </div>
     </div>
 

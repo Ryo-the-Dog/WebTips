@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Step;
+use App\Article;
 use Faker\Generator as Faker;
 
-$factory->define(Step::class, function (Faker $faker) {
+$factory->define(Article::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween($min=1, $max=6),
         'title' => 'テスト用サンプルデータ',

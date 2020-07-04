@@ -24,24 +24,24 @@ Vue.use(VueScrollTo, {
     easing: "ease"
 });
 
-// STEPの一覧表示
-Vue.component('step', require('./components/Step.vue').default);
-// STEPタイトル入力欄
-Vue.component('steptitleform', require('./components/StepTitleForm.vue').default);
-// STEP説明入力欄
-Vue.component('stepdescriptionform', require('./components/StepDescriptionForm.vue').default);
+// 記事の一覧表示
+Vue.component('articleitem', require('./components/ArticleItem.vue').default);
+// 記事タイトル入力欄
+Vue.component('articletitleform', require('./components/ArticleTitleForm.vue').default);
+// 記事説明入力欄
+Vue.component('articledescriptionform', require('./components/ArticleDescriptionForm.vue').default);
 // プロフィールの名前入力欄
 Vue.component('usernameform', require('./components/UserNameForm.vue').default);
 // プロフィールの紹介文入力欄
 Vue.component('userintroduceform', require('./components/UserIntroduceForm.vue').default);
 // プロフィール画像のライブプレビュー
 Vue.component('imagepreview', require('./components/ImagePreview.vue').default);
-// STEP画像のライブプレビュー
-Vue.component('stepimagepreview', require('./components/StepImagePreview.vue').default);
+// 記事画像のライブプレビュー
+Vue.component('articleimagepreview', require('./components/ArticleImagePreview.vue').default);
 // クエスチョンモーダル
 Vue.component('modalquestion', require('./components/ModalQuestion.vue').default);
-// 子STEPの登録フォーム
-Vue.component('childstepform', require('./components/ChildStepForm.vue').default);
+// チャプターの登録フォーム
+Vue.component('chapterform', require('./components/ChapterForm.vue').default);
 // フラッシュメッセージ
 Vue.component('flashmessage', require('./components/FlashMessage.vue').default);
 // TOPへ戻るボタン

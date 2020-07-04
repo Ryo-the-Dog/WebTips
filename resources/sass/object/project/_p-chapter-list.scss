@@ -3,7 +3,7 @@
 ==================================== */
 /* 子STEP一覧を定義しています。
 ==================================== */
-.p-childStep-list {
+.p-chapter-list {
     //border-top: $border_gray;
     //border-bottom: $border_gray;
     background-color: $color_white;
@@ -13,11 +13,13 @@
     margin-bottom: $space_3l;
 
     // 子STEP一覧の項目
-    &__item{
+    &__title-outer {
         align-items: center;
+        border-bottom: $dashed_border_gray;
         font-size: $font-size_s;
-        min-height: 72px;
-        margin-bottom: $space_m;
+        font-weight: bold;
+        min-height: 60px;
+        margin: $space_xl 0 $space_m;
         pointer-events: none;
         //&:hover{
         //    background-color: $color_gray_100;
@@ -25,9 +27,6 @@
         @include mq(sm){
             font-size: $font-size_xs;
         }
-    }
-    &__item:not(:last-child){
-        border-bottom: $dashed_border_gray;
     }
 
     // クリアボタン
@@ -67,7 +66,7 @@
         }
 
         &:hover{
-            .p-childStep-list__item{
+            .p-chapter-list__item{
                 background-color: $color_gray_100;
                 transition: all .3s;
                 color: yellow;

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryArticleTable extends Migration
+class CreateArticleCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCategoryArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_article', function (Blueprint $table) {
+        Schema::create('article_category', function (Blueprint $table) {
             $table->integer('category_id')->unsigned();
             $table->bigInteger('article_id')->unsigned();
             $table->primary(['category_id','article_id']);
@@ -30,12 +30,12 @@ class CreateCategoryArticleTable extends Migration
      */
     public function down()
     {
-        Schema::table('category_article', function (Blueprint $table) {
+        Schema::table('article_category', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
         });
-        Schema::table('category_article', function (Blueprint $table) {
+        Schema::table('article_category', function (Blueprint $table) {
             $table->dropForeign(['article_id']);
         });
-        Schema::dropIfExists('category_article');
+        Schema::dropIfExists('article_category');
     }
 }

@@ -13,33 +13,38 @@
 
 // 非会員でも使用可能なルーティング
 // 非会員用のトップページ
-Route::get('/', 'StepsController@index')->name('index');
+Route::get('/', 'ArticlesController@index')->name('index');
 // STEP一覧画面表示(会員用のトップページ)
-Route::get('/steps', 'StepsController@list')->name('steps.list');
+Route::get('/articles', 'ArticlesController@list')->name('articles.list');
 // STEP検索結果一覧画面表示
-Route::get('/search', 'StepsController@search')->name('steps.search');
+Route::get('/search', 'ArticlesController@search')->name('articles.search');
 // STEP詳細画面表示
-Route::get('/steps/detail/{id}', 'StepsController@show')->name('steps.show');
+Route::get('/articles/detail/{id}', 'ArticlesController@show')->name('articles.show');
 // 子STEP詳細画面表示
-Route::get('/steps/step/{id}', 'ChildStepsController@show')->name('childStep.show');
-// ユーザーのチャレンジ中STEP一覧画面表示
-Route::get('/userProfile/{id}/challenge', 'UsersController@challengeList')->name('userProfile.challenge');
+Route::get('/articles/step/{id}', 'ChildStepsController@show')->name('childStep.show');
+// ユーザーの学習中の記事一覧画面表示
+Route::get('/userProfile/{id}/learn', 'UsersController@learnList')->name('userProfile.learn');
+// ユーザーがクリアした記事一覧画面表示
+Route::get('/userProfile/{id}/clear', 'UsersController@clearList')->name('userProfile.clear');
 // ユーザーが投稿したSTEP一覧画面表示
 Route::get('/userProfile/{id}/post', 'UsersController@postList')->name('userProfile.post');
 
 // 会員限定のルーティング
 Route::group(['middleware' => 'auth'], function() {
     // STEP投稿画面表示
-    Route::get('/steps/new', function (){
-        return view('steps.new');
-    })->name('steps.new');
+    Route::get('/articles/new', function (){
+        return view('articles.new');
+    })->name('articles.new');
+
     // マイページ画面
-    // チャレンジしたSTEP一覧画面表示(マイページリンククリックで最初にこのページに飛ぶ)
-    Route::get('/mypage/challenge', 'StepsController@challengeList')->name('mypage.challenge');
-    // 投稿したSTEP一覧画面表示
-    Route::get('/mypage/mystep', 'StepsController@myStepList')->name('mypage.mystep');
-    // 投稿したSTEPの編集画面表示
-    Route::get('/mypage/mystep/edit/{id}', 'StepsController@edit')->name('mypage.mystepEdit');
+    // 学習中の記事一覧画面表示(マイページリンククリックで最初にこのページに飛ぶ)
+    Route::get('/mypage/learn', 'ArticlesController@learnList')->name('mypage.learn');
+    // 学習中の記事一覧画面表示(マイページリンククリックで最初にこのページに飛ぶ)
+    Route::get('/mypage/clear', 'ArticlesController@clearList')->name('mypage.clear');
+    // 投稿し記事STEP一覧画面表示
+    Route::get('/mypage/myarticle', 'ArticlesController@postList')->name('mypage.post');
+    // 投稿した記事の編集画面表示
+    Route::get('/mypage/myarticle/edit/{id}', 'ArticlesController@edit')->name('mypage.myarticleEdit');
     // プロフィール編集画面表示
     Route::get('/mypage/profile', function (){
         return view('mypage.profEdit');
@@ -53,26 +58,26 @@ Route::group(['middleware' => 'auth'], function() {
         return view('mypage.profDelete');
     })->name('mypage.profDelete');
 
-    // STEP投稿アクション
-    Route::post('/steps/new', 'StepsController@create');
-    // STEP編集アクション
-    Route::post('/mypage/mystep/edit/{id}', 'StepsController@update')->name('step.edit');
-    // STEP削除アクション
-    Route::post('/mypage/mystep/delete/{id}', 'StepsController@destroy')->name('step.delete');
+    // 記事STEP投稿アクション
+    Route::post('/articles/new', 'ArticlesController@create');
+    // 記事STEP編集アクション
+    Route::post('/mypage/myarticle/edit/{id}', 'ArticlesController@update')->name('article.edit');
+    // 記事削除アクション
+    Route::post('/mypage/myarticle/delete/{id}', 'ArticlesController@destroy')->name('article.delete');
     // プロフィール編集アクション
     Route::post('/mypage/profile', 'UsersController@update');
     // パスワード編集アクション
     Route::post('/mypage/password', 'UsersController@passUpdate');
     // アカウント削除アクション
     Route::post('/mypage/profile/delete', 'UsersController@destroy');
-    // チャレンジ開始アクション
-    Route::post('/steps/challenge/{id}', 'ChallengesController@challenge')->name('step.challenge');
-    // チャレンジをやめるアクション
-    Route::post('/steps/unchallenge/{id}', 'ChallengesController@unchallenge')->name('step.unchallenge');
-    // 子STEPをクリアするアクション
-    Route::post('/childSteps/clear/{id}', 'ClearsController@clear')->name('childStep.clear');
-    // 子STEP全てのクリアを解除するアクション
-    Route::post('/childSteps/allunclear/{id}', 'ClearsController@allunclear')->name('childStep.allunclear');
+    // リスト追加アクション
+    Route::post('/articles/learn/{id}', 'LearnsController@learn')->name('article.learn');
+    // リスト削除アクション
+    Route::post('/articles/unlearn/{id}', 'LearnsController@unlearn')->name('article.unlearn');
+    // チャプターをクリアするアクション
+    Route::post('/articles/clear/{id}', 'ClearsController@clear')->name('article.clear');
+    // チャプター全てのクリアを解除するアクション
+    Route::post('/articles/unclear/{id}', 'ClearsController@unclear')->name('article.unclear');
 });
 
 Auth::routes();

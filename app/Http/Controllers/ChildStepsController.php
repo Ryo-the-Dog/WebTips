@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\AllClear;
-use App\ChildStep;
+use App\Chapter;
 use App\Clear;
-use App\Step;
+use App\Article;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class ChildStepsController extends Controller
     // ========================================
     // コンストラクタ
     // ========================================
-    function __construct(Guard $auth, Step $step, ChildStep $childStep, Clear $clear) {
+    function __construct(Guard $auth, Article $step, Chapter $childStep, Clear $clear) {
         $this->auth = $auth;
         $this->step = $step;
         $this->childStep = $childStep;
@@ -86,19 +86,19 @@ class ChildStepsController extends Controller
 
                     $allClearFlg = true;
 
-                    return view('steps.childStep',
+                    return view('articles.childStep',
                         compact('step','childStep', 'childStepIds', 'childStepsCount', 'defaultChallenged', 'myClearChildSteps',  'thisClearChildStepsCount', 'allClearFlg'));
                 }else{
                     // クリアしたSTEPはあるが全てはクリアしていない場合
-                    return view('steps.childStep', compact('step','childStep', 'childStepIds', 'childStepsCount', 'defaultChallenged', 'myClearChildSteps', 'thisClearChildStepsCount'));
+                    return view('articles.childStep', compact('step','childStep', 'childStepIds', 'childStepsCount', 'defaultChallenged', 'myClearChildSteps', 'thisClearChildStepsCount'));
                 }
             }else{
                 // クリアしたSTEPが無い場合
-                return view('steps.childStep',compact('step','childStep', 'childStepIds', 'childStepsCount', 'defaultChallenged', 'thisClearChildStepsCount'));
+                return view('articles.childStep',compact('step','childStep', 'childStepIds', 'childStepsCount', 'defaultChallenged', 'thisClearChildStepsCount'));
             }
         }else{
             // ユーザーがログインしていない場合
-            return view('steps.childStep', compact('step','childStep'));
+            return view('articles.childStep', compact('step','childStep'));
         }
     }
 }

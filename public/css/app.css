@@ -6366,6 +6366,19 @@ li {
  Layout
 ==================================== */
 
+/* 記事ページのレイアウトを定義しています。
+==================================== */
+
+.l-article {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 60px;
+}
+
+/* ====================================
+ Layout
+==================================== */
+
 /* 入力フォームのレイアウトを定義しています。
 ==================================== */
 
@@ -6408,7 +6421,7 @@ li {
 ==================================== */
 
 .c-site-logo {
-  width: 150px;
+  width: 160px;
 }
 
 @media screen and (max-width: 768px) {
@@ -6765,57 +6778,22 @@ li {
   transition: all 0.5s;
 }
 
-.c-btn--challenge {
-  font-size: 16px;
-  padding: 10px;
+.c-btn--cleared {
+  color: #747474;
 }
 
-@media screen and (max-width: 414px) {
-  .c-btn--challenge {
-    font-size: 14px;
-  }
+.c-btn--cleared:hover {
+  color: #42454b;
+  transition: all 0.5s;
 }
 
-.c-btn--restart {
-  font-size: 14px;
-  padding: 10px;
+.c-btn--uncleared {
+  color: #2f72d8;
 }
 
-.c-btn--clear {
-  white-space: nowrap;
-  font-size: 14px;
-  width: 65px;
-  padding: 10px;
-  pointer-events: auto;
-}
-
-.c-btn--clear.is-disabled {
-  cursor: auto;
-  border: solid 1px #ddd;
-  position: relative;
-}
-
-.c-btn--clear.is-cleared {
-  cursor: auto;
-  background-color: rgba(11, 112, 183, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  position: relative;
-  pointer-events: none;
-}
-
-.c-btn--clear__lock {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.c-btn--clear__check {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
+.c-btn--uncleared:hover {
+  color: #2c52a6;
+  transition: all 0.5s;
 }
 
 .c-btn--mystep {
@@ -6878,8 +6856,9 @@ li {
 
 .c-eyecatch {
   width: 100%;
+  min-height: 400px;
   max-height: 400px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ====================================
@@ -6906,8 +6885,8 @@ li {
 
 .c-avatar {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 
@@ -7457,6 +7436,7 @@ pre {
 }
 
 .p-step-panel:hover {
+  box-shadow: 0 0 0 1px #2f72d8;
   border: solid 1px #2f72d8;
   transition: all 0.5s;
 }
@@ -7499,11 +7479,11 @@ pre {
   .p-step-panel__stepImg {
     position: static;
     width: 100%;
-    height: 100%;
+    height: 200px;
     top: 0;
     left: 0;
     transform: none;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
@@ -7601,7 +7581,7 @@ pre {
 }
 
 .p-form-card__eyecatch {
-  margin-right: 15px;
+  margin-right: 60px;
 }
 
 @media screen and (max-width: 768px) {
@@ -7698,6 +7678,11 @@ pre {
   margin: 0 auto;
 }
 
+.p-form-card__img {
+  width: 70px;
+  height: 70px;
+}
+
 .p-form-card__remember-label {
   align-items: center;
   cursor: pointer;
@@ -7765,16 +7750,12 @@ pre {
 }
 
 .p-step-detail__eyecatch-area {
-  width: 50%;
+  width: 100%;
   margin-right: 3%;
 }
 
 .p-step-detail__eyecatch {
   border-bottom: none;
-}
-
-.p-step-detail__right {
-  width: 47%;
 }
 
 .p-step-detail__stepData-area {
@@ -7784,15 +7765,14 @@ pre {
 }
 
 .p-step-detail__description-area {
-  border-bottom: solid 1px #ddd;
   height: 65%;
   min-height: 120px;
   padding-bottom: 10px;
 }
 
 .p-step-detail__icon-area {
-  justify-content: space-between;
   align-items: center;
+  padding: 10px 0 40px;
 }
 
 .p-step-detail__bottom {
@@ -7809,7 +7789,6 @@ pre {
 
 .p-article-header {
   background-color: #fafafa;
-  padding: 10px 20px;
 }
 
 /* ====================================
@@ -7827,6 +7806,7 @@ pre {
 
 .p-postdata__profile-area {
   align-items: center;
+  color: #747474;
   margin-bottom: 10px;
   position: relative;
 }
@@ -7858,45 +7838,10 @@ pre {
  Project
 ==================================== */
 
-/* 子STEP詳細ページを定義しています。
-==================================== */
-
-.p-childStep-detail {
-  border-top: solid 1px #ddd;
-}
-
-.p-childStep-detail__title-area {
-  align-items: center;
-  border-bottom: dashed 1px #ddd;
-  min-height: 70px;
-  padding-top: calc((70px - 18px) / 2);
-  padding-bottom: calc((70px - 18px) / 2);
-}
-
-.p-childStep-detail__number {
-  margin-right: 5px;
-}
-
-.p-childStep-detail__title {
-  font-size: 18px;
-  font-weight: normal;
-  width: calc(100% - 35px);
-}
-
-.p-childStep-detail__content {
-  border-bottom: solid 1px #ddd;
-  min-height: 200px;
-  padding: 10px 0;
-}
-
-/* ====================================
- Project
-==================================== */
-
 /* 子STEP一覧を定義しています。
 ==================================== */
 
-.p-childStep-list {
+.p-chapter-list {
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -7904,44 +7849,42 @@ pre {
   margin-bottom: 50px;
 }
 
-.p-childStep-list__item {
+.p-chapter-list__title-outer {
   align-items: center;
+  border-bottom: dashed 1px #ddd;
   font-size: 18px;
-  min-height: 72px;
-  margin-bottom: 15px;
+  font-weight: bold;
+  min-height: 60px;
+  margin: 30px 0 15px;
   pointer-events: none;
 }
 
 @media screen and (max-width: 414px) {
-  .p-childStep-list__item {
+  .p-chapter-list__title-outer {
     font-size: 16px;
   }
 }
 
-.p-childStep-list__item:not(:last-child) {
-  border-bottom: dashed 1px #ddd;
-}
-
-.p-childStep-list__clear {
+.p-chapter-list__clear {
   margin-right: 10px;
 }
 
-.p-childStep-list__title-area {
+.p-chapter-list__title-area {
   align-items: center;
   width: 85%;
 }
 
-.p-childStep-list__number {
+.p-chapter-list__number {
   border: solid 1px #42454b;
   color: #42454b;
   margin-right: 5px;
 }
 
-.p-childStep-list__title {
+.p-chapter-list__title {
   width: calc(100% - 35px);
 }
 
-.p-childStep-list__link {
+.p-chapter-list__link {
   align-items: center;
   font-weight: bold;
   width: 100%;
@@ -7949,17 +7892,17 @@ pre {
   pointer-events: auto;
 }
 
-.p-childStep-list__link.challenged {
+.p-chapter-list__link.challenged {
   width: calc(100% - 75px);
 }
 
-.p-childStep-list__link:hover .p-childStep-list__item {
+.p-chapter-list__link:hover .p-chapter-list__item {
   background-color: #fafafa;
   transition: all 0.3s;
   color: yellow;
 }
 
-.p-childStep-list__empty {
+.p-chapter-list__empty {
   padding: 15px 0;
 }
 

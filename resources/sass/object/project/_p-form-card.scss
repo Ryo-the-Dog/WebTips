@@ -32,7 +32,7 @@
 
     // アイキャッチ画像フォーム
     &__eyecatch{
-        margin-right: $space_m;
+        margin-right: $space_4l;
 
         @include mq(md){
             margin-right: 0;
@@ -139,6 +139,12 @@
         width: 70px;
         padding-top: $space_s;
         margin: 0 auto;
+    }
+
+    // プロフィール編集ページの画像エリア
+    &__img{
+        width: 70px;
+        height: 70px;
     }
 
     // ログイン状態保存のラベル

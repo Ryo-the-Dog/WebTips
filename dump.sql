@@ -233,7 +233,7 @@ LOCK TABLES `password_resets` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `steps`
+-- Table structure for table `articles`
 --
 
 DROP TABLE IF EXISTS `steps`;
@@ -255,13 +255,13 @@ CREATE TABLE `steps` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `steps`
+-- Dumping data for table `articles`
 --
 
 LOCK TABLES `steps` WRITE;
-/*!40000 ALTER TABLE `steps` DISABLE KEYS */;
+/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `steps` VALUES (1,1,'最短でweb制作でお金を稼ぐ！',3,'最短でweb制作でお金を稼ぐまでのステップです。\n稼げるようになるまでの難易度が比較的低いとされる、ランディングページを制作できるようになる方法です。','2019-12-31 13:08:45','2019-06-10 20:07:10','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584405/step_sample_1_jju4vo.jpg'),(2,2,'TOEIC初学者が一発で700点取る方法',6,'一発でTOEIC700点取れる方法です。','2019-09-19 19:50:39','2020-01-01 05:53:13','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584403/step_sample_2_s4qayp.jpg'),(3,3,'投資の始め方',1,'今話題のつみたてNISAで投資を始めるまでのステップです。','2019-12-10 15:52:30','2020-03-27 17:53:35','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_3_c4ifrn.jpg'),(4,4,'転職に必要なこと',3,'転職をするまでに必要なことです。','2019-09-15 01:48:48','2019-11-26 03:17:46','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_4_yf076a.jpg'),(5,2,'留学せずに英語の日常会話をマスターしよう',6,'英語を勉強したはずなのに、いざとなると全然話せないという方は多いと思います。\n最低限英語を話せるようになるまでの最短ステップです！','2020-03-30 22:57:05','2019-08-11 16:02:41','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_5_j3suzp.jpg'),(6,3,'できるビジネスマンになろう！',3,'カッコいいビジネスマンになるための秘訣をお教えします。\n職場での信頼感が上がること間違い無しです！','2020-04-18 11:46:11','2019-06-12 08:20:50','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_6_jbm79c.jpg'),(7,5,'スペイン語初級講座',3,'現在中国語、英語に続いて使っている人の多い言語がスペイン語です。\nこれからもスペイン語を使う人は増えていくので、この機会に是非勉強してみてください！','2019-07-21 22:06:30','2020-02-29 18:33:32','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584406/step_sample_7_gevlcs.jpg'),(8,6,'webデザインを学ぼう！',3,'webデザイナーではないけれど、デザインの力を身に付けたいという方におすすめです。','2019-10-22 09:09:40','2019-07-05 22:55:18','https://res.cloudinary.com/djix7zcpk/image/upload/v1588584405/step_sample_8_f7vx8e.png'),(9,3,'テスト用サンプルデータ',14,'テスト用のサンプルデータです。','2019-01-04 14:53:35','2018-11-11 16:23:08',NULL),(10,1,'テスト用サンプルデータ',24,'テスト用のサンプルデータです。','2018-05-21 18:40:18','2018-10-23 07:33:45',NULL),(11,3,'テスト用サンプルデータ',4,'テスト用のサンプルデータです。','2018-10-08 04:31:07','2019-01-08 08:25:53',NULL),(12,4,'テスト用サンプルデータ',15,'テスト用のサンプルデータです。','2018-10-13 15:18:21','2018-09-20 18:13:04',NULL),(13,2,'テスト用サンプルデータ',31,'テスト用のサンプルデータです。','2018-07-02 02:19:34','2018-09-23 08:30:00',NULL),(14,3,'テスト用サンプルデータ',19,'テスト用のサンプルデータです。','2018-11-30 01:27:02','2018-09-29 20:50:41',NULL),(15,5,'テスト用サンプルデータ',9,'テスト用のサンプルデータです。','2018-12-18 19:32:42','2018-07-03 15:49:25',NULL),(16,2,'テスト用サンプルデータ',30,'テスト用のサンプルデータです。','2019-02-14 07:00:50','2018-08-11 14:44:52',NULL),(17,5,'テスト用サンプルデータ',14,'テスト用のサンプルデータです。','2018-12-06 18:27:17','2019-04-04 21:09:19',NULL),(18,1,'テスト用サンプルデータ',21,'テスト用のサンプルデータです。','2018-08-02 21:28:02','2018-05-15 23:12:43',NULL);
-/*!40000 ALTER TABLE `steps` ENABLE KEYS */;
+/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

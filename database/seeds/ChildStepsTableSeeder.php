@@ -1,6 +1,6 @@
 <?php
 
-use App\ChildStep;
+use App\Chapter;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;

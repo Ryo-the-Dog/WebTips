@@ -11,7 +11,7 @@
             </button>
         </div>
 
-        <a href="{{route('steps.list')}}" class="p-recommend__link" title="STEP一覧">会員登録しない場合はコチラから</a>
+        <a href="{{route('articles.list')}}" class="p-recommend__link" title="STEP一覧">会員登録しない場合はコチラから</a>
 
     </div>
 

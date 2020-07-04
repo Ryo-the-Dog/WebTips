@@ -29,17 +29,13 @@
 
     // アイキャッチ画像のエリア
     &__eyecatch-area{
-        width: 50%;
+        width: 100%;
         margin-right: 3%;
     }
 
     // アイキャッチ画像
     &__eyecatch {
         border-bottom: none;
-    }
-
-    &__right{
-        width: 47%;
     }
 
     // STEPデータのエリア
@@ -51,16 +47,15 @@
 
     // STEPの説明のエリア
     &__description-area{
-        border-bottom: $border_gray;
         height: 65%;
         min-height: 120px;
         padding-bottom: $space_s;
     }
 
-    // Twitterとチャレンジアイコンのエリア
+    // Twitterと学習リストアイコンのエリア
     &__icon-area{
-        justify-content: space-between;
         align-items: center;
+        padding: $space_s 0 $space_xxl;
     }
 
     // STEPデータの最下部エリア

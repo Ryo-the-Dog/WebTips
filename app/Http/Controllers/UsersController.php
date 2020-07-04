@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\PassEditRequest;
-use App\Step;
+use App\Article;
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
@@ -17,17 +17,17 @@ class UsersController extends Controller
     // ========================================
     // コンストラクタ
     // ========================================
-    function __construct(Guard $auth, User $user, Category $category, Step $step) {
+    function __construct(Guard $auth, User $user, Category $category, Article $article) {
         $this->auth = $auth;
         $this->user = $user;
         $this->category = $category;
-        $this->step = $step;
+        $this->article = $article;
     }
 
     // ========================================
-    // ユーザープロフィールのチャレンジしたSTEP一覧画面表示
+    // ユーザープロフィールの学習中リスト一覧画面表示
     // ========================================
-    public function challengeList($id) {
+    public function learnList($id) {
         // URLに数字以外がURLに入力された場合はリダイレクト
         if(!ctype_digit($id)){
             return back()->with('flash_message',__('Invalid operation was performed.'));
@@ -40,35 +40,78 @@ class UsersController extends Controller
             return back()->with('flash_message',__('The URL does not exist.'));
         }
 
-        // ユーザーがチャレンジ中のSTEP
-        $userChallengeSteps = getOrderedSteps($userProf->challenges());
+        // ユーザーが学習中の記事
+        $userLearnArticles = getPaginatedArticles($userProf->learns());
 
-        // ユーザーが全てクリアしたSTEP
-        $userAllClearSteps = getOrderedSteps($userProf->allClears());
+        // ユーザーがクリアした記事
+        $userClearArticles = getPaginatedArticles($userProf->clears());
 
-        // ユーザーがチャレンジ中のSTEPのidを格納
-        $userChallengeStepIds = getIds($userChallengeSteps);
+        // ユーザーが学習中の記事のidを格納
+        $userLearnArticleIds = getIds($userLearnArticles);
 
-        // ユーザーが全てクリアしたSTEPのidを格納
-        $userAllClearStepIds = getIds($userAllClearSteps);
+        // ユーザーがクリアした記事のidを格納
+        $userClearArticleIds = getIds($userClearArticles);
 
         // 全てクリアしたSTEPがある場合
-        if(!empty($userAllClearStepIds)){
-            // チャレンジ中のSTEPのid配列の中から、全てクリアしたSTEPのidのキーを取得する
-            foreach ($userAllClearStepIds as $userAllClearStepId){
-                $userSearchIds[] = array_search($userAllClearStepId, $userChallengeStepIds);
+        if(!empty($userClearArticleIds)){
+            // 学習中の記事のid配列の中から、クリアした記事のidのキーを取得する
+            foreach ($userClearArticleIds as $userClearArticleId){
+                $userSearchIds[] = array_search($userClearArticleId, $userLearnArticleIds);
             }
-            // チャレンジ中のSTEPから、全てクリアしたSTEPを削除する
+            // 学習中の記事から、クリアした記事を削除する
             foreach ($userSearchIds as $userSearchId){
-                unset($userChallengeSteps[$userSearchId]);
+                unset($userLearnArticles[$userSearchId]);
             }
         }
 
-        return view('user.userChallenge', compact('userProf', 'userChallengeSteps', 'userAllClearSteps'));
+        return view('user.userLearn', compact('userProf', 'userLearnArticles', 'userClearArticles'));
     }
 
     // ========================================
-    // ユーザープロフィールの投稿したSTEP一覧画面表示
+    // ユーザープロフィールの学習済みリスト一覧画面表示
+    // ========================================
+    public function clearList($id) {
+        // URLに数字以外がURLに入力された場合はリダイレクト
+        if(!ctype_digit($id)){
+            return back()->with('flash_message',__('Invalid operation was performed.'));
+        }
+
+        $userProf = $this->user->find($id);
+
+        // 登録されていない数字がURLに入力された場合はリダイレクト
+        if(empty($userProf)){
+            return back()->with('flash_message',__('The URL does not exist.'));
+        }
+
+        // ユーザーが学習中の記事
+        $userLearnArticles = getPaginatedArticles($userProf->learns());
+
+        // ユーザーがクリアした記事
+        $userClearArticles = getPaginatedArticles($userProf->clears());
+
+        // ユーザーが学習中の記事のidを格納
+        $userLearnArticleIds = getIds($userLearnArticles);
+
+        // ユーザーがクリアした記事のidを格納
+        $userClearArticleIds = getIds($userClearArticles);
+
+        // 全てクリアしたSTEPがある場合
+        if(!empty($userClearArticleIds)){
+            // 学習中の記事のid配列の中から、クリアした記事のidのキーを取得する
+            foreach ($userClearArticleIds as $userClearArticleId){
+                $userSearchIds[] = array_search($userClearArticleId, $userLearnArticleIds);
+            }
+            // 学習中の記事から、クリアした記事を削除する
+            foreach ($userSearchIds as $userSearchId){
+                unset($userLearnArticles[$userSearchId]);
+            }
+        }
+
+        return view('user.userClear', compact('userProf', 'userLearnArticles', 'userClearArticles'));
+    }
+
+    // ========================================
+    // ユーザープロフィールの投稿した記事一覧画面表示
     // ========================================
     public function postList($id) {
         // URLに数字以外がURLに入力された場合はリダイレクト
@@ -83,9 +126,9 @@ class UsersController extends Controller
             return back()->with('flash_message',__('The URL does not exist.'));
         }
 
-        $userPostSteps = getPaginatedSteps($userProf->steps());
+        $userPostArticles = getPaginatedArticles($userProf->articles());
 
-        return view('user.userPost', compact('userProf', 'userPostSteps'));
+        return view('user.userPost', compact('userProf', 'userPostArticles'));
     }
 
     // ========================================

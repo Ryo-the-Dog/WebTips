@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\ChildStep;
+use App\Chapter;
 use Faker\Generator as Faker;
 
-$factory->define(ChildStep::class, function (Faker $faker) {
+$factory->define(Chapter::class, function (Faker $faker) {
     return [
         'step_id' => $i,
         'step_number' => 1,

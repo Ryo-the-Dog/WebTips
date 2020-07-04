@@ -51,26 +51,26 @@ class User extends Authenticatable
         $this->notify(new CustomPasswordReset($token));
     }
 
-    // Stepモデルとのリレーション
-    public function steps() {
-        return $this->hasMany('App\Step');
+    // Articleモデルとのリレーション
+    public function articles() {
+        return $this->hasMany('App\Article');
     }
-    // Challengeモデルとのリレーション
-    public function challenges() {
+    // Learnモデルとのリレーション
+    public function learns() {
         return $this->belongsToMany(
-            'App\Step', 'challenges', 'user_id', 'step_id'
+            'App\Article', 'learns', 'user_id', 'article_id'
         )->withTimestamps();
     }
     // Clearモデルとのリレーション
     public function clears() {
         return $this->belongsToMany(
-            'App\ChildStep', 'clears', 'user_id', 'child_step_id'
+            'App\Article', 'clears', 'user_id', 'article_id'
         )->withTimestamps();
     }
     // AllClearモデルとのリレーション
-    public function allClears() {
-        return $this->belongsToMany(
-            'App\Step', 'allClears', 'user_id', 'step_id'
-        )->withTimestamps();
-    }
+//    public function allClears() {
+//        return $this->belongsToMany(
+//            'App\Article', 'allClears', 'user_id', 'step_id'
+//        )->withTimestamps();
+//    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Step;
+use App\Article;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +15,11 @@ class StepsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('steps')->delete();
+        DB::table('articles')->delete();
 
         $faker = Faker::create('ja_JP');
 
-        DB::table('steps')->insert([
+        DB::table('articles')->insert([
             [
                 'id' => 1,
                 'user_id' => 1,
@@ -103,7 +103,7 @@ class StepsTableSeeder extends Seeder
         ]);
 
         for($i = 9; $i < 19; $i++){
-            DB::table('steps')->insert([
+            DB::table('articles')->insert([
                 'id' => $i,
                 'user_id' => $faker->numberBetween($min=1, $max=6),
                 'title' => 'テスト用サンプルデータ',
@@ -115,7 +115,7 @@ class StepsTableSeeder extends Seeder
         }
 
         //factoryを利用
-//        factory(Step::class, 10)->create();
+//        factory(Article::class, 10)->create();
 
     }
 }

@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="TechStep(テックステップ)は目標達成までの過程をシェアできる学習サービスです。">
+    <meta name="description" content="WebTips(テックステップ)は目標達成までの過程をシェアできる学習サービスです。">
 
     <!-- Twitter -->
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="TechStep" >
-    <meta property="og:description" content="TechStep(テックステップ)は目標達成までの過程をシェアできる学習サービスです。" >
+    <meta property="og:title" content="WebTips" >
+    <meta property="og:description" content="WebTips(テックステップ)は目標達成までの過程をシェアできる学習サービスです。" >
     <meta property="og:image" content="{{ asset('/img/twitter_card.jpg') }}" >
     <meta name="twitter:card" content="summary">
 
@@ -17,9 +17,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @hasSection('title')
-        <title>@yield('title') | {{ config('app.name', 'TechStep') }}</title>
+        <title>@yield('title') | {{ config('app.name', 'WebTips') }}</title>
     @else
-        <title>{{ config('app.name', 'TechStep') }}</title>
+        <title>{{ config('app.name', 'WebTips') }}</title>
     @endif
 
     <!-- Fonts -->
@@ -43,23 +43,23 @@
 
         <!-- ヘッダー -->
         <header id="header" class="l-header p-header
-                @if(Route::currentRouteName() === 'index') fixed @elseif(Route::currentRouteName() === 'steps.list') category-fixed @endif">
+                @if(Route::currentRouteName() === 'index') fixed @elseif(Route::currentRouteName() === 'articles.list') category-fixed @endif">
 
-            <div class="p-header__top">
+            <div class="p-header__top l-flexbox">
                 <div class="p-header__container l-flexbox">
 
                     <!-- サイトロゴ -->
                     <h1 class="c-site-logo">
-                        <a href="@guest{{ route('index') }}@else{{ route('steps.list') }} @endguest"
+                        <a href="@guest{{ route('index') }}@else{{ route('articles.list') }} @endguest"
                            class="c-site-logo__link" title="@guest トップページ @else STEP一覧 @endguest">
-                            <img src="{{asset('/img/step_icon_top.png')}}" alt="STEP" class="c-site-logo__img">
+                            <img src="{{asset('/img/title_logo.jpg')}}" alt="STEP" class="c-site-logo__img">
                         </a>
                     </h1>
 
                     <!-- 検索欄 -->
-                    @if(Route::currentRouteName()==='steps.list' || Route::currentRouteName()==='steps.search')
+                    @if(Route::currentRouteName()==='articles.list' || Route::currentRouteName()==='articles.search')
                         <Searchform
-                            :action-route="{{json_encode(route('steps.search'))}}"
+                            :action-route="{{json_encode(route('articles.search'))}}"
                             @if(!empty($keyword))
                                 :keyword="{{json_encode($keyword)}}"
                             @endif
@@ -78,9 +78,9 @@
                         @else
                             :auth-flg="{{json_encode(true)}}"
                             :guest-flg="{{json_encode(false)}}"
-                            :mypage-route="{{json_encode(route('mypage.challenge'))}}"
+                            :mypage-route="{{json_encode(route('mypage.learn'))}}"
                             :logout-route="{{json_encode(route('logout'))}}"
-                            :post-route="{{json_encode(route('steps.new'))}}"
+                            :post-route="{{json_encode(route('articles.new'))}}"
                             :mypage-link="{{json_encode(__('Mypage'))}}"
                             :logout-link="{{json_encode(__('Logout'))}}"
                             :post-link="{{json_encode(__('POST'))}}"
@@ -91,19 +91,19 @@
             </div>
 
             <!-- カテゴリーヘッダー -->
-            @if( Route::currentRouteName() === 'steps.list' )
+            @if( Route::currentRouteName() === 'articles.list' )
 
                 @include('partials.categoryHeader')
 
             <!-- マイページのプロフィール部分 -->
             @elseif( explode('.', Route::currentRouteName())[0] == 'mypage' )
 
-                @include('partials.profData')
+                @include('partials.myProfHeader')
 
             <!-- ユーザーのプロフィール部分 -->
             @elseif( explode('.', Route::currentRouteName())[0] == 'userProfile' )
 
-                @include('partials.userProfData')
+                @include('partials.userProfHeader')
 
             @endif
         </header>
@@ -117,14 +117,14 @@
         @endif
 
         <!-- メイン部分 -->
-        <main class="l-main @if(Route::currentRouteName() === 'index') fixed @elseif(Route::currentRouteName() === 'steps.list') category-fixed @endif">
+        <main class="l-main @if(Route::currentRouteName() === 'index') fixed @elseif(Route::currentRouteName() === 'articles.list') category-fixed @endif">
             @yield('content')
         </main>
 
         <!-- フッター -->
         <footer class="l-footer">
             <div class="p-footer">
-                <p class="u-text-muted">Copyright &copy;TechStep All Rights Reserved.</p>
+                <p class="u-text-muted">Copyright &copy;WebTips All Rights Reserved.</p>
             </div>
         </footer>
     </div>
