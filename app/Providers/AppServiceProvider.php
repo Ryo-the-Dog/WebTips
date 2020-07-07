@@ -30,7 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        // Herokuアップロード用にvarcharを制限する
+//        Schema::defaultStringLength(191);
 
         // Herokuでhttpsを強制する
         if (\App::environment('production')) {

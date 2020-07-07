@@ -6,9 +6,9 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-step-list">
+            <div class="p-articles">
                 <h2 class="c-title--page">[&nbsp;{{$keyword}}&nbsp;]の検索結果：{{$countSearchArticles}}件</h2>
-                <div class="p-steps l-flexbox">
+                <div class="p-articles l-flexbox">
                     @forelse($searchArticles as $article)
                         <step
                             :step="{{json_encode($article)}}"

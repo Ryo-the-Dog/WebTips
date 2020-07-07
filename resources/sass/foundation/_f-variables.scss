@@ -7,6 +7,7 @@
 // 黒色
 $color_black_light: #51545a;
 $color_black: #42454b;
+$color_black_bg: #212121;
 
 // グレー
 $color_gray_100: #fafafa;
@@ -23,6 +24,8 @@ $color_gray_transparent_5: rgba(230, 230, 230, 0.6);
 
 // 白色
 $color_white: #fff;
+$color_white_code: #F5F5F5;
+
 // 透過度の高い白色
 $color_white_transparent_9: rgba(255, 255, 255, 0.9);
 $color_white_transparent_5: rgba(255, 255, 255, 0.5);
@@ -36,6 +39,11 @@ $color_yellow_hover: #d8c31e;
 $color_blue: #2f72d8;
 // 青色(メインのホバー時)
 $color_blue_hover: #2c52a6;
+
+// 青色(リンク)
+$color_blue_link: #4682b4;
+// 青色(リンクのホバー時)
+$color_blue_link_hover: #3a668c;
 
 // 薄い青色(主にボーダー用)
 $color_blue_lighter: #AEC9DD;

@@ -6673,7 +6673,6 @@ li {
 ==================================== */
 
 .c-dropdown {
-  display: none;
   background-color: #fff;
   border: solid 1px #ddd;
   border-radius: 2px;
@@ -6858,7 +6857,7 @@ li {
   width: 100%;
   min-height: 400px;
   max-height: 400px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* ====================================
@@ -7266,10 +7265,30 @@ li {
 ==================================== */
 
 pre {
-  background-color: #fafafa;
-  border: solid 1px #ddd;
+  background-color: #212121;
+  color: #F5F5F5;
   line-height: 1.5rem;
-  padding: 10px;
+  padding: 20px;
+  margin: 0 0 20px;
+  overflow: auto;
+}
+
+.p-chapter-list__content h1 {
+  margin: 0 0 10px;
+}
+
+.p-chapter-list__content p {
+  margin: 0 0 20px;
+}
+
+.p-chapter-list__content a {
+  color: #4682b4;
+  text-decoration: underline;
+}
+
+.p-chapter-list__content a:hover {
+  color: #3a668c;
+  transition: all 0.5s;
 }
 
 /* ====================================
@@ -7399,34 +7418,34 @@ pre {
 /* 記事一覧を定義しています。
 ==================================== */
 
-.p-steps {
+.p-articles {
   flex-wrap: wrap;
   margin-right: -2%;
   margin-bottom: 50px;
 }
 
 @media screen and (max-width: 768px) {
-  .p-steps {
+  .p-articles {
     margin-right: 0;
   }
 }
 
-.p-steps__empty {
+.p-articles__empty {
   font-size: 18px;
   padding: 10px 0 30px;
   margin: 0 auto;
   text-align: center;
 }
 
-.p-steps__empty-text {
+.p-articles__empty-text {
   margin-bottom: 15px;
 }
 
-.p-steps__empty-link {
+.p-articles__empty-link {
   padding: 15px;
 }
 
-.p-step-panel {
+.p-article-panel {
   margin-bottom: 15px;
   position: relative;
   z-index: 1;
@@ -7435,13 +7454,13 @@ pre {
   ----------------------------------*/
 }
 
-.p-step-panel:hover {
+.p-article-panel:hover {
   box-shadow: 0 0 0 1px #2f72d8;
   border: solid 1px #2f72d8;
   transition: all 0.5s;
 }
 
-.p-step-panel__link-large {
+.p-article-panel__link-large {
   position: absolute;
   top: 0;
   left: 0;
@@ -7451,11 +7470,11 @@ pre {
   z-index: 2;
 }
 
-.p-step-panel__item {
+.p-article-panel__item {
   margin-bottom: 15px;
 }
 
-.p-step-panel__stepImg-area {
+.p-article-panel__articleImg-area {
   border-bottom: solid 1px #ddd;
   width: 100%;
   height: 200px;
@@ -7464,7 +7483,7 @@ pre {
   overflow: hidden;
 }
 
-.p-step-panel__stepImg {
+.p-article-panel__articleImg {
   width: 100%;
   min-width: 100%;
   min-height: 100%;
@@ -7476,66 +7495,66 @@ pre {
 }
 
 @supports (object-fit: cover) {
-  .p-step-panel__stepImg {
+  .p-article-panel__articleImg {
     position: static;
     width: 100%;
     height: 200px;
     top: 0;
     left: 0;
     transform: none;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
-.p-step-panel__contents {
+.p-article-panel__contents {
   padding: 0 15px 15px;
 }
 
-.p-step-panel__title-area {
+.p-article-panel__title-area {
   align-items: center;
   height: 55px;
 }
 
-.p-step-panel__title {
+.p-article-panel__title {
   font-size: 20px;
   word-break: break-word;
 }
 
 @media screen and (max-width: 414px) {
-  .p-step-panel__title {
+  .p-article-panel__title {
     font-size: 18px;
   }
 }
 
-.p-step-panel__category {
+.p-article-panel__category {
   margin-right: 5px;
 }
 
-.p-step-panel__bottom {
+.p-article-panel__bottom {
   justify-content: space-between;
   align-items: center;
   border-top: solid 1px #ddd;
   padding-top: 15px;
 }
 
-.p-step-panel__twitter-area {
+.p-article-panel__twitter-area {
   z-index: 3;
 }
 
-.p-step-panel__twitter-area:hover .c-icon--twitter {
+.p-article-panel__twitter-area:hover .c-icon--twitter {
   color: #2977b3;
   transition: all 0.5s;
 }
 
-.p-step-panel__myStep-challenge-area {
+.p-article-panel__myArticle-learn-area {
   margin: 0 auto 0 10px;
 }
 
-.p-step-panel__deleteForm {
+.p-article-panel__deleteForm {
   z-index: 3;
 }
 
-.p-step-panel__delete {
+.p-article-panel__delete {
   line-height: inherit;
   margin-right: 5px;
 }
@@ -7604,12 +7623,12 @@ pre {
   margin-left: 10px;
 }
 
-.p-form-card__stepImg-area {
+.p-form-card__articleImg-area {
   width: 100%;
   padding-top: 10px;
 }
 
-.p-form-card__stepImg {
+.p-form-card__articleImg {
   width: 100%;
   height: 200px;
   object-fit: contain;
@@ -7842,10 +7861,6 @@ pre {
 ==================================== */
 
 .p-chapter-list {
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  padding: 10px 10px 30px;
   margin-bottom: 50px;
 }
 
@@ -7865,10 +7880,6 @@ pre {
   }
 }
 
-.p-chapter-list__clear {
-  margin-right: 10px;
-}
-
 .p-chapter-list__title-area {
   align-items: center;
   width: 85%;
@@ -7882,6 +7893,10 @@ pre {
 
 .p-chapter-list__title {
   width: calc(100% - 35px);
+}
+
+.p-chapter-list__sentence {
+  margin: 0 0 20px;
 }
 
 .p-chapter-list__link {

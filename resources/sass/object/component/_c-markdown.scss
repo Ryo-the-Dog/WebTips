@@ -4,8 +4,31 @@
 /* マークダウンのスタイルを定義しています。
 ==================================== */
 pre {
-    background-color: $color_gray_100;
-    border: $border_gray;
+    background-color: $color_black_bg;
+    //border: $border_gray;
+    color: $color_white_code;
     line-height: 1.5rem;
-    padding: $space_s;
+    padding: $space_l;
+    margin: 0 0 $space_l;
+    overflow: auto;
+}
+
+.p-chapter-list__content {
+    h1{
+        margin: 0 0 $space_s;
+    }
+
+    p{
+        margin: 0 0 $space_l;
+    }
+
+    a{
+        color: $color_blue_link;
+        text-decoration: underline;
+
+        &:hover{
+            color: $color_blue_link_hover;
+            transition: $transition_normal;
+        }
+    }
 }

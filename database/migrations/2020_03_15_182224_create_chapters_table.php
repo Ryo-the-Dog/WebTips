@@ -18,7 +18,7 @@ class CreateChaptersTable extends Migration
             $table->bigInteger('article_id')->unsigned();
             $table->integer('chapter_number');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
 
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');

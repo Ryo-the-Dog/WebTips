@@ -1,53 +1,53 @@
 <template>
-    <div class="p-step-panel c-panel">
+    <div class="p-article-panel c-panel">
 
         <!-- パネル全体をリンクにする -->
-        <a v-bind:href="articleRoute" class="p-step-panel__link-large" title="記事ページ"></a>
+        <a v-bind:href="articleRoute" class="p-article-panel__link-large" title="記事ページ"></a>
 
-        <div class="p-step-panel__stepImg-area">
-            <img v-bind:src="uploadedImage" class="p-step-panel__stepImg" alt="記事の画像">
+        <div class="p-article-panel__articleImg-area">
+            <img v-bind:src="uploadedImage" class="p-article-panel__articleImg" alt="記事の画像">
         </div>
 
-        <div class="p-step-panel__contents">
+        <div class="p-article-panel__contents">
 
-            <div class="p-step-panel__title-area l-flexbox">
-                <h3 class="p-step-panel__title">{{limitTitle}}</h3>
+            <div class="p-article-panel__title-area l-flexbox">
+                <h3 class="p-article-panel__title">{{limitTitle}}</h3>
             </div>
 
-            <div class="p-step-panel__item">
-                <span v-if="articleCategories.length === 0" class="p-step-panel__category c-badge">
+            <div class="p-article-panel__item">
+                <span v-if="articleCategories.length === 0" class="p-article-panel__category c-badge">
                     カテゴリー未登録
                 </span>
-                <span v-else v-for="category in articleCategories" class="p-step-panel__category c-badge">
+                <span v-else v-for="category in articleCategories" class="p-article-panel__category c-badge">
                     {{ category.name }}
                 </span>
             </div>
 
-            <div class="p-step-panel__item">
+            <div class="p-article-panel__item">
                 <p v-if="chapters" class="u-text-gray-500">
                     全{{chapters.length}}項目
                 </p>
             </div>
 
-            <div class="p-step-panel__bottom l-flexbox">
+            <div class="p-article-panel__bottom l-flexbox">
 
-                <div class="p-step-panel__twitter-area">
+                <div class="p-article-panel__twitter-area">
                     <a :href="'http://twitter.com/intent/tweet?url='+ articleUrl +'&text=「'+ article.title +'」を学習中！！&hashtags=WebTips'" title="Twitterでつぶやく">
                         <i class="fab fa-twitter c-icon--twitter "></i>
                     </a>
                 </div>
 
-                <div v-bind:class="{'u-text-red': defaultLearn, 'u-text-gray-500': !defaultLearn, ' p-step-panel__myStep-challenge-area': postRouteFlag }" class="l-flexbox">
+                <div v-bind:class="{'u-text-red': defaultLearn, 'u-text-gray-500': !defaultLearn, ' p-article-panel__myArticle-learn-area': postRouteFlag }" class="l-flexbox">
                     <span class="u-mr-xs">
                         <i class="fas fa-book-open"></i>
                     </span>
                     <span>{{learnCount}}人が学習中</span>
                 </div>
 
-                <form v-if="postRouteFlag" :action="editRoute" method="POST" class="p-step-panel__deleteForm">
+                <form v-if="postRouteFlag" :action="editRoute" method="POST" class="p-article-panel__deleteForm">
                     <input type="hidden" name="_token" :value="csrf">
                     <button onclick="return confirm('本当にこのSTEPを削除してよろしいですか？');"
-                            class="c-btn c-btn--red c-btn--mystep p-step-panel__delete">
+                            class="c-btn c-btn--red c-btn--mystep p-article-panel__delete">
                         {{deleteLink}}
                     </button>
                 </form>

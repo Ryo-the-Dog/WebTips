@@ -1,8 +1,8 @@
 <section class="p-step-introduction l-bg-gray-top">
     <div class="l-container">
         <h2 class="c-title--container">STEP一覧</h2>
-        <div class="p-step-list">
-            <div class="p-steps l-flexbox">
+        <div class="p-articles">
+            <div class="p-articles l-flexbox">
 
                 @forelse($articles as $article)
 

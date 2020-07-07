@@ -6,7 +6,7 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-step-list">
+            <div class="p-articles">
 
                 <div class="p-articles l-flexbox">
                     @forelse($userLearnArticles as $article)

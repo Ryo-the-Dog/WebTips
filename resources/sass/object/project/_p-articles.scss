@@ -4,7 +4,7 @@
 /* 記事一覧を定義しています。
 ==================================== */
 // 記事一覧
-.p-steps {
+.p-articles {
     flex-wrap: wrap;
     margin-right: -2%;
     margin-bottom: $space_3l;
@@ -28,7 +28,7 @@
 }
 
 // 記事のパネル
-.p-step-panel {
+.p-article-panel {
     margin-bottom: $space_m;
     position: relative;
     z-index: 1;
@@ -57,7 +57,7 @@
     }
 
     // 記事の画像エリア
-    &__stepImg-area{
+    &__articleImg-area{
         border-bottom: $border_gray;
         width: 100%;
         height: 200px;
@@ -68,7 +68,7 @@
     }
 
     // 記事の画像
-    &__stepImg{
+    &__articleImg{
         // IEでobject-fitの代用をするため
         width: 100%;
         min-width: 100%;
@@ -82,14 +82,14 @@
 
     // object-fit対応ブラウザの場合
     @supports (object-fit: cover) {
-        &__stepImg{
+        &__articleImg{
             position: static;
             width: 100%;
             height: 200px;
             top: 0;
             left: 0;
             transform: none;
-            object-fit: contain;
+            object-fit: cover;
         }
     }
 
@@ -143,7 +143,7 @@
     /* マイページ専用のスタイル
     ----------------------------------*/
     // マイページの挑戦者数表示エリア
-    &__myStep-challenge-area{
+    &__myArticle-learn-area{
         margin: 0 auto 0 $space_s;
     }
 

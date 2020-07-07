@@ -1,11 +1,11 @@
 <template>
-    <li @click="menuOpen" class="c-navbar-top__trigger c-dropdown-trigger hide-on-md">
+    <li @mouseover.stop="showMenu = !showMenu" class="c-navbar-top__trigger c-dropdown-trigger hide-on-md">
 
         会員メニュー
-        <i v-if="isOpen" class="fas fa-caret-up"></i>
+        <i v-if="showMenu" class="fas fa-caret-up"></i>
         <i v-else class="fas fa-caret-down"></i>
 
-        <ul class="c-dropdown" :class="{ isOpen }">
+        <ul v-if="showMenu" class="c-dropdown">
 
             <li class="c-dropdown__item">
                 <a :href="mypageRoute" class="c-dropdown__link c-navbar-top__link" title="マイページ">{{mypageLink}}</a>
@@ -31,16 +31,44 @@
         props: ['mypageRoute', 'logoutRoute', 'mypageLink', 'logoutLink'],
         data() {
             return{
-                isOpen: false,
+                showMenu: false,
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 
             }
         },
         methods: {
-            menuOpen: function () {
-                this.isOpen = !this.isOpen;
+            // ドロップダウン外をクリックしたときに閉じるメソッド
+            close :function () {
+                this.showMenu = false
+            },
+            listen :function(target, eventType, callback) {
+                if (!this._eventRemovers){
+                    this._eventRemovers = []
+                }
+                target.addEventListener(eventType, callback)
+                this._eventRemovers.push( {
+                    remove :function() {
+                        target.removeEventListener(eventType, callback)
+                    }
+                })
+            },
+        },
+        created:function(){
+
+            this.listen(window, 'click', function(e){
+                // this.$elで自身のDOM(開閉ボタン)を取得
+                if (!this.$el.contains(e.target)){
+                    this.close()
+                }
+            }.bind(this))
+        },
+        destroyed:function(){
+            if (this._eventRemovers){
+                this._eventRemovers.forEach(function(eventRemover){
+                    eventRemover.remove()
+                })
             }
-        }
+        },
     }
 </script>
 

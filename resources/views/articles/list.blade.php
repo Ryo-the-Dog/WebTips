@@ -7,7 +7,7 @@
 <div class="l-bg-gray">
     <div class="l-container">
 
-        <div class="p-steps l-flexbox">
+        <div class="p-articles l-flexbox">
 
             @forelse($articles as $article)
 

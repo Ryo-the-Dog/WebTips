@@ -27,11 +27,13 @@
 {{--                                </a>--}}
                             </div>
 
-                            <p>{{$chapter->content}}</p>
+                            <div class="p-chapter-list__content">
+                                {!! GitDown::parseAndCache($chapter->content) !!}
+                            </div>
 
                         </li>
                     @empty
-                        <p class="p-chapter-list__empty">まだ記事が投稿されていません。</p>
+                        <p class="p-chapter-list__empty">まだ記事内容が登録されていません。</p>
                     @endforelse
 
                 </ul>

@@ -4,12 +4,10 @@
 /* チャプター一覧を定義しています。
 ==================================== */
 .p-chapter-list {
-    //border-top: $border_gray;
-    //border-bottom: $border_gray;
-    background-color: $color_white;
-    border-radius: $radius_round;
-    box-shadow: 0 2px 3px rgba(0,0,0,.1);
-    padding: $space_s $space_s $space_xl;
+    //background-color: $color_white;
+    //border-radius: $radius_round;
+    //box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    //padding: $space_s $space_s $space_xl;
     margin-bottom: $space_3l;
 
     // チャプター一覧の項目
@@ -29,11 +27,6 @@
         }
     }
 
-    // クリアボタン
-    &__clear {
-        margin-right: $space_s;
-    }
-
     // チャプターの番号とタイトルのエリア
     &__title-area{
         align-items: center;
@@ -50,6 +43,10 @@
     // チャプターのタイトル
     &__title{
         width: calc(100% - 35px);
+    }
+
+    &__sentence{
+        margin: 0 0 $space_l;
     }
 
     // チャプターの詳細リンク

@@ -6,15 +6,15 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-step-list">
-                <div class="p-steps l-flexbox">
+            <div class="p-articles">
+                <div class="p-articles l-flexbox">
                     @forelse($userPostArticles as $article)
 
                             @include('partials.article')
 
                     @empty
-                        <div class="p-steps__empty">
-                            <p class="p-steps__empty-text">
+                        <div class="p-articles__empty">
+                            <p class="p-articles__empty-text">
                                 投稿された記事がありません。
                             </p>
                         </div>

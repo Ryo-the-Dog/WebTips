@@ -59,13 +59,13 @@
     /* 記事登録関連
     ---------------------------------*/
     // 記事画像エリア
-    &__stepImg-area{
+    &__articleImg-area{
         width: 100%;
         padding-top: $space_s;
     }
 
     // 記事画像
-    &__stepImg{
+    &__articleImg{
         width: 100%;
         height: 200px;
         object-fit: contain;

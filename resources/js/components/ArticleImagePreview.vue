@@ -5,8 +5,8 @@
                v-preview-input="uploadedImage"
                @change="onFileChange">
 
-        <div class="p-form-card__stepImg-area">
-            <img class="p-form-card__stepImg" id="file-preview"
+        <div class="p-form-card__articleImg-area">
+            <img class="p-form-card__articleImg" id="file-preview"
                  v-show="uploadedImage"
                  v-bind:src="uploadedImage"
                  alt="記事の画像">

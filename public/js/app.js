@@ -436,7 +436,7 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = []; // 現在表示されているフォームが空の場合は追加させない
 
       if (this.chapterFormList[this.count - 1]['currentTitle'] === '' || this.chapterFormList[this.count - 1]['currentTitle'] === null || this.chapterFormList[this.count - 1]['currentContent'] === '' || this.chapterFormList[this.count - 1]['currentContent'] === null) {
-        this.errors.push('ステップのタイトル・内容を入力してください。');
+        this.errors.push('チャプターのタイトル・内容を入力してください。');
         return false;
       } // countの値を増やすことでチャプターのフォーム数を増やす
 
@@ -787,13 +787,42 @@ __webpack_require__.r(__webpack_exports__);
   props: ['mypageRoute', 'logoutRoute', 'mypageLink', 'logoutLink'],
   data: function data() {
     return {
-      isOpen: false,
+      showMenu: false,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   methods: {
-    menuOpen: function menuOpen() {
-      this.isOpen = !this.isOpen;
+    // ドロップダウン外をクリックしたときに閉じるメソッド
+    close: function close() {
+      this.showMenu = false;
+    },
+    listen: function listen(target, eventType, callback) {
+      if (!this._eventRemovers) {
+        this._eventRemovers = [];
+      }
+
+      target.addEventListener(eventType, callback);
+
+      this._eventRemovers.push({
+        remove: function remove() {
+          target.removeEventListener(eventType, callback);
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.listen(window, 'click', function (e) {
+      // this.$elで自身のDOM(開閉ボタン)を取得
+      if (!this.$el.contains(e.target)) {
+        this.close();
+      }
+    }.bind(this));
+  },
+  destroyed: function destroyed() {
+    if (this._eventRemovers) {
+      this._eventRemovers.forEach(function (eventRemover) {
+        eventRemover.remove();
+      });
     }
   }
 });
@@ -941,16 +970,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ascRoute', 'descRoute', 'sortId', 'ascFlg', 'descFlg'],
   data: function data() {
     return {
-      isOpen: false
+      showMenu: false
     };
   },
   methods: {
-    menuOpen: function menuOpen() {
-      this.isOpen = !this.isOpen;
+    // ドロップダウン外をクリックしたときに閉じるメソッド
+    close: function close() {
+      this.showMenu = false;
+    },
+    listen: function listen(target, eventType, callback) {
+      if (!this._eventRemovers) {
+        this._eventRemovers = [];
+      }
+
+      target.addEventListener(eventType, callback);
+
+      this._eventRemovers.push({
+        remove: function remove() {
+          target.removeEventListener(eventType, callback);
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.listen(window, 'click', function (e) {
+      // this.$elで自身のDOM(開閉ボタン)を取得
+      if (!this.$el.contains(e.target)) {
+        this.close();
+      }
+    }.bind(this));
+  },
+  destroyed: function destroyed() {
+    if (this._eventRemovers) {
+      this._eventRemovers.forEach(function (eventRemover) {
+        eventRemover.remove();
+      });
     }
   }
 });
@@ -2322,7 +2381,7 @@ var render = function() {
       on: { change: _vm.onFileChange }
     }),
     _vm._v(" "),
-    _c("div", { staticClass: "p-form-card__stepImg-area" }, [
+    _c("div", { staticClass: "p-form-card__articleImg-area" }, [
       _c("img", {
         directives: [
           {
@@ -2332,7 +2391,7 @@ var render = function() {
             expression: "uploadedImage"
           }
         ],
-        staticClass: "p-form-card__stepImg",
+        staticClass: "p-form-card__articleImg",
         attrs: { id: "file-preview", src: _vm.uploadedImage, alt: "記事の画像" }
       })
     ]),
@@ -2366,38 +2425,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-step-panel c-panel" }, [
+  return _c("div", { staticClass: "p-article-panel c-panel" }, [
     _c("a", {
-      staticClass: "p-step-panel__link-large",
+      staticClass: "p-article-panel__link-large",
       attrs: { href: _vm.articleRoute, title: "記事ページ" }
     }),
     _vm._v(" "),
-    _c("div", { staticClass: "p-step-panel__stepImg-area" }, [
+    _c("div", { staticClass: "p-article-panel__articleImg-area" }, [
       _c("img", {
-        staticClass: "p-step-panel__stepImg",
+        staticClass: "p-article-panel__articleImg",
         attrs: { src: _vm.uploadedImage, alt: "記事の画像" }
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "p-step-panel__contents" }, [
-      _c("div", { staticClass: "p-step-panel__title-area l-flexbox" }, [
-        _c("h3", { staticClass: "p-step-panel__title" }, [
+    _c("div", { staticClass: "p-article-panel__contents" }, [
+      _c("div", { staticClass: "p-article-panel__title-area l-flexbox" }, [
+        _c("h3", { staticClass: "p-article-panel__title" }, [
           _vm._v(_vm._s(_vm.limitTitle))
         ])
       ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "p-step-panel__item" },
+        { staticClass: "p-article-panel__item" },
         [
           _vm.articleCategories.length === 0
-            ? _c("span", { staticClass: "p-step-panel__category c-badge" }, [
+            ? _c("span", { staticClass: "p-article-panel__category c-badge" }, [
                 _vm._v("\n                カテゴリー未登録\n            ")
               ])
             : _vm._l(_vm.articleCategories, function(category) {
                 return _c(
                   "span",
-                  { staticClass: "p-step-panel__category c-badge" },
+                  { staticClass: "p-article-panel__category c-badge" },
                   [
                     _vm._v(
                       "\n                " +
@@ -2411,7 +2470,7 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "p-step-panel__item" }, [
+      _c("div", { staticClass: "p-article-panel__item" }, [
         _vm.chapters
           ? _c("p", { staticClass: "u-text-gray-500" }, [
               _vm._v(
@@ -2423,8 +2482,8 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-step-panel__bottom l-flexbox" }, [
-        _c("div", { staticClass: "p-step-panel__twitter-area" }, [
+      _c("div", { staticClass: "p-article-panel__bottom l-flexbox" }, [
+        _c("div", { staticClass: "p-article-panel__twitter-area" }, [
           _c(
             "a",
             {
@@ -2449,7 +2508,7 @@ var render = function() {
             class: {
               "u-text-red": _vm.defaultLearn,
               "u-text-gray-500": !_vm.defaultLearn,
-              " p-step-panel__myStep-challenge-area": _vm.postRouteFlag
+              " p-article-panel__myArticle-learn-area": _vm.postRouteFlag
             }
           },
           [
@@ -2463,7 +2522,7 @@ var render = function() {
           ? _c(
               "form",
               {
-                staticClass: "p-step-panel__deleteForm",
+                staticClass: "p-article-panel__deleteForm",
                 attrs: { action: _vm.editRoute, method: "POST" }
               },
               [
@@ -2476,7 +2535,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "c-btn c-btn--red c-btn--mystep p-step-panel__delete",
+                      "c-btn c-btn--red c-btn--mystep p-article-panel__delete",
                     attrs: {
                       onclick:
                         "return confirm('本当にこのSTEPを削除してよろしいですか？');"
@@ -2744,7 +2803,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "fas fa-plus-circle" }),
-                _vm._v("ステップを追加する")
+                _vm._v("チャプターを追加する")
               ]
             )
           ])
@@ -3102,63 +3161,72 @@ var render = function() {
     "li",
     {
       staticClass: "c-navbar-top__trigger c-dropdown-trigger hide-on-md",
-      on: { click: _vm.menuOpen }
+      on: {
+        mouseover: function($event) {
+          $event.stopPropagation()
+          _vm.showMenu = !_vm.showMenu
+        }
+      }
     },
     [
       _vm._v("\n\n    会員メニュー\n    "),
-      _vm.isOpen
+      _vm.showMenu
         ? _c("i", { staticClass: "fas fa-caret-up" })
         : _c("i", { staticClass: "fas fa-caret-down" }),
       _vm._v(" "),
-      _c("ul", { staticClass: "c-dropdown", class: { isOpen: _vm.isOpen } }, [
-        _c("li", { staticClass: "c-dropdown__item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "c-dropdown__link c-navbar-top__link",
-              attrs: { href: _vm.mypageRoute, title: "マイページ" }
-            },
-            [_vm._v(_vm._s(_vm.mypageLink))]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "c-dropdown__item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "c-dropdown__link c-navbar-top__link",
-              attrs: {
-                href: _vm.logoutRoute,
-                onclick:
-                  "event.preventDefault();\n                            document.getElementById('logout-form').submit();"
-              }
-            },
-            [
-              _vm._v(
-                "\n                " + _vm._s(_vm.logoutLink) + "\n            "
+      _vm.showMenu
+        ? _c("ul", { staticClass: "c-dropdown" }, [
+            _c("li", { staticClass: "c-dropdown__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "c-dropdown__link c-navbar-top__link",
+                  attrs: { href: _vm.mypageRoute, title: "マイページ" }
+                },
+                [_vm._v(_vm._s(_vm.mypageLink))]
               )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticStyle: { display: "none" },
-              attrs: {
-                id: "logout-form",
-                action: _vm.logoutRoute,
-                method: "POST"
-              }
-            },
-            [
-              _c("input", {
-                attrs: { type: "hidden", name: "_token" },
-                domProps: { value: _vm.csrf }
-              })
-            ]
-          )
-        ])
-      ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "c-dropdown__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "c-dropdown__link c-navbar-top__link",
+                  attrs: {
+                    href: _vm.logoutRoute,
+                    onclick:
+                      "event.preventDefault();\n                            document.getElementById('logout-form').submit();"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.logoutLink) +
+                      "\n            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticStyle: { display: "none" },
+                  attrs: {
+                    id: "logout-form",
+                    action: _vm.logoutRoute,
+                    method: "POST"
+                  }
+                },
+                [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  })
+                ]
+              )
+            ])
+          ])
+        : _vm._e()
     ]
   )
 }
@@ -3340,45 +3408,57 @@ var render = function() {
   return _c("ul", { staticClass: "u-ml-auto" }, [
     _c(
       "li",
-      { staticClass: "c-dropdown-trigger", on: { click: _vm.menuOpen } },
+      {
+        staticClass: "c-dropdown-trigger",
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            _vm.showMenu = !_vm.showMenu
+          }
+        }
+      },
       [
         _vm.ascFlg
           ? _c("span", [
               _vm._v("\n            投稿順\n            "),
-              _vm.isOpen
+              _vm.showMenu
                 ? _c("i", { staticClass: "fas fa-caret-up" })
                 : _c("i", { staticClass: "fas fa-caret-down" })
             ])
           : _c("span", [
               _vm._v("\n            最新順\n            "),
-              _vm.isOpen
+              _vm.showMenu
                 ? _c("i", { staticClass: "fas fa-caret-up" })
                 : _c("i", { staticClass: "fas fa-caret-down" })
             ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "c-dropdown", class: { isOpen: _vm.isOpen } }, [
-          _c("li", { staticClass: "c-dropdown__item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "c-dropdown__link c-navbar-bottom__dropdown-link",
-                attrs: { href: _vm.ascRoute }
-              },
-              [_vm._v("投稿順")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "c-dropdown__item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "c-dropdown__link c-navbar-bottom__dropdown-link",
-                attrs: { href: _vm.descRoute }
-              },
-              [_vm._v("最新順")]
-            )
-          ])
-        ])
+        _vm.showMenu
+          ? _c("ul", { staticClass: "c-dropdown" }, [
+              _c("li", { staticClass: "c-dropdown__item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-dropdown__link c-navbar-bottom__dropdown-link",
+                    attrs: { href: _vm.ascRoute }
+                  },
+                  [_vm._v("投稿順")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "c-dropdown__item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "c-dropdown__link c-navbar-bottom__dropdown-link",
+                    attrs: { href: _vm.descRoute }
+                  },
+                  [_vm._v("最新順")]
+                )
+              ])
+            ])
+          : _vm._e()
       ]
     )
   ])

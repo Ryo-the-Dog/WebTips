@@ -45,7 +45,7 @@ class CreateArticleRequest extends FormRequest
         return [
             'step_img.max:1000' => '画像ファイルの大きさは1MB以下にしてください',
             'category_ids.required' => 'カテゴリーは選択必須です。',
-            'child_step.1.*.required' => '最低１つのステップを入力してください。',
+            'child_step.1.*.required' => '最低１つのチャプターを入力してください。',
             'child_step.*.title.required_with' => 'タイトル・内容を入力してください。',
             'child_step.*.content.required_with' => 'タイトル・内容を入力してください。',
 //            'child_step.*.time.required_with' => 'タイトル・内容を入力してください。',

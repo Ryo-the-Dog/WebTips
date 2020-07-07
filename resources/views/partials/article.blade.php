@@ -46,7 +46,7 @@
                 </a>
             </div>
 
-            <div class="@if( Route::currentRouteName() === 'mypage.post') p-article-panel__myStep-challenge-area @else u-ml-auto @endif
+            <div class="@if( Route::currentRouteName() === 'mypage.post') p-article-panel__myArticle-learn-area @else u-ml-auto @endif
                  @if(empty($article->learns->where('user_id', Auth::id())->first())) u-text-gray-500 @else u-text-red @endif">
                 <i class="fas fa-book-open"></i>
                 <span>{{count($article->learns)}}人が学習中</span>
