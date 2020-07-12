@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // axios
 // リスト追加
-Route::post('/articles/{article}/learn', 'LearnsController@learn');
-Route::post('/articles/{article}/unlearn', 'LearnsController@unlearn');
+Route::post('/articles/{articleId}/learn', 'LearnsController@learn');
+Route::post('/articles/{articleId}/unlearn', 'LearnsController@unlearn');
 // クリア
 Route::post('/articles/{article}/clear', 'ClearsController@clear');
 Route::post('/articles/{article}/unclear', 'ClearsController@unclear');

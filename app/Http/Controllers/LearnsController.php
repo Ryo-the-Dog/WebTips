@@ -34,7 +34,7 @@ class LearnsController extends Controller
         // ユーザーのidを格納
         $userId = $this->auth->user()->id;
 
-        // challengesテーブルにuserIdとarticleIdを保存する
+        // learmsテーブルにuserIdとarticleIdを保存する
         $learn = $this->learn->create([
             'user_id' => $userId,
             'article_id' => $articleId,

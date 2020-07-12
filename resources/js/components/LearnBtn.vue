@@ -33,7 +33,7 @@
                 hoverFlag: false,
                 messageAdd: '学習リストに追加する',
                 messageRemove: '学習リストから削除する',
-            };
+            }
         },
         created() {
             this.learned = this.defaultLearn
