@@ -64,7 +64,10 @@
 
 // リスト追加ボタン
 .c-btn--addList {
+    cursor: pointer;
     color: $color_gray_500;
+    font-size: $font-size_s;
+    z-index: 3;
 
     &:hover{
         color: $color_black;
@@ -74,7 +77,10 @@
 
 // リスト追加ボタン
 .c-btn--removeList {
+    cursor: pointer;
     color: $color_blue;
+    font-size: $font-size_s;
+    z-index: 3;
 
     &:hover{
         color: $color_blue_hover;
@@ -84,6 +90,7 @@
 
 // 学習済ボタン
 .c-btn--cleared {
+    cursor: pointer;
     color: $color_gray_500;
 
     &:hover{
@@ -94,6 +101,7 @@
 
 // 学習済取消ボタン
 .c-btn--uncleared {
+    cursor: pointer;
     color: $color_blue;
 
     &:hover{

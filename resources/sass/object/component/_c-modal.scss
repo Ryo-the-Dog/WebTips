@@ -10,38 +10,114 @@
 
     &__content {
         background-color: $color_white;
-        width: 95%;
-        padding: $space_s;
+        border-radius: $radius_round;
+        width: 600px;
+        max-height: 90%;
         margin: 0 auto;
         position: fixed;
         top: 50%;
         right: 50%;
         z-index: 4;
         transform: translateX(50%) translateY(-50%);
+        overflow: auto;
 
         @include mq(md) {
             width: 95%;
         }
     }
 
-    &__img-outer {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    &__header {
         border-bottom: $border_gray;
-        height: 170px;
-        padding: $space_xl;
+        padding: $space_m;
     }
 
-    &__img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    &__text {
-        padding: $space_l;
+    &__title {
+        font-size: $font-size_m;
         text-align: left;
+    }
+
+    &__body {
+        padding: 0 $space_m $space_m;
+    }
+
+    &__table {
+        width: 100%;
+    }
+
+    &__tr {
+        border-bottom: $border_gray;
+        padding: $space_m 0;
+    }
+
+    &__leftTd {
+        font-size: $font-size_s;
+        line-height: 1.5rem;
+        width: 40%;
+        margin: 0 5% 0 0;
+        text-align: left;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+        }
+        ol {
+            li {
+                list-style-type: decimal;
+            }
+        }
+        li {
+            list-style-type: disc;
+            list-style-position: inside;
+            line-height: 1.6rem;
+        }
+        i, s {
+            font-weight: normal;
+        }
+        a{
+            color: $color_blue_link;
+            text-decoration: underline;
+
+            &:hover{
+                color: $color_blue_link_hover;
+                transition: $transition_normal;
+            }
+        }
+        blockquote {
+            border-left: $border_gray_bold;
+            padding: $space_s;
+            margin: $space_s;
+        }
+        .pl-en {
+            color: #0086b3;
+
+        }
+        .pl-s {
+            color: #d01040;
+        }
+    }
+
+    &__rightTd {
+        width: 55%;
+    }
+
+    &__textarea {
+        background-color: $color_black_bg;
+        //border: $border_gray;
+        color: $color_white_code;
+        line-height: 1.5rem;
+        width: 100%;
+        min-height: 150px;
+        padding: $space_l;
+        overflow: auto;
+        resize: none;
     }
 
     &__overlay {
@@ -58,8 +134,9 @@
 
     &__close {
         font-size: $font-size_l;
+        cursor: pointer;
         position: absolute;
-        top: 0;
+        top: 2px;
         right: 6px;
     }
 }

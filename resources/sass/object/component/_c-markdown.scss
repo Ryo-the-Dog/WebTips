@@ -15,7 +15,32 @@ pre {
 
 .p-chapter-list__content {
     h1{
+        font-size: 1.7rem;
         margin: 0 0 $space_s;
+    }
+    h2{
+        font-size: 1.6rem;
+        margin: 0 0 $space_s;
+    }
+    h3{
+        font-size: 1.5rem;
+        margin: 0 0 $space_s;
+    }
+    h4{
+        font-size: 1.3rem;
+        margin: 0 0 $space_s;
+    }
+
+    ol {
+        li {
+            list-style-type: decimal;
+        }
+    }
+
+    li {
+        list-style-type: disc;
+        list-style-position: inside;
+        line-height: 1.6rem;
     }
 
     p{
@@ -30,5 +55,17 @@ pre {
             color: $color_blue_link_hover;
             transition: $transition_normal;
         }
+    }
+    blockquote {
+        border-left: $border_gray_bold;
+        padding: $space_s;
+        margin: $space_s;
+    }
+    .pl-en {
+        color: #0086b3;
+
+    }
+    .pl-s {
+        color: #d01040;
     }
 }

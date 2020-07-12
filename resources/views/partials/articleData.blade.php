@@ -1,7 +1,7 @@
 {{--STEP詳細画面のデータ部分のビュー--}}
 <div class="p-article-detail">
 
-    <h2 class="p-step-detail__title">{{$article->title}}</h2>
+    <h2 class="p-article-detail__title">{{$article->title}}</h2>
 
     <div class="p-postdata__profile-area l-flexbox">
 
@@ -10,9 +10,9 @@
 
         @else
             @auth
-                <a href="@if($userAuth->id === $article->user->id){{route('mypage.learn')}}@else{{route('userProfile.learn', $article->user->id)}}@endif" class="p-step-detail__profile-link p-postdata__profile-link"></a>
+                <a href="@if($userAuth->id === $article->user->id){{route('mypage.learn')}}@else{{route('userProfile.learn', $article->user->id)}}@endif" class="p-article-detail__profile-link p-postdata__profile-link"></a>
             @else
-                <a href="{{route('userProfile.learn', $article->user->id)}}" class="p-step-detail__profile-link p-postdata__profile-link"></a>
+                <a href="{{route('userProfile.learn', $article->user->id)}}" class="p-article-detail__profile-link p-postdata__profile-link"></a>
             @endauth
         @endif
 
@@ -34,10 +34,10 @@
 
     </div>
 
-    <div class="p-step-detail__top">
+    <div class="p-article-detail__top">
 
-        <div class="p-step-detail__eyecatch-area">
-            <div class="p-step-detail__category-area">
+        <div class="p-article-detail__eyecatch-area">
+            <div class="p-article-detail__category-area">
                 @forelse($article->categories as $category)
                     <span class="c-badge">{{ $category->name }}</span>
                 @empty
@@ -48,44 +48,32 @@
             </div>
 
             <img src="@if(empty($article->article_img)){{asset('img/no_img_article.jpg')}}
-            @else{{$article->article_img}}@endif" class="p-step-detail__eyecatch c-eyecatch" alt="STEPの画像">
+            @else{{$article->article_img}}@endif" class="p-article-detail__eyecatch c-eyecatch" alt="STEPの画像">
         </div>
 
-        <div class="p-step-detail__right ">
+        <div class="p-article-detail__right ">
 
-            <div class="p-step-detail__icon-area l-flexbox">
+            <div class="p-article-detail__icon-area l-flexbox">
                 <div>
                     <a href="http://twitter.com/intent/tweet?url={{url("articles/detail/{$article->id}")}}&text=「{{$article->title}}」に挑戦中！！&hashtags=STEP" title="Twitterでつぶやく">
                         <i class="fab fa-twitter c-icon--twitter"></i>
                     </a>
                 </div>
 
-                <span class="u-ml-m u-text-gray-500 l-flexbox">
-                    <i class="fas fa-book-open u-mr-xs"></i>{{count($article->learns)}}人が学習中
-                </span>
-{{--                    @dd($defaultLearned)--}}
-
-                @if(!empty($defaultLearned))
-                    <form action="{{route('article.unlearn', $article->id)}}" method="post" class="u-ml-auto">
-                        @csrf
-                        <button type="submit" class="c-btn--removeList">
-                            <i class="fas fa-folder-minus"></i>
-                            {{ __('Remove From List') }}
-                        </button>
-                    </form>
-                @else
-                    <form action="{{route('article.learn', $article->id)}}" method="post" class="u-ml-auto">
-                        @csrf
-                        <button type="submit" class="c-btn--addList">
-                            <i class="fas fa-folder-plus"></i>
-                            {{ __('Add To List') }}
-                        </button>
-                    </form>
+                <learnbtn
+                :article="{{json_encode($article)}}"
+                :article-id="{{json_encode($article->id)}}"
+                :learn-count="{{json_encode(count($article->learns))}}"
+                @if(!empty($userAuth))
+                    :user-auth="{{json_encode($userAuth)}}"
+                    :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
                 @endif
+
+                ></learnbtn>
 
             </div>
 
-            <div class="p-step-detail__description-area">
+            <div class="p-article-detail__description-area">
                 <p>
                     {!! nl2br(e($article->description)) !!}
                 </p>

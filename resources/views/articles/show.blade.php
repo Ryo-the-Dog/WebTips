@@ -18,13 +18,10 @@
                         <li class=" ">
                             <div class="p-chapter-list__title-outer l-flexbox">
 
-{{--                                <a class="p-chapter-list__link l-flexbox @if(!empty($defaultLearned)) challenged @endif" href="{{route('childStep.show', $chapter->id)}}">--}}
-
                                     <span class="p-chapter-list__number c-number">{{$chapter->chapter_number}}</span>
 
                                     <p class="p-chapter-list__title">{{$chapter->title}}</p>
 
-{{--                                </a>--}}
                             </div>
 
                             <div class="p-chapter-list__content">
@@ -39,25 +36,17 @@
                 </ul>
 
                 @if(!empty($defaultLearned))
-                    @if(!empty($defaultCleared))
-                        <form action="{{route('article.unclear', $article->id)}}" method="post">
-                            @csrf
-                            <button type="submit" class="c-btn--uncleared">
-                                <i class="fas fa-times-circle"></i>
-                                {{__('Not Cleared')}}
-                            </button>
-                        </form>
+                <clearbtn
+                :notcleared-en="{{json_encode(__('Not Cleared'))}}"
+                :cleared-en="{{json_encode(__('Cleared'))}}"
+                :article="{{json_encode($article)}}"
+                :article-id="{{json_encode($article->id)}}"
+                @if(!empty($userAuth))
+                    :user-auth="{{json_encode($userAuth)}}"
+                    :default-clear="{{json_encode($article->clears->where('user_id', $userAuth->id)->first())}}"
+                @endif
 
-                    @else
-                        <form action="{{route('article.clear', $article->id)}}" method="post">
-                            @csrf
-                            <button type="submit" class="c-btn--cleared">
-                                <i class="fas fa-check-circle"></i>
-                                {{__('Cleared')}}
-                            </button>
-                        </form>
-
-                    @endif
+                ></clearbtn>
 
                 @endif
             </div>

@@ -8,6 +8,14 @@ window.Vue = require('vue');
 window.moment = require('vue-moment');
 window.VueScrollTo = require('vue-scrollto');
 
+// axios
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+
+const token = document.head.querySelector('meta[name="csrf-token"]')
+if(token) {
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
+}
 
 /**
  * The following block of code may be used to automatically register your
@@ -54,8 +62,10 @@ Vue.component('mypagedropdown', require('./components/MypageDropDown.vue').defau
 Vue.component('searchform', require('./components/SearchForm.vue').default);
 // 並び順のドロップダウンメニュー
 Vue.component('sortdropdown', require('./components/SortDropDown.vue').default);
-
-
+// リスト追加ボタン
+Vue.component('learnbtn', require('./components/LearnBtn.vue').default);
+// 学習済みボタン
+Vue.component('clearbtn', require('./components/ClearBtn.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

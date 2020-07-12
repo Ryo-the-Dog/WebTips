@@ -29,7 +29,7 @@
         </ul>
 
         <div v-if="!chapterLimit" class="p-form-card__add-btn-area">
-            <button @click.prevent="addChapterForm()" class="p-form-card__add-btn u-text-gray-500"><i class="fas fa-plus-circle"></i>チャプターを追加する</button>
+            <button @click.prevent="addChapterForm()" class="p-form-card__add-btn u-text-gray-500"><i class="fas fa-plus-circle"></i>項目を追加する</button>
         </div>
     </div>
 </template>
@@ -154,7 +154,7 @@
                     // 現在表示されているフォームが空の場合は追加させない
                     if(this.chapterFormList[this.count-1]['currentTitle'] === '' || this.chapterFormList[this.count-1]['currentTitle'] === null
                         || this.chapterFormList[this.count-1]['currentContent'] === '' || this.chapterFormList[this.count-1]['currentContent'] === null){
-                        this.errors.push('チャプターのタイトル・内容を入力してください。')
+                        this.errors.push('項目のタイトル・内容を入力してください。')
                         return false
                 }
                 // countの値を増やすことでチャプターのフォーム数を増やす

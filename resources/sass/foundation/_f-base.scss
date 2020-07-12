@@ -15,11 +15,14 @@ body {
     flex-flow: column;
     min-height: 100vh;
 }
-h2 {
+h1,h2 {
     line-height: 2rem;
 }
 h3 {
     line-height: 1.5rem;
+}
+h4 {
+    line-height: 1.3rem;
 }
 p {
     line-height: 1.5rem;
@@ -44,4 +47,7 @@ button {
 }
 li {
     list-style: none;
+}
+td {
+    font-weight: normal;
 }

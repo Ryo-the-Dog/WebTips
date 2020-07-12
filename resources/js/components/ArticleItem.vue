@@ -37,11 +37,13 @@
                     </a>
                 </div>
 
-                <div v-bind:class="{'u-text-red': defaultLearn, 'u-text-gray-500': !defaultLearn, ' p-article-panel__myArticle-learn-area': postRouteFlag }" class="l-flexbox">
-                    <span class="u-mr-xs">
-                        <i class="fas fa-book-open"></i>
+                <div v-bind:class="{' p-article-panel__myArticle-learn-area': postRouteFlag }" class="l-flexbox">
+                    <span v-if="!learned" @click="learn(article.id)" class="u-mr-xs c-btn--addList">
+                        <i class="fas fa-folder-plus u-mr-xs"></i>{{learnReCount}}
                     </span>
-                    <span>{{learnCount}}人が学習中</span>
+                    <span v-else @click="unlearn(article.id)" class="u-mr-xs c-btn--removeList">
+                        <i class="fas fa-folder-minus u-mr-xs"></i>{{learnReCount}}
+                    </span>
                 </div>
 
                 <form v-if="postRouteFlag" :action="editRoute" method="POST" class="p-article-panel__deleteForm">
@@ -60,14 +62,67 @@
 
 <script>
     export default {
-        props: ['article', 'chapters', 'articleCategories', 'articleUser', 'userAuth', 'learnCount', 'articleLearns', 'defaultLearn','articleRoute', 'articleUrl','limitTitle','postRouteFlag','editRoute','editLink','deleteLink'],
+        props: [
+            'article',
+            'chapters',
+            'articleCategories',
+            'articleUser',
+            'userAuth',
+            'learnCount',
+            'articleLearns',
+            'defaultLearn',
+            'articleRoute',
+            'articleUrl',
+            'limitTitle',
+            'postRouteFlag',
+            'editRoute',
+            'editLink',
+            'deleteLink'
+        ],
         data() {
             return {
                 uploadedImage: this.article.article_img ? this.article.article_img:'/img/no_img_article.jpg',
                 date: this.$moment().format(),
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                // axios
+                learned: false,
+                learnReCount: 0,
             };
         },
+        created() {
+            this.learned = this.defaultLearn
+            this.learnReCount = this.learnCount
+        },
+        methods: {
+            learn(articleId) {
+                const url = `/api/articles/${articleId}/learn`
+
+                axios.post(url,{
+                    user_id: this.userAuth.id
+                })
+                .then(response => {
+                    this.learned = true
+                    this.learnReCount = response.data.learnCount
+                })
+                .catch(error => {
+                    alert(error)
+                })
+            },
+            unlearn(articleId) {
+                const url = `/api/articles/${articleId}/unlearn`
+
+                axios.post(url,{
+                    user_id: this.userAuth.id
+                })
+                    .then(response => {
+                        this.learned = false
+                        this.learnReCount = response.data.learnCount
+                    })
+                    .catch(error => {
+                        alert(error)
+                    })
+            }
+        }
     }
 </script>
 

@@ -20,7 +20,7 @@ class LearnsController extends Controller
     }
 
     // ========================================
-    // チャレンジを開始するアクション
+    // 学習リストに追加するアクション
     // ========================================
     public function learn(Request $request, $id) {
 
@@ -28,19 +28,22 @@ class LearnsController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // DBに保存するために記事のidを格納
-        $articleId = $this->article->find($id)->id;
+        // 記事のidを格納
+        $articleId = $id;
 
-        // DBに保存するためにユーザーのidを格納
+        // ユーザーのidを格納
         $userId = $this->auth->user()->id;
 
         // challengesテーブルにuserIdとarticleIdを保存する
-        $challenge = $this->learn->create([
+        $learn = $this->learn->create([
             'user_id' => $userId,
             'article_id' => $articleId,
         ]);
 
-        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Added to List.'));
+        $learnCount = count(Learn::where('article_id', $articleId)->get());
+
+//        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Added to List.'));
+        return response()->json(['learnCount' => $learnCount]);
     }
 
     // ========================================
@@ -53,7 +56,7 @@ class LearnsController extends Controller
         }
 
         // DBで検索するために記事のidを格納
-        $articleId = $this->article->find($id)->id;
+        $articleId = $id;
 
         // DBで検索するためにユーザーのidを格納
         $userId = $this->auth->user()->id;
@@ -61,7 +64,9 @@ class LearnsController extends Controller
         // learnsテーブルから指定の記事を削除する
         $learn = $this->learn->where('user_id', $userId)->where('article_id', $articleId)->delete();
 
-        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Removed from List.'));
+        $learnCount = count(Learn::where('article_id', $articleId)->get());
 
+//        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Removed from List.'));
+        return response()->json(['learnCount' => $learnCount]);
     }
 }

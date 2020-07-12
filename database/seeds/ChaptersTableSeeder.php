@@ -24,7 +24,7 @@ class ChaptersTableSeeder extends Seeder
                 'id' => 1,
                 'article_id' => 1,
                 'chapter_number' => 1,
-                'title' => '① Homebrewのインストール',
+                'title' => 'Homebrewのインストール',
                 'content' => "Macのターミナルを立ち上げて、[Homebrew](https://brew.sh/index_ja)をインストールするためのコマンドを実行します。\n
 ```
 $ /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"
@@ -37,7 +37,7 @@ $ /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/ins
                 'id' => 2,
                 'article_id' => 1,
                 'chapter_number' => 2,
-                'title' => '② Brewfileを作成する',
+                'title' => 'Brewfileを作成する',
                 'content' => "ホームディレクトリにBrewfileを作成します。
 ```
 $ touch Brewfile

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// 子STEP完了機能
-Route::post('/childSteps/{step}/clear', 'ClearsController@clear');
-// 子STEP完了取消機能
-Route::post('/childSteps/{step}/unclear', 'ClearsController@unclear');
+// axios
+// リスト追加
+Route::post('/articles/{article}/learn', 'LearnsController@learn');
+Route::post('/articles/{article}/unlearn', 'LearnsController@unlearn');
+// クリア
+Route::post('/articles/{article}/clear', 'ClearsController@clear');
+Route::post('/articles/{article}/unclear', 'ClearsController@unclear');
