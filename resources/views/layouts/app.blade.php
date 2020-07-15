@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="WebTips(テックステップ)は目標達成までの過程をシェアできる学習サービスです。">
+    <meta name="description" content="WebTips(ウェブティップス)は、webサービスのための環境構築や開発の過程などをシェアすることでエンジニアをサポートする学習サービスです。">
 
     <!-- Twitter -->
     <meta property="og:url" content="{{ url('/') }}">
     <meta property="og:title" content="WebTips" >
-    <meta property="og:description" content="WebTips(テックステップ)は目標達成までの過程をシェアできる学習サービスです。" >
+    <meta property="og:description" content="WebTips(ウェブティップス)は、webサービスのための環境構築や開発の過程などをシェアすることでエンジニアをサポートする学習サービスです。" >
     <meta property="og:image" content="{{ asset('/img/twitter_card.jpg') }}" >
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

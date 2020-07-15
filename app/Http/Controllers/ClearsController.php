@@ -18,7 +18,6 @@ class ClearsController extends Controller
     function __construct(Guard $auth, Clear $clear, AllClear $allClear, Chapter $chapter, Article $article) {
         $this->auth = $auth;
         $this->clear = $clear;
-//        $this->allClear = $allClear;
         $this->chapter = $chapter;
         $this->article = $article;
     }
@@ -32,41 +31,32 @@ class ClearsController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // 記事のidを格納
-//        $articleId = $id;
-
         // ユーザーのidを格納
-//        $userId = $this->auth->user()->id;
+        $userId = $this->auth->user()->id;
 
         // clearsテーブルにuser_idとarticle_idを保存する
-        $clear = $this->clear->create([
-            'article_id' => $id,
-            'user_id' => $this->auth->user()->id,
-        ]);
+        if(!$this->clear->where('article_id', $id)->where('user_id', $userId)->first()) {
+            $clear = $this->clear->create([
+                'article_id' => $id,
+                'user_id' => $userId,
+            ]);
+        }
 
         $clearCount = count(Clear::where('article_id', $id)->get());
 
 //        return redirect()->route('articles.show', ['id' => $id])->with('flash_message', __('Clear this Lesson.'));
 
-//        return response()->json(['clearCount' => $clearCount]);
-
         return response()->json();
     }
 
     // ========================================
-    // クリア状況をキャンセルするアクション
+    // 学習済みをキャンセルするアクション
     // ========================================
     public function unclear($id) {
 
         if(!ctype_digit($id)){
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
-
-        // 記事のidを格納
-//        $articleId = $id;
-
-        // ユーザーのidを格納
-//        $userId = $this->auth->user()->id;
 
         $this->clear->where('user_id', $this->auth->user()->id)->where('article_id', $id)->delete();
 

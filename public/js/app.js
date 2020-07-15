@@ -4589,7 +4589,7 @@ var render = function() {
               ? _c(
                   "span",
                   {
-                    staticClass: "u-mr-xs c-btn--addList",
+                    staticClass: "c-btn--addList",
                     on: {
                       click: function($event) {
                         return _vm.learn(_vm.article.id)
@@ -4604,7 +4604,7 @@ var render = function() {
               : _c(
                   "span",
                   {
-                    staticClass: "u-mr-xs c-btn--removeList",
+                    staticClass: "c-btn--removeList",
                     on: {
                       click: function($event) {
                         return _vm.unlearn(_vm.article.id)

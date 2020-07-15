@@ -43,7 +43,7 @@ class ArticlesController extends Controller
         if(empty($this->auth->user())){
 
             // ランディングページには６個だけ表示する
-            $articles = $this->article->take(6)->get();
+            $articles = $this->article->orderBy('updated_at', 'desc')->take(6)->get();
 
             return view('index',compact('articles'));
         }else{

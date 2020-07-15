@@ -28,21 +28,22 @@ class LearnsController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // 記事のidを格納
-        $articleId = $id;
-
         // ユーザーのidを格納
         $userId = $this->auth->user()->id;
 
-        // learmsテーブルにuserIdとarticleIdを保存する
-        $learn = $this->learn->create([
-            'user_id' => $userId,
-            'article_id' => $articleId,
-        ]);
+//        dd($this->learns->where('article_id', $id)->where('user_id', $userId)->get());
 
-        $learnCount = count(Learn::where('article_id', $articleId)->get());
+        // learnsテーブルにuserIdとarticleIdを保存する
+        if(!$this->learn->where('article_id', $id)->where('user_id', $userId)->first()){
+            $learn = $this->learn->create([
+                'user_id' => $userId,
+                'article_id' => $id,
+            ]);
+        }
 
-//        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Added to List.'));
+        $learnCount = count(Learn::where('article_id', $id)->get());
+
+//        return redirect()->route('articles.show', ['id' => $id])->with('flash_message',__('Added to List.'));
         return response()->json(['learnCount' => $learnCount]);
     }
 
@@ -55,18 +56,15 @@ class LearnsController extends Controller
             return back()->with('flash_message',__('Invalid operation was performed.'));
         }
 
-        // DBで検索するために記事のidを格納
-        $articleId = $id;
-
         // DBで検索するためにユーザーのidを格納
         $userId = $this->auth->user()->id;
 
         // learnsテーブルから指定の記事を削除する
-        $learn = $this->learn->where('user_id', $userId)->where('article_id', $articleId)->delete();
+        $learn = $this->learn->where('user_id', $userId)->where('article_id', $id)->delete();
 
-        $learnCount = count(Learn::where('article_id', $articleId)->get());
+        $learnCount = count(Learn::where('article_id', $id)->get());
 
-//        return redirect()->route('articles.show', ['id' => $articleId])->with('flash_message',__('Removed from List.'));
+//        return redirect()->route('articles.show', ['id' => $id])->with('flash_message',__('Removed from List.'));
         return response()->json(['learnCount' => $learnCount]);
     }
 }

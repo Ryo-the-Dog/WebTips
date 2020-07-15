@@ -14,7 +14,7 @@
                     <div class="p-features-panel__detail">
                         <h3 class="p-features-panel__title">多種多様な投稿</h3>
                         <p>
-                            TECH-STEPには様々な言語の、環境構築や開発の手順に関する記事が投稿されています。
+                            WebTipsには様々な言語の、環境構築や開発の手順に関する記事が投稿されています。
                         </p>
                     </div>
 
@@ -25,9 +25,9 @@
                         <img src="{{asset('/img/icon_center.png')}}" class="p-features-panel__center-img" alt="STEPの特徴">
                     </div>
                     <div class="p-features-panel__detail">
-                        <h3 class="p-features-panel__title">便利なチェック機能</h3>
+                        <h3 class="p-features-panel__title">便利な学習リスト機能</h3>
                         <p>
-                            習得したらチェックして保存できるので、簡単に進捗状況の確認ができます。
+                            お気に入りの記事は自分の学習リストに追加できます。また、読み終わった記事は学習済みリストに追加できるので、何を学んだかが一目で分かります。
                         </p>
                     </div>
                 </div>
@@ -37,10 +37,10 @@
                         <img src="{{asset('/img/icon_right.png')}}" class="p-features-panel__right-img" alt="STEPの特徴">
                     </div>
                     <div class="p-features-panel__detail">
-                        <h3 class="p-features-panel__title">達成した喜びもみんなとシェア</h3>
+                        <h3 class="p-features-panel__title">読んだ記事をユーザー同士でシェア</h3>
                         <p>
-                            全てチェックしたらユーザーのプロフィールページに保存されます。<br/>
-                            達成した喜びをユーザー同士でシェアしましょう。
+                            他のユーザーの学習リストはプロフィールページで閲覧できます。<br/>
+                            有用な記事をユーザー同士でシェアしましょう。
                         </p>
                     </div>
                 </div>

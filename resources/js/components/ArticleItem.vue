@@ -38,10 +38,10 @@
                 </div>
 
                 <div v-bind:class="{' p-article-panel__myArticle-learn-area': postRouteFlag }" class="l-flexbox">
-                    <span v-if="!learned" @click="learn(article.id)" class="u-mr-xs c-btn--addList">
+                    <span v-if="!learned" @click="learn(article.id)" class="c-btn--addList">
                         <i class="fas fa-folder-plus u-mr-xs"></i>{{learnReCount}}
                     </span>
-                    <span v-else @click="unlearn(article.id)" class="u-mr-xs c-btn--removeList">
+                    <span v-else @click="unlearn(article.id)" class="c-btn--removeList">
                         <i class="fas fa-folder-minus u-mr-xs"></i>{{learnReCount}}
                     </span>
                 </div>

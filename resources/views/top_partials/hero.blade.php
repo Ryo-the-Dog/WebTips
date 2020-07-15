@@ -5,7 +5,7 @@
         <h2 class="p-hero__title">web開発の知識をシェアしよう</h2>
 
         <p class="p-hero__text u-text-white">
-            WebLessonはwebサービスのための環境構築や<br/>
+            WebTipsはwebサービスのための環境構築や<br/>
             開発の過程などをシェアすることで<br/>
             エンジニアをサポートするサービスです
         </p>

@@ -43,7 +43,7 @@ Vue.jsを使用するには通常、gulpやbabel、webpackなどのビルドツ�
 //            [
 //                'id' => 3,
 //                'user_id' => 3,
-//                'title' => '投資の始め方',
+//                'title' => 'Laravel&',
 //                'time' => 8,
 //                'description' => '今話題のつみたてNISAで投資を始めるまでのステップです。',
 //                'article_img' => 'https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_3_c4ifrn.jpg',
