@@ -10,7 +10,6 @@
                 <div class="p-articles l-flexbox">
                     @forelse($postArticles as $article)
 
-{{--                        @include('partials.article')--}}
                         <articleitem
                             :article="{{json_encode($article)}}"
                             :article-user="{{json_encode($article->user)}}"
@@ -19,15 +18,18 @@
                             :learn-count="{{json_encode(count($article->learns))}}"
                             :article-learns="{{json_encode($article->user->learns)}}"
                             :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                            :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                            :mypage-route="{{json_encode(route('mypage.learn'))}}"
                             :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                             :limit-title="{{json_encode(Str::limit($article->title,53))}}"
-                            :post-route-flag="{{json_encode(Route::currentRouteName() === 'mypage.post')}}"
-                            :edit-route="{{json_encode(route('mypage.myarticleEdit', $article->id))}}"
-                            :edit-link="{{json_encode(__('Edit'))}}"
-                            :delete-link="{{json_encode(__('Delete'))}}"
+
                             @if(!empty($userAuth))
                                 :user-auth="{{json_encode($userAuth)}}"
                                 :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
+                                :post-route-flag="{{json_encode(true)}}"
+                                :delete-link="{{json_encode(__('Delete'))}}"
+                                :edit-link="{{json_encode(__('Edit'))}}"
+                                :edit-route="{{json_encode(route('mypage.myarticleEdit', $article->id))}}"
                             @endif
                         ></articleitem>
 

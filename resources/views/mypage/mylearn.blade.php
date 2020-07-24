@@ -6,13 +6,10 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-articles">
+            <div class="p-articles l-flexbox">
 
                 @forelse($learnArticles as $article)
 
-                    <div class="p-articles l-flexbox">
-
-{{--                    @include('partials.article')--}}
                         <articleitem
                             :article="{{json_encode($article)}}"
                             :article-user="{{json_encode($article->user)}}"
@@ -21,6 +18,8 @@
                             :learn-count="{{json_encode(count($article->learns))}}"
                             :article-learns="{{json_encode($article->user->learns)}}"
                             :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                            :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                            :mypage-route="{{json_encode(route('mypage.learn'))}}"
                             :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                             :limit-title="{{json_encode(Str::limit($article->title,53))}}"
                             @if(!empty($userAuth))
@@ -29,7 +28,6 @@
                             @endif
                         ></articleitem>
 
-                    </div>
                 @empty
                     <div class="p-articles__empty">
                         <p class="p-articles__empty-text">

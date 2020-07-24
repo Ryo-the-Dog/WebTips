@@ -1,7 +1,7 @@
 {{-- STEP登録のビュー --}}
 @extends('layouts.app')
 
-@section('title', __('STEP POST'))
+@section('title', __('POST'))
 
 @section('content')
     <div class="l-bg-gray">

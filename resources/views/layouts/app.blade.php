@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="WebTips(ウェブティップス)は、webサービスのための環境構築や開発の過程などをシェアすることでエンジニアをサポートする学習サービスです。">
+    <meta name="description" content="WebTips(ウェブティップス)は、web開発のための情報をシェアすることでエンジニアをサポートする学習サービスです。">
 
     <!-- Twitter -->
     <meta property="og:url" content="{{ url('/') }}">
     <meta property="og:title" content="WebTips" >
-    <meta property="og:description" content="WebTips(ウェブティップス)は、webサービスのための環境構築や開発の過程などをシェアすることでエンジニアをサポートする学習サービスです。" >
+    <meta property="og:description" content="WebTips(ウェブティップス)は、web開発のための情報をシェアすることでエンジニアをサポートする学習サービスです。" >
     <meta property="og:image" content="{{ asset('/img/twitter_card.jpg') }}" >
     <meta name="twitter:card" content="summary_large_image">
 
@@ -110,9 +110,8 @@
 
         <!-- フラッシュメッセージ -->
         @if (session('flash_message'))
-            @php $flashMessage = session('flash_message'); @endphp
             <flashmessage
-            :flash-message="{{json_encode($flashMessage)}}"
+            :flash-message="{{json_encode(session('flash_message'))}}"
             ></flashmessage>
         @endif
 

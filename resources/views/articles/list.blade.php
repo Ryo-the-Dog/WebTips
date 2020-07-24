@@ -19,6 +19,8 @@
                 :learn-count="{{json_encode(count($article->learns))}}"
                 :article-learns="{{json_encode($article->user->learns)}}"
                 :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                :mypage-route="{{json_encode(route('mypage.learn'))}}"
                 :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                 :limit-title="{{json_encode(Str::limit($article->title,53))}}"
                 @if(!empty($userAuth))
@@ -29,10 +31,10 @@
 
             @empty
 
-                <div class="c-guide-msg">
-                    <p class="c-guide-msg__text">投稿された記事がありません。</p>
-                    <p class="c-guide-msg__text">あなたの知識や経験をシェアしませんか？</p>
-                    <a class="c-btn--yellow c-guide-msg__link" href="{{ route('articles.new') }}">{{ __('POST Now') }}</a>
+                <div class="p-articles__empty">
+                    <p class="p-articles__empty-text">投稿された記事がありません。</p>
+                    <p class="p-articles__empty-text">あなたの知識や経験をシェアしませんか？</p>
+                    <a class="c-btn--yellow p-articles__empty-link" href="{{ route('articles.new') }}">{{ __('POST Now') }}</a>
                 </div>
 
             @endforelse

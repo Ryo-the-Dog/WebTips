@@ -6,23 +6,36 @@
 @section('content')
     <div class="l-bg-gray">
         <div class="l-container">
-            <div class="p-articles">
 
-                <div class="p-articles l-flexbox">
-                    @forelse($userLearnArticles as $article)
+            <div class="p-articles l-flexbox">
+                @forelse($userLearnArticles as $article)
 
-                        @include('partials.article')
+                    <articleitem
+                        :article="{{json_encode($article)}}"
+                        :article-user="{{json_encode($article->user)}}"
+                        :chapters="{{json_encode($article->chapters)}}"
+                        :article-categories="{{json_encode($article->categories)}}"
+                        :learn-count="{{json_encode(count($article->learns))}}"
+                        :article-learns="{{json_encode($article->user->learns)}}"
+                        :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                        :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                        :mypage-route="{{json_encode(route('mypage.learn'))}}"
+                        :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
+                        :limit-title="{{json_encode(Str::limit($article->title,53))}}"
+                        @if(!empty($userAuth))
+                        :user-auth="{{json_encode($userAuth)}}"
+                        :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
+                        @endif
+                    ></articleitem>
 
-                    @empty
-                        <div class="p-articles__empty">
-                            <p class="p-articles__empty-text">
-                                学習中の記事はありません。
-                            </p>
-                        </div>
+                @empty
+                    <div class="p-articles__empty">
+                        <p class="p-articles__empty-text">
+                            学習中の記事はありません。
+                        </p>
+                    </div>
 
-                    @endforelse
-
-                </div>
+                @endforelse
 
             </div>
 

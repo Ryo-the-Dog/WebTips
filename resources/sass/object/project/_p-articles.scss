@@ -6,12 +6,17 @@
 // 記事一覧
 .p-articles {
     flex-wrap: wrap;
-    margin-right: -2%;
+    //margin-right: -2%;
     margin-bottom: $space_3l;
 
-    @include mq(md){
-        margin-right: 0;
-    }
+    //@include mq(lg) {
+    //    margin-right: -1%;
+    //}
+
+    //@include mq(md){
+    //    margin-right: 0;
+    //}
+
     // 記事が存在しなかった場合
     &__empty{
         font-size: $font-size_s;

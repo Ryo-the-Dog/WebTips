@@ -44,7 +44,8 @@ pre {
     }
 
     p{
-        margin: 0 0 $space_l;
+        //margin: 0 0 $space_l;
+        line-height: 1.6em;
     }
 
     a{
@@ -61,11 +62,39 @@ pre {
         padding: $space_s;
         margin: $space_s;
     }
-    .pl-en {
-        color: #0086b3;
 
+    .pl-en, .pl-s, .pl-s1, .pl-c1, .pl-k, .pl-smi, .pl-kos, .pl-ent, .pl-pds, .pl-v {
+        color: $color_white;
     }
-    .pl-s {
-        color: #d01040;
-    }
+    //.pl-en {
+    //    color: #8bdf4c;
+    //
+    //}
+    //.pl-s {
+    //    color: #41b7d7;
+    //}
+    //.pl-s1 {
+    //    color: $color_white;
+    //}
+    //.pl-c1 {
+    //    color: $color_white;
+    //}
+    //.pl-k {
+    //    color: #ebd247;
+    //}
+    //.pl-smi {
+    //    color: #8bdf4c;
+    //}
+    ////.pl-kos {
+    ////    color: #22863a;
+    ////}
+    //.pl-kos ~ .pl-ent {
+    //    color: #f92672;
+    //}
+    //.pl-ent {
+    //    color: $color_white;
+    //}
+    //.pl-pds {
+    //    color: $color_white;
+    //}
 }

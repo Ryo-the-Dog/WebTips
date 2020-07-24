@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition appear>
-            <div class="p-flash-message" v-if="show">
+            <div class="c-flash-message" v-if="show">
                 {{flashMessage}}
             </div>
         </transition>

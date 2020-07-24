@@ -10,12 +10,12 @@
 
             <div class="l-article">
 
-                    @include('partials.articleData')
+                @include('partials.articleData')
 
                 <ul class="p-chapter-list">
 
                     @forelse( $article->chapters as $chapter )
-                        <li class=" ">
+                        <li>
                             <div class="p-chapter-list__title-outer l-flexbox">
 
                                     <span class="p-chapter-list__number c-number">{{$chapter->chapter_number}}</span>

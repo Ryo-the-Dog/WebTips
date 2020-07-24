@@ -18,7 +18,7 @@ class CreateLearnsTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('article_id')->unsigned()->index();
             $table->timestamps();
-            // ユーザーやステップが削除された場合には挑戦情報も一緒に削除
+            // ユーザーや記事が削除された場合には挑戦情報も一緒に削除
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
         });

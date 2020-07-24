@@ -23,10 +23,28 @@
                 </span>
             </div>
 
-            <div class="p-article-panel__item">
-                <p v-if="chapters" class="u-text-gray-500">
-                    全{{chapters.length}}項目
+            <div class="p-postdata__profile-area l-flexbox">
+
+                <!-- 投稿者の画像と名前全体をリンクにする -->
+
+                <a v-if="userAuth && userAuth.id === articleUser.id" :href="mypageRoute" class="p-article-detail__profile-link p-postdata__profile-link"></a>
+
+                <a v-else :href="userprofileRoute" class="p-article-detail__profile-link p-postdata__profile-link"></a>
+
+                <div class="p-postdata__avatar-area">
+                    <img :src="userImage" alt="投稿者の画像" class="c-avatar">
+                </div>
+                <p v-if="articleUser" class="p-postdata__name">
+                    {{articleUser.name}}
                 </p>
+                <p v-else class="p-postdata__name">
+                    削除済みユーザー
+                </p>
+
+                <p class="p-postdata__post-date">
+                    {{article.updated_at | moment("YYYY/MM/DD")}}に更新
+                </p>
+
             </div>
 
             <div class="p-article-panel__bottom l-flexbox">
@@ -73,6 +91,8 @@
             'defaultLearn',
             'articleRoute',
             'articleUrl',
+            'userprofileRoute',
+            'mypageRoute',
             'limitTitle',
             'postRouteFlag',
             'editRoute',
@@ -82,7 +102,8 @@
         data() {
             return {
                 uploadedImage: this.article.article_img ? this.article.article_img:'/img/no_img_article.jpg',
-                date: this.$moment().format(),
+                userImage: this.articleUser.user_img ? this.articleUser.user_img:'/img/blank-profile.jpg',
+                date: this.$moment().format('Y/m/d'),
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 // axios
                 learned: false,

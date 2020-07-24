@@ -2067,12 +2067,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['article', 'chapters', 'articleCategories', 'articleUser', 'userAuth', 'learnCount', 'articleLearns', 'defaultLearn', 'articleRoute', 'articleUrl', 'limitTitle', 'postRouteFlag', 'editRoute', 'editLink', 'deleteLink'],
+  props: ['article', 'chapters', 'articleCategories', 'articleUser', 'userAuth', 'learnCount', 'articleLearns', 'defaultLearn', 'articleRoute', 'articleUrl', 'userprofileRoute', 'mypageRoute', 'limitTitle', 'postRouteFlag', 'editRoute', 'editLink', 'deleteLink'],
   data: function data() {
     return {
       uploadedImage: this.article.article_img ? this.article.article_img : '/img/no_img_article.jpg',
-      date: this.$moment().format(),
+      userImage: this.articleUser.user_img ? this.articleUser.user_img : '/img/blank-profile.jpg',
+      date: this.$moment().format('Y/m/d'),
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       // axios
       learned: false,
@@ -4545,16 +4564,45 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "p-article-panel__item" }, [
-        _vm.chapters
-          ? _c("p", { staticClass: "u-text-gray-500" }, [
+      _c("div", { staticClass: "p-postdata__profile-area l-flexbox" }, [
+        _vm.userAuth && _vm.userAuth.id === _vm.articleUser.id
+          ? _c("a", {
+              staticClass:
+                "p-article-detail__profile-link p-postdata__profile-link",
+              attrs: { href: _vm.mypageRoute }
+            })
+          : _c("a", {
+              staticClass:
+                "p-article-detail__profile-link p-postdata__profile-link",
+              attrs: { href: _vm.userprofileRoute }
+            }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-postdata__avatar-area" }, [
+          _c("img", {
+            staticClass: "c-avatar",
+            attrs: { src: _vm.userImage, alt: "投稿者の画像" }
+          })
+        ]),
+        _vm._v(" "),
+        _vm.articleUser
+          ? _c("p", { staticClass: "p-postdata__name" }, [
               _vm._v(
-                "\n                全" +
-                  _vm._s(_vm.chapters.length) +
-                  "項目\n            "
+                "\n                " +
+                  _vm._s(_vm.articleUser.name) +
+                  "\n            "
               )
             ])
-          : _vm._e()
+          : _c("p", { staticClass: "p-postdata__name" }, [
+              _vm._v("\n                削除済みユーザー\n            ")
+            ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "p-postdata__post-date" }, [
+          _vm._v(
+            "\n                " +
+              _vm._s(_vm._f("moment")(_vm.article.updated_at, "YYYY/MM/DD")) +
+              "に更新\n            "
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "p-article-panel__bottom l-flexbox" }, [
@@ -4987,7 +5035,7 @@ var render = function() {
     [
       _c("transition", { attrs: { appear: "" } }, [
         _vm.show
-          ? _c("div", { staticClass: "p-flash-message" }, [
+          ? _c("div", { staticClass: "c-flash-message" }, [
               _vm._v("\n            " + _vm._s(_vm.flashMessage) + "\n        ")
             ])
           : _vm._e()

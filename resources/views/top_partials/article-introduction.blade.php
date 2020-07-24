@@ -1,7 +1,6 @@
 <section class="p-step-introduction l-bg-gray-top">
     <div class="l-container">
         <h2 class="c-title--container">記事一覧</h2>
-        <div class="p-articles">
             <div class="p-articles l-flexbox">
 
                 @forelse($articles as $article)
@@ -14,6 +13,8 @@
                         :learn-count="{{json_encode(count($article->learns))}}"
                         :article-learns="{{json_encode($article->user->learns)}}"
                         :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                        :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                        :mypage-route="{{json_encode(route('mypage.learn'))}}"
                         :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                         :limit-title="{{json_encode(Str::limit($article->title,53))}}"
                         @if(!empty($userAuth))
@@ -32,7 +33,6 @@
 
                 @endforelse
             </div>
-        </div>
 
         <a href="{{ route('articles.list') }}" class="c-btn--blue c-btn--allSteps">{{ __('Show All Articles') }}</a>
 

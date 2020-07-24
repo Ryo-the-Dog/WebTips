@@ -5,8 +5,7 @@
         <h2 class="p-hero__title">web開発の知識をシェアしよう</h2>
 
         <p class="p-hero__text u-text-white">
-            WebTipsはwebサービスのための環境構築や<br/>
-            開発の過程などをシェアすることで<br/>
+            WebTipsはweb開発の情報をシェアすることで<br/>
             エンジニアをサポートするサービスです
         </p>
 

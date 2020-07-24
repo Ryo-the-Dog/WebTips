@@ -6847,13 +6847,24 @@ td {
   background-color: #fff;
   border: solid 1px #AEC9DD;
   border-radius: 2px;
-  width: calc(33% - 1%);
-  margin-right: 1%;
+  width: 32.66%;
+}
+
+@media screen and (min-width: 1101px) {
+  .c-panel:not(:nth-child(3n)) {
+    margin-right: 1%;
+  }
 }
 
 @media screen and (max-width: 1100px) {
   .c-panel {
-    width: calc(50% - 1%);
+    width: 49.5%;
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 769px) {
+  .c-panel:not(:nth-child(2n)) {
+    margin-right: 1%;
   }
 }
 
@@ -7366,7 +7377,7 @@ td {
 /* フラッシュメッセージを定義しています。
 ==================================== */
 
-.p-flash-message {
+.c-flash-message {
   background-color: #fff;
   border: solid 1px #2f72d8;
   border-radius: 2px;
@@ -7382,7 +7393,7 @@ td {
 }
 
 @media screen and (max-width: 414px) {
-  .p-flash-message {
+  .c-flash-message {
     width: 80%;
   }
 }
@@ -7434,7 +7445,7 @@ pre {
 }
 
 .p-chapter-list__content p {
-  margin: 0 0 20px;
+  line-height: 1.6em;
 }
 
 .p-chapter-list__content a {
@@ -7453,12 +7464,17 @@ pre {
   margin: 10px;
 }
 
-.p-chapter-list__content .pl-en {
-  color: #0086b3;
-}
-
-.p-chapter-list__content .pl-s {
-  color: #d01040;
+.p-chapter-list__content .pl-en,
+.p-chapter-list__content .pl-s,
+.p-chapter-list__content .pl-s1,
+.p-chapter-list__content .pl-c1,
+.p-chapter-list__content .pl-k,
+.p-chapter-list__content .pl-smi,
+.p-chapter-list__content .pl-kos,
+.p-chapter-list__content .pl-ent,
+.p-chapter-list__content .pl-pds,
+.p-chapter-list__content .pl-v {
+  color: #fff;
 }
 
 /* ====================================
@@ -7590,14 +7606,7 @@ pre {
 
 .p-articles {
   flex-wrap: wrap;
-  margin-right: -2%;
   margin-bottom: 50px;
-}
-
-@media screen and (max-width: 768px) {
-  .p-articles {
-    margin-right: 0;
-  }
 }
 
 .p-articles__empty {
