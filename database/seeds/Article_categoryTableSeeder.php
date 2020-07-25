@@ -18,52 +18,33 @@ class Article_categoryTableSeeder extends Seeder
         DB::table('article_category')->insert([
             [
                 'article_id' => 1,
-                'category_id' => 6,
+                'category_id' => 19,
             ],
             [
-                'article_id' => 1,
-                'category_id' => 7,
+                'article_id' => 2,
+                'category_id' => 8,
             ],
             [
-                'article_id' => 1,
-                'category_id' => 10,
+                'article_id' => 3,
+                'category_id' => 8,
             ],
-//            [
-//                'category_id' => 1,
-//                'article_id' => 2,
-//            ],
-//            [
-//                'category_id' => 2,
-//                'article_id' => 2,
-//            ],
-//            [
-//                'category_id' => 8,
-//                'article_id' => 3,
-//            ],
-//            [
-//                'category_id' => 9,
-//                'article_id' => 4,
-//            ],
-//            [
-//                'category_id' => 1,
-//                'article_id' => 5,
-//            ],
-//            [
-//                'category_id' => 2,
-//                'article_id' => 5,
-//            ],
-//            [
-//                'category_id' => 9,
-//                'article_id' => 6,
-//            ],
-//            [
-//                'category_id' => 1,
-//                'article_id' => 7,
-//            ],
-//            [
-//                'category_id' => 6,
-//                'article_id' => 8,
-//            ],
+            [
+                'category_id' => 3,
+                'article_id' => 12,
+            ],
+            [
+                'article_id' => 4,
+                'category_id' => 8,
+            ],
+            [
+                'category_id' => 4,
+                'article_id' => 12,
+            ],
+            [
+                'category_id' => 5,
+                'article_id' => 1,
+            ],
+
         ]);
 
 //        $faker = Faker::create('ja_JP');

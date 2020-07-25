@@ -25,5 +25,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/articles/{articleId}/learn', 'LearnsController@learn');
 Route::post('/articles/{articleId}/unlearn', 'LearnsController@unlearn');
 // クリア
-Route::post('/articles/{article}/clear', 'ClearsController@clear');
-Route::post('/articles/{article}/unclear', 'ClearsController@unclear');
+//Route::post('/articles/{article}/clear', 'ClearsController@clear');
+//Route::post('/articles/{article}/unclear', 'ClearsController@unclear');

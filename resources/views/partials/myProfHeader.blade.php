@@ -20,9 +20,9 @@
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.learn') active @endif">
                     <a href="{{route('mypage.learn')}}" class="c-navbar-bottom__link">{{__('Learn List')}}</a>
                 </li>
-                <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.clear') active @endif">
-                    <a href="{{route('mypage.clear')}}" class="c-navbar-bottom__link">{{__('Clear List')}}</a>
-                </li>
+{{--                <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.clear') active @endif">--}}
+{{--                    <a href="{{route('mypage.clear')}}" class="c-navbar-bottom__link">{{__('Clear List')}}</a>--}}
+{{--                </li>--}}
                 <li class="c-navbar-bottom__item @if(Route::currentRouteName() == 'mypage.post' || explode('.', Route::currentRouteName())[1] == 'myarticleEdit') active @endif">
                     <a href="{{route('mypage.post')}}" class="c-navbar-bottom__link">{{__('Posted Articles')}}</a>
                 </li>

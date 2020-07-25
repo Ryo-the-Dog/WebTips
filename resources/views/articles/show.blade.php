@@ -35,21 +35,21 @@
 
                 </ul>
 
-                @if(!empty($defaultLearned))
-                <clearbtn
-                :notcleared-en="{{json_encode(__('Not Cleared'))}}"
-                :cleared-en="{{json_encode(__('Cleared'))}}"
-                :article="{{json_encode($article)}}"
-                :article-id="{{json_encode($article->id)}}"
-                :login-route="{{json_encode(route('login'))}}"
-                @if(!empty($userAuth))
-                    :user-auth="{{json_encode($userAuth)}}"
-                    :default-clear="{{json_encode($article->clears->where('user_id', $userAuth->id)->first())}}"
-                @endif
+{{--                @if(!empty($defaultLearned))--}}
+{{--                <clearbtn--}}
+{{--                :notcleared-en="{{json_encode(__('Not Cleared'))}}"--}}
+{{--                :cleared-en="{{json_encode(__('Cleared'))}}"--}}
+{{--                :article="{{json_encode($article)}}"--}}
+{{--                :article-id="{{json_encode($article->id)}}"--}}
+{{--                :login-route="{{json_encode(route('login'))}}"--}}
+{{--                @if(!empty($userAuth))--}}
+{{--                    :user-auth="{{json_encode($userAuth)}}"--}}
+{{--                    :default-clear="{{json_encode($article->clears->where('user_id', $userAuth->id)->first())}}"--}}
+{{--                @endif--}}
 
-                ></clearbtn>
+{{--                ></clearbtn>--}}
 
-                @endif
+{{--                @endif--}}
             </div>
 
             <div class="c-back-btn-area">
