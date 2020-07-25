@@ -20,7 +20,7 @@
         transition: opacity .5s ease, visibility .5s ease;
 
         &.active {
-            z-index: 2;
+            z-index: 4;
             visibility: visible;
             opacity: 1;
         }

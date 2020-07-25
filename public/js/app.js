@@ -2085,8 +2085,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['article', 'chapters', 'articleCategories', 'articleUser', 'userAuth', 'learnCount', 'articleLearns', 'defaultLearn', 'articleRoute', 'articleUrl', 'userprofileRoute', 'mypageRoute', 'limitTitle', 'postRouteFlag', 'editRoute', 'editLink', 'deleteLink'],
+  props: ['article', 'chapters', 'articleCategories', 'articleUser', 'userAuth', 'learnCount', 'articleLearns', 'defaultLearn', 'articleRoute', 'articleUrl', 'userprofileRoute', 'mypageRoute', 'limitTitle', 'postRouteFlag', 'editRoute', 'editLink', 'deleteLink', 'loginRoute'],
   data: function data() {
     return {
       uploadedImage: this.article.article_img ? this.article.article_img : '/img/no_img_article.jpg',
@@ -2375,9 +2383,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ClearBtn",
-  props: ['notclearedEn', 'clearedEn', 'article', 'articleId', 'userAuth', 'defaultClear'],
+  props: ['notclearedEn', 'clearedEn', 'article', 'articleId', 'userAuth', 'defaultClear', 'loginRoute'],
   data: function data() {
     return {
       // axios
@@ -2645,9 +2661,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LearnBtn",
-  props: ['article', 'articleId', 'learnCount', 'userAuth', 'defaultLearn'],
+  props: ['article', 'articleId', 'learnCount', 'userAuth', 'defaultLearn', 'loginRoute'],
   data: function data() {
     return {
       // axios
@@ -2655,6 +2680,7 @@ __webpack_require__.r(__webpack_exports__);
       learnReCount: 0,
       // ホバーメッセージ
       hoverFlag: false,
+      messageLogin: 'ログインが必要です',
       messageAdd: '学習リストに追加する',
       messageRemove: '学習リストから削除する'
     };
@@ -4633,37 +4659,63 @@ var render = function() {
             }
           },
           [
-            !_vm.learned
-              ? _c(
-                  "span",
-                  {
-                    staticClass: "c-btn--addList",
-                    on: {
-                      click: function($event) {
-                        return _vm.learn(_vm.article.id)
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-folder-plus u-mr-xs" }),
-                    _vm._v(_vm._s(_vm.learnReCount) + "\n                ")
-                  ]
-                )
-              : _c(
-                  "span",
-                  {
-                    staticClass: "c-btn--removeList",
-                    on: {
-                      click: function($event) {
-                        return _vm.unlearn(_vm.article.id)
-                      }
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-folder-minus u-mr-xs" }),
-                    _vm._v(_vm._s(_vm.learnReCount) + "\n                ")
-                  ]
-                )
+            _vm.userAuth
+              ? _c("span", { staticClass: "c-btn--axios" }, [
+                  !_vm.learned
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "c-btn--addList",
+                          on: {
+                            click: function($event) {
+                              return _vm.learn(_vm.article.id)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-folder-plus u-mr-xs"
+                          }),
+                          _vm._v(
+                            _vm._s(_vm.learnReCount) + "\n                    "
+                          )
+                        ]
+                      )
+                    : _c(
+                        "span",
+                        {
+                          staticClass: "c-btn--removeList",
+                          on: {
+                            click: function($event) {
+                              return _vm.unlearn(_vm.article.id)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-folder-minus u-mr-xs"
+                          }),
+                          _vm._v(
+                            _vm._s(_vm.learnReCount) + "\n                    "
+                          )
+                        ]
+                      )
+                ])
+              : _c("span", { staticClass: "c-btn--axios" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "c-btn--addList",
+                      attrs: { href: _vm.loginRoute }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-folder-plus u-mr-xs" }),
+                      _vm._v(
+                        _vm._s(_vm.learnReCount) + "\n                    "
+                      )
+                    ]
+                  )
+                ])
           ]
         ),
         _vm._v(" "),
@@ -4975,37 +5027,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    !_vm.cleared
-      ? _c(
-          "span",
-          {
-            staticClass: "u-mr-xs c-btn--cleared",
-            on: {
-              click: function($event) {
-                return _vm.clear(_vm.article.id)
-              }
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-check-circle u-mr-xs" }),
-            _vm._v(_vm._s(_vm.clearedEn) + "\n    ")
-          ]
-        )
-      : _c(
-          "span",
-          {
-            staticClass: "u-mr-xs c-btn--uncleared",
-            on: {
-              click: function($event) {
-                return _vm.unclear(_vm.article.id)
-              }
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-times-circle u-mr-xs" }),
-            _vm._v(_vm._s(_vm.notclearedEn) + "\n    ")
-          ]
-        )
+    _vm.userAuth
+      ? _c("span", { staticClass: "c-btn--axios" }, [
+          !_vm.cleared
+            ? _c(
+                "span",
+                {
+                  staticClass: "u-mr-xs c-btn--cleared",
+                  on: {
+                    click: function($event) {
+                      return _vm.clear(_vm.article.id)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-check-circle u-mr-xs" }),
+                  _vm._v(_vm._s(_vm.clearedEn) + "\n        ")
+                ]
+              )
+            : _c(
+                "span",
+                {
+                  staticClass: "u-mr-xs c-btn--uncleared",
+                  on: {
+                    click: function($event) {
+                      return _vm.unclear(_vm.article.id)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-times-circle u-mr-xs" }),
+                  _vm._v(_vm._s(_vm.notclearedEn) + "\n        ")
+                ]
+              )
+        ])
+      : _c("span", { staticClass: "c-btn--axios" }, [
+          _c(
+            "a",
+            { staticClass: "c-btn--addList", attrs: { href: _vm.loginRoute } },
+            [
+              _c("i", { staticClass: "fas fa-check-circle u-mr-xs" }),
+              _vm._v(_vm._s(_vm.clearedEn) + "\n        ")
+            ]
+          )
+        ])
   ])
 }
 var staticRenderFns = []
@@ -5283,39 +5348,65 @@ var render = function() {
   return _c(
     "div",
     [
-      !_vm.learned
+      _vm.userAuth
         ? _c(
             "span",
             {
-              staticClass: "u-mr-xs c-btn--addList",
-              on: {
-                click: function($event) {
-                  return _vm.learn(_vm.article.id)
-                },
-                mouseover: _vm.showMsg,
-                mouseleave: _vm.hideMsg
-              }
+              staticClass: "c-btn--axios",
+              on: { mouseover: _vm.showMsg, mouseleave: _vm.hideMsg }
             },
             [
-              _c("i", { staticClass: "fas fa-folder-plus u-mr-xs" }),
-              _vm._v(_vm._s(_vm.learnReCount) + "\n    ")
+              !_vm.learned
+                ? _c(
+                    "span",
+                    {
+                      staticClass: "c-btn--addList",
+                      on: {
+                        click: function($event) {
+                          return _vm.learn(_vm.article.id)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-folder-plus u-mr-xs" }),
+                      _vm._v(_vm._s(_vm.learnReCount) + "\n        ")
+                    ]
+                  )
+                : _c(
+                    "span",
+                    {
+                      staticClass: "c-btn--removeList",
+                      on: {
+                        click: function($event) {
+                          return _vm.unlearn(_vm.article.id)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-folder-minus u-mr-xs" }),
+                      _vm._v(_vm._s(_vm.learnReCount) + "\n        ")
+                    ]
+                  )
             ]
           )
         : _c(
             "span",
             {
-              staticClass: "u-mr-xs c-btn--removeList",
-              on: {
-                click: function($event) {
-                  return _vm.unlearn(_vm.article.id)
-                },
-                mouseover: _vm.showMsg,
-                mouseleave: _vm.hideMsg
-              }
+              staticClass: "c-btn--axios",
+              on: { mouseover: _vm.showMsg, mouseleave: _vm.hideMsg }
             },
             [
-              _c("i", { staticClass: "fas fa-folder-minus u-mr-xs" }),
-              _vm._v(_vm._s(_vm.learnReCount) + "\n    ")
+              _c(
+                "a",
+                {
+                  staticClass: "c-btn--addList",
+                  attrs: { href: _vm.loginRoute }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-folder-plus u-mr-xs" }),
+                  _vm._v(_vm._s(_vm.learnReCount) + "\n        ")
+                ]
+              )
             ]
           ),
       _vm._v(" "),
@@ -5324,7 +5415,9 @@ var render = function() {
           _c("div", { staticClass: "c-hoverMsg--left" }, [
             _vm.hoverFlag
               ? _c("p", { staticClass: "c-hoverMsg--left__txt" }, [
-                  !_vm.learned
+                  !_vm.userAuth
+                    ? _c("span", [_vm._v(_vm._s(_vm.messageLogin))])
+                    : !_vm.learned
                     ? _c("span", [_vm._v(_vm._s(_vm.messageAdd))])
                     : _c("span", [_vm._v(_vm._s(_vm.messageRemove))])
                 ])

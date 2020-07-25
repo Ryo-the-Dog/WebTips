@@ -69,36 +69,7 @@ Vue.jsを使用するには通常、gulpやbabel、webpackなどのビルドツ�
                 'created_at' => $faker->dateTimeBetween('-1 years','now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years','now'),
             ],
-//            [
-//                'id' => 6,
-//                'user_id' => 3,
-//                'title' => 'できるビジネスマンになろう！',
-//                'time' => 12,
-//                'description' => "カッコいいビジネスマンになるための秘訣をお教えします。\n職場での信頼感が上がること間違い無しです！",
-//                'article_img' => 'https://res.cloudinary.com/djix7zcpk/image/upload/v1588584404/step_sample_6_jbm79c.jpg',
-//                'created_at' => $faker->dateTimeBetween('-1 years','now'),
-//                'updated_at' => $faker->dateTimeBetween('-1 years','now'),
-//            ],
-//            [
-//                'id' => 7,
-//                'user_id' => 5,
-//                'title' => 'スペイン語初級講座',
-//                'time' => 300,
-//                'description' => "現在中国語、英語に続いて使っている人の多い言語がスペイン語です。\nこれからもスペイン語を使う人は増えていくので、この機会に是非勉強してみてください！",
-//                'article_img' => 'https://res.cloudinary.com/djix7zcpk/image/upload/v1588584406/step_sample_7_gevlcs.jpg',
-//                'created_at' => $faker->dateTimeBetween('-1 years','now'),
-//                'updated_at' => $faker->dateTimeBetween('-1 years','now'),
-//            ],
-//            [
-//                'id' => 8,
-//                'user_id' => 6,
-//                'title' => 'webデザインを学ぼう！',
-//                'time' => 120,
-//                'description' => 'webデザイナーではないけれど、デザインの力を身に付けたいという方におすすめです。',
-//                'article_img' => 'https://res.cloudinary.com/djix7zcpk/image/upload/v1588584405/step_sample_8_f7vx8e.png',
-//                'created_at' => $faker->dateTimeBetween('-1 years','now'),
-//                'updated_at' => $faker->dateTimeBetween('-1 years','now'),
-//            ],
+
         ]);
 //
 //        for($i = 9; $i < 19; $i++){

@@ -5,7 +5,7 @@
         <div class="c-container-body">
             <div class="p-features l-flexbox">
 
-                <div class="c-panel p-features-panel">
+                <div class="p-features-panel">
 
                     <div class="p-features-panel__img-area">
                         <img src="{{asset('/img/icon_left.png')}}" class="p-features-panel__left-img" alt="STEPの特徴">
@@ -20,7 +20,7 @@
 
                 </div>
 
-                <div class="c-panel p-features-panel">
+                <div class="p-features-panel">
                     <div class="p-features-panel__img-area">
                         <img src="{{asset('/img/icon_center.png')}}" class="p-features-panel__center-img" alt="STEPの特徴">
                     </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="c-panel p-features-panel">
+                <div class="p-features-panel">
                     <div class="p-features-panel__img-area">
                         <img src="{{asset('/img/icon_right.png')}}" class="p-features-panel__right-img" alt="STEPの特徴">
                     </div>

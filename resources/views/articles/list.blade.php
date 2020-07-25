@@ -23,6 +23,7 @@
                 :mypage-route="{{json_encode(route('mypage.learn'))}}"
                 :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                 :limit-title="{{json_encode(Str::limit($article->title,53))}}"
+                :login-route="{{json_encode(route('login'))}}"
                 @if(!empty($userAuth))
                     :user-auth="{{json_encode($userAuth)}}"
                     :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"

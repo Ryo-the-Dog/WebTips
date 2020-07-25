@@ -10,7 +10,7 @@
     height: 32px;
     margin-left: $space_l;
     position: relative;
-    z-index: 3;
+    z-index: 5;
     transition: $transition_normal;
 
     @include mq(md) {

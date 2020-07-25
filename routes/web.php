@@ -56,9 +56,9 @@ Route::group(['middleware' => 'auth'], function() {
         return view('mypage.profDelete');
     })->name('mypage.profDelete');
 
-    // 記事STEP投稿アクション
+    // 記事投稿アクション
     Route::post('/articles/new', 'ArticlesController@create');
-    // 記事STEP編集アクション
+    // 記事編集アクション
     Route::post('/mypage/myarticle/edit/{id}', 'ArticlesController@update')->name('article.edit');
     // 記事削除アクション
     Route::post('/mypage/myarticle/delete/{id}', 'ArticlesController@destroy')->name('article.delete');

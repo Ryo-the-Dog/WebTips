@@ -64,6 +64,7 @@
                 :article="{{json_encode($article)}}"
                 :article-id="{{json_encode($article->id)}}"
                 :learn-count="{{json_encode(count($article->learns))}}"
+                :login-route="{{json_encode(route('login'))}}"
                 @if(!empty($userAuth))
                     :user-auth="{{json_encode($userAuth)}}"
                     :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"

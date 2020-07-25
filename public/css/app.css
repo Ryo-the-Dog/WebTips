@@ -6484,7 +6484,7 @@ td {
   height: 32px;
   margin-left: 20px;
   position: relative;
-  z-index: 3;
+  z-index: 5;
   transition: all 0.5s;
 }
 
@@ -6769,11 +6769,14 @@ td {
   margin-top: 40px;
 }
 
-.c-btn--addList {
+.c-btn--axios {
   cursor: pointer;
-  color: #747474;
   font-size: 18px;
   z-index: 3;
+}
+
+.c-btn--addList {
+  color: #747474;
 }
 
 .c-btn--addList:hover {
@@ -6782,10 +6785,7 @@ td {
 }
 
 .c-btn--removeList {
-  cursor: pointer;
   color: #2f72d8;
-  font-size: 18px;
-  z-index: 3;
 }
 
 .c-btn--removeList:hover {
@@ -6794,7 +6794,6 @@ td {
 }
 
 .c-btn--cleared {
-  cursor: pointer;
   color: #747474;
 }
 
@@ -6804,7 +6803,6 @@ td {
 }
 
 .c-btn--uncleared {
-  cursor: pointer;
   color: #2f72d8;
 }
 
@@ -8165,7 +8163,7 @@ pre {
   }
 
   .p-navbar.active {
-    z-index: 2;
+    z-index: 4;
     visibility: visible;
     opacity: 1;
   }
@@ -8411,13 +8409,29 @@ pre {
 @media screen and (max-width: 768px) {
   .p-features {
     flex-direction: column;
+    margin-right: 0;
   }
+}
+
+.p-features-panel {
+  background-color: #fff;
+  border: solid 1px #AEC9DD;
+  border-radius: 2px;
+  width: 32.66%;
+  margin-right: 1%;
 }
 
 @media screen and (max-width: 768px) {
   .p-features-panel {
     margin-bottom: 10px;
     height: 320px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .p-features-panel {
+    width: 100%;
+    margin-right: 0;
   }
 }
 

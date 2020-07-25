@@ -41,6 +41,7 @@
                 :cleared-en="{{json_encode(__('Cleared'))}}"
                 :article="{{json_encode($article)}}"
                 :article-id="{{json_encode($article->id)}}"
+                :login-route="{{json_encode(route('login'))}}"
                 @if(!empty($userAuth))
                     :user-auth="{{json_encode($userAuth)}}"
                     :default-clear="{{json_encode($article->clears->where('user_id', $userAuth->id)->first())}}"

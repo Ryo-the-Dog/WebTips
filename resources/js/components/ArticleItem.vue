@@ -56,11 +56,19 @@
                 </div>
 
                 <div v-bind:class="{' p-article-panel__myArticle-learn-area': postRouteFlag }" class="l-flexbox">
-                    <span v-if="!learned" @click="learn(article.id)" class="c-btn--addList">
-                        <i class="fas fa-folder-plus u-mr-xs"></i>{{learnReCount}}
+                    <span v-if="userAuth" class="c-btn--axios">
+                        <span v-if="!learned" @click="learn(article.id)" class="c-btn--addList">
+                            <i class="fas fa-folder-plus u-mr-xs"></i>{{learnReCount}}
+                        </span>
+                        <span v-else @click="unlearn(article.id)" class="c-btn--removeList">
+                            <i class="fas fa-folder-minus u-mr-xs"></i>{{learnReCount}}
+                        </span>
                     </span>
-                    <span v-else @click="unlearn(article.id)" class="c-btn--removeList">
-                        <i class="fas fa-folder-minus u-mr-xs"></i>{{learnReCount}}
+
+                    <span v-else class="c-btn--axios">
+                        <a :href="loginRoute" class="c-btn--addList">
+                            <i class="fas fa-folder-plus u-mr-xs"></i>{{learnReCount}}
+                        </a>
                     </span>
                 </div>
 
@@ -97,7 +105,8 @@
             'postRouteFlag',
             'editRoute',
             'editLink',
-            'deleteLink'
+            'deleteLink',
+            'loginRoute'
         ],
         data() {
             return {

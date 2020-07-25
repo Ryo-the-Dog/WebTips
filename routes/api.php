@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ログインユーザー
+Route::get('/user', fn() => Auth::user())->name('user');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
