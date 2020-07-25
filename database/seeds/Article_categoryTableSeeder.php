@@ -29,20 +29,20 @@ class Article_categoryTableSeeder extends Seeder
                 'category_id' => 8,
             ],
             [
-                'category_id' => 3,
-                'article_id' => 12,
+                'article_id' => 3,
+                'category_id' => 12,
             ],
             [
                 'article_id' => 4,
                 'category_id' => 8,
             ],
             [
-                'category_id' => 4,
-                'article_id' => 12,
+                'article_id' => 4,
+                'category_id' => 12,
             ],
             [
-                'category_id' => 5,
-                'article_id' => 1,
+                'article_id' => 5,
+                'category_id' => 1,
             ],
 
         ]);
