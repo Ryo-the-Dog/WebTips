@@ -744,7 +744,7 @@ class RegisterController extends Controller
                 'chapter_number' => 3,
                 'title' => 'Vueファイルの作成と登録してビューで読み込む',
                 'content' => "/resources/js/components/FlashMessage.vueを作成します。\n
-作成したVueファイルを登録します。
+作成したVueファイルを登録します。\n
 **/resources/js/app.js**
 ```js
 Vue.component('flashmessage', require('./components/FlashMessage.vue').default);
@@ -780,7 +780,7 @@ Vue.component('flashmessage', require('./components/FlashMessage.vue').default);
                 'article_id' => 4,
                 'chapter_number' => 4,
                 'title' => 'FlashMessageコンポーネントを定義する',
-                'content' => "**docker-laravel/backend/resources/js/components/FlashMessage.vue**
+                'content' => "**/resources/js/components/FlashMessage.vue**
 ```vue.js
 <template>
     <div>

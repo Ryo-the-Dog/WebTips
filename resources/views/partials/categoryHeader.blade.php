@@ -21,9 +21,12 @@
             <Sortdropdown
                 :asc-route="{{json_encode(route('articles.list', [ 'category_id' => $categoryId, 'sort_id' => 'asc' ]))}}"
                 :desc-route="{{json_encode(route('articles.list', ['category_id' => $categoryId, 'sort_id' => 'desc']))}}"
+                :popular-route="{{json_encode(route('articles.list', ['category_id' => $categoryId, 'sort_id' => 'popular']))}}"
                 :sort-id="{{json_encode($sortId)}}"
 
-                @if($sortId === 'asc')
+                @if($sortId === 'popular')
+                    :popular-flg="{{json_encode(true)}}"
+                @elseif($sortId === 'asc')
                     :asc-flg="{{json_encode(true)}}"
                 @elseif($sortId === 'desc' || $sortId !== 'asc')
                     :desc-flg="{{json_encode(true)}}"

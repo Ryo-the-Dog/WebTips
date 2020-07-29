@@ -47,10 +47,18 @@ class Article extends Model
         $sort_id = Arr::get($condition, 'sort_id');
 
         // 並び替えの指定があった場合
-        if($sort_id==='asc') {
+        if($sort_id === 'popular') {
+
+            $query = $this->withCount('learns')->orderBy('learns_count','desc');
+
+        }elseif($sort_id === 'asc') {
+
             $query = $this->orderBy('updated_at','asc');
+
         }else{
+
             $query = $this->with('categories');
+
         }
 
         // カテゴリーテーブルから

@@ -4,7 +4,12 @@
         <!-- showMenuを切り替える -->
         <li @mouseover="mouseover" @mouseleave="mouseleave" class="c-dropdown-trigger">
 
-            <span v-if="ascFlg">
+            <span v-if="popularFlg">
+                人気順
+                <!--                <i v-if="showMenu" class="fas fa-caret-up"></i>-->
+                <i class="fas fa-caret-down"></i>
+            </span>
+            <span v-else-if="ascFlg">
                 投稿順
 <!--                <i v-if="showMenu" class="fas fa-caret-up"></i>-->
                 <i class="fas fa-caret-down"></i>
@@ -22,6 +27,9 @@
                 <li class="c-dropdown__item">
                     <a :href="descRoute" class="c-dropdown__link c-navbar-bottom__dropdown-link">最新順</a>
                 </li>
+                <li class="c-dropdown__item">
+                    <a :href="popularRoute" class="c-dropdown__link c-navbar-bottom__dropdown-link">人気順</a>
+                </li>
             </ul>
 
         </li>
@@ -31,7 +39,7 @@
 
 <script>
     export default {
-        props: ['ascRoute', 'descRoute', 'sortId', 'ascFlg', 'descFlg'],
+        props: ['ascRoute', 'descRoute', 'popularRoute','sortId', 'ascFlg', 'descFlg', 'popularFlg'],
         data() {
             return{
                 isOpen: false,

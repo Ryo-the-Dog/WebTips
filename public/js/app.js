@@ -3117,8 +3117,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['ascRoute', 'descRoute', 'sortId', 'ascFlg', 'descFlg'],
+  props: ['ascRoute', 'descRoute', 'popularRoute', 'sortId', 'ascFlg', 'descFlg', 'popularFlg'],
   data: function data() {
     return {
       isOpen: false
@@ -5991,7 +5999,13 @@ var render = function() {
         on: { mouseover: _vm.mouseover, mouseleave: _vm.mouseleave }
       },
       [
-        _vm.ascFlg
+        _vm.popularFlg
+          ? _c("span", [
+              _vm._v("\n                人気順\n                "),
+              _vm._v(" "),
+              _c("i", { staticClass: "fas fa-caret-down" })
+            ])
+          : _vm.ascFlg
           ? _c("span", [
               _vm._v("\n                投稿順\n"),
               _vm._v(" "),
@@ -6023,6 +6037,17 @@ var render = function() {
                 attrs: { href: _vm.descRoute }
               },
               [_vm._v("最新順")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "c-dropdown__item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "c-dropdown__link c-navbar-bottom__dropdown-link",
+                attrs: { href: _vm.popularRoute }
+              },
+              [_vm._v("人気順")]
             )
           ])
         ])
