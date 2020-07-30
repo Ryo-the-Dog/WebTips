@@ -1,7 +1,7 @@
 {{-- 記事投稿フォーム部分 --}}
 <div class="l-flexbox p-form-card__top">
     <div class="p-form-card__group p-form-card__eyecatch">
-        <label for="step_img" class="p-form-card__label">{{ __('Eyecatch Image') }}</label>
+        <label for="article_img" class="p-form-card__label">{{ __('Eyecatch Image') }}</label>
 
         <articleimagepreview
             @if(Route::currentRouteName()==='mypage.mystepEdit')

@@ -15,7 +15,7 @@
             <div class="p-form-card__group">
                 <label :for="'chapter_content_'+chapterForm.id" class="p-form-card__label">{{chapterForm.id}}：内容(マークダウン記法)</label>
                 <div class="p-form-card__input-area">
-                    <textarea :id="'chapter_content_'+chapterForm.id" type="text" class="c-textarea c-textarea--step-content"
+                    <textarea :id="'chapter_content_'+chapterForm.id" type="text" class="c-textarea c-textarea--chapter-content"
                               :name="'chapter['+chapterForm.id+'][content]'" v-model="chapterForm.currentContent"
                               maxlength="10000" autocomplete="chapter_content" autofocus>{{chapterForm.currentContent}}</textarea>
                 </div>

@@ -1,4 +1,4 @@
-<section class="p-step-introduction l-bg-gray-top">
+<section class="p-article-introduction l-bg-gray-top">
     <div class="l-container">
         <h2 class="c-title--container">記事一覧</h2>
             <div class="p-articles l-flexbox">

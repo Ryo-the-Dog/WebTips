@@ -1,7 +1,7 @@
 <template>
     <div class="p-form-card__input-area">
 
-        <input class="c-input " id="file-sample" type="file" name="step_img"
+        <input class="c-input " id="file-sample" type="file" name="article_img"
                v-preview-input="uploadedImage"
                @change="onFileChange">
 

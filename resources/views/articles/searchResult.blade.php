@@ -10,8 +10,8 @@
                 <h2 class="c-title--page">[&nbsp;{{$keyword}}&nbsp;]の検索結果：{{$countSearchArticles}}件</h2>
                 <div class="p-articles l-flexbox">
                     @forelse($searchArticles as $article)
-                        <step
-                            :step="{{json_encode($article)}}"
+                        <articleitem
+                            :article="{{json_encode($article)}}"
                             :child-steps="{{json_encode($article->chapters)}}"
                             :step-categories="{{json_encode($article->categories)}}"
                             :challenge-count="{{json_encode(count($article->learns))}}"
@@ -24,7 +24,7 @@
                                 :user-auth="{{json_encode($userAuth)}}"
                                 :default-challenge="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
                             @endif
-                        ></step>
+                        ></articleitem>
                     @empty
                         <div class="c-guide-msg">
                             <p class="c-guide-msg__text">投稿された記事がありません。</p>

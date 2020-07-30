@@ -4505,7 +4505,7 @@ var render = function() {
         }
       ],
       staticClass: "c-input ",
-      attrs: { id: "file-sample", type: "file", name: "step_img" },
+      attrs: { id: "file-sample", type: "file", name: "article_img" },
       on: { change: _vm.onFileChange }
     }),
     _vm._v(" "),
@@ -4937,7 +4937,7 @@ var render = function() {
                       expression: "chapterForm.currentContent"
                     }
                   ],
-                  staticClass: "c-textarea c-textarea--step-content",
+                  staticClass: "c-textarea c-textarea--chapter-content",
                   attrs: {
                     id: "chapter_content_" + chapterForm.id,
                     type: "text",

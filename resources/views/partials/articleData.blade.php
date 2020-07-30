@@ -55,7 +55,7 @@
 
             <div class="p-article-detail__icon-area l-flexbox">
                 <div>
-                    <a href="http://twitter.com/intent/tweet?url={{url("articles/detail/{$article->id}")}}&text=「{{$article->title}}」に挑戦中！！&hashtags=STEP" title="Twitterでつぶやく">
+                    <a href="http://twitter.com/intent/tweet?url={{url("articles/detail/{$article->id}")}}&text=「{{$article->title}}」に挑戦中！！&hashtags=WebTips" title="Twitterでつぶやく">
                         <i class="fab fa-twitter c-icon--twitter"></i>
                     </a>
                 </div>
