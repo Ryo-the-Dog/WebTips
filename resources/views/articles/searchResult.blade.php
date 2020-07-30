@@ -12,17 +12,20 @@
                     @forelse($searchArticles as $article)
                         <articleitem
                             :article="{{json_encode($article)}}"
-                            :child-steps="{{json_encode($article->chapters)}}"
-                            :step-categories="{{json_encode($article->categories)}}"
-                            :challenge-count="{{json_encode(count($article->learns))}}"
-                            :step-challenges="{{json_encode($article->user->learns)}}"
-                            :step-user="{{json_encode($article->user)}}"
-                            :step-route="{{json_encode(route('articles.show', $article->id))}}"
-                            :step-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
+                            :article-user="{{json_encode($article->user)}}"
+                            :chapters="{{json_encode($article->chapters)}}"
+                            :article-categories="{{json_encode($article->categories)}}"
+                            :learn-count="{{json_encode(count($article->learns))}}"
+                            :article-learns="{{json_encode($article->user->learns)}}"
+                            :article-route="{{json_encode(route('articles.show', $article->id))}}"
+                            :userprofile-route="{{json_encode(route('userProfile.learn', $article->user->id))}}"
+                            :mypage-route="{{json_encode(route('mypage.learn'))}}"
+                            :article-url="{{json_encode(url("articles/detail/{$article->id}"))}}"
                             :limit-title="{{json_encode(Str::limit($article->title,53))}}"
+                            :login-route="{{json_encode(route('login'))}}"
                             @if(!empty($userAuth))
                                 :user-auth="{{json_encode($userAuth)}}"
-                                :default-challenge="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
+                                :default-learn="{{json_encode($article->learns->where('user_id', $userAuth->id)->first())}}"
                             @endif
                         ></articleitem>
                     @empty

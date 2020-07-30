@@ -1,10 +1,10 @@
 {{-- 記事投稿フォーム部分 --}}
 <div class="l-flexbox p-form-card__top">
-    <div class="p-form-card__group p-form-card__eyecatch">
+    <div class="p-form-card__group p-form-card__eyecatchgroup">
         <label for="article_img" class="p-form-card__label">{{ __('Eyecatch Image') }}</label>
 
         <articleimagepreview
-            @if(Route::currentRouteName()==='mypage.mystepEdit')
+            @if(Route::currentRouteName()==='mypage.myarticleEdit')
                 :article="{{json_encode($article)}}"
                 :article-img="{{json_encode($article->article_img)}}"
             @endif
@@ -17,7 +17,7 @@
         @enderror
     </div>
 
-    <div class="p-form-card__group">
+    <div class="p-form-card__group p-form-card__categorygroup">
         <label for="category_ids" class="p-form-card__label">{{ __('Category(max:3)') }}</label>
 
         <div class="p-form-card__category-area u-clearfix">
@@ -51,7 +51,6 @@
             @enderror
         </div>
     </div>
-
 </div>
 
 

@@ -169,7 +169,7 @@ class ArticlesController extends Controller
                 unset($learnArticles[$searchId]);
             }
         }
-        return view('mypage.myLearn',compact('learnArticles','clearArticles'));
+        return view('mypage.mylearn',compact('learnArticles','clearArticles'));
     }
 
     // ========================================
